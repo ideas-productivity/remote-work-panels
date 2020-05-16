@@ -106,7 +106,8 @@ layout: none
 			   
 This event is a part of the "Strategies for Working Remotely" 
 panel series, produced by the IDEAS Productivity
-Project. The Strategies for Working Remotely panels were launched in response to the COVID-19 pandemic and the need for many to transition to unplanned remote work. They occur approximately monthly.
+Project.
+This online panel session addresses challenges in working remotely, with emphasis on issues faced by collaborating teams in computational research.
 
 Resource Information | Details
 :--- | :---			   
@@ -116,7 +117,7 @@ Date and Time | {{page.date | date: "%F %I:%M %P %Z" }}
 {{ mlabel }} | {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 Registration, Information, and Archives | 	<{{ site.swr-url }}{{ panel-anchor}}>	   
 
-**Panels are free and open to the public, but advance registration is required through the Event website. Archives (recording, slides) will be posted at the same link soon after the event.**
+**Panels are free and open to the public. Advance registration is required through the Event website. Archives (recording, slides) will be posted at the same link soon after the event.**
 
 ### Abstract
 {{ page.content}}

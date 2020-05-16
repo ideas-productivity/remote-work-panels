@@ -143,7 +143,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
       <li><strong>Archives:</strong> <em>to be published</em>
       </li>
     {% endif %}
-    <li><strong>Decription:</strong> {{ content | markdownify | replace: "<p>", "<em>" | replace: "</p>", "</em>" | strip }}</li>
+    <li><strong>Abstract:</strong> {{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
 </ul>
 </li>
 {% unless upcoming %}<!-- ----- END PAST ENTRY ----- -->{% endunless %}
@@ -159,7 +159,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
 <ul>
 <!-- ----- BEGIN ENTRY ----- -->
-  <li><strong><a href="{{ site.swr-url }}#{{ panel-anchor}}">{{ page.title }}</a></strong> is the next panel in the <strong><a href="{{ site.swr-url }}">Strategies for Working Remotely</a></strong> series ({{ page.date | date: "%B, %Y" }}). [<a href="{{ site.swr-url }}#{{ panel-anchor}}">Information and registration</a>]</li>
+  <li><strong><a href="{{ site.swr-url }}#{{ panel-anchor}}">{{ page.title }}</a></strong> is the next panel in the <strong><a href="{{ site.swr-url }}">Strategies for Working Remotely</a></strong> series ({{ page.date | date: "%B %-d, %Y" }}). [<a href="{{ site.swr-url }}#{{ panel-anchor}}">Information and registration</a>]</li>
 <!-- ----- END ENTRY ----- -->
 </ul>
 </section>
