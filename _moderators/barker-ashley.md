@@ -2,10 +2,7 @@
 person-id: barker-ashley
 lastname: Barker
 firstname: Ashley
-#pres-email: maherou@sandia.gov
-#pres-url: http://www.sandia.gov/~maherou/
 affiliations: ["Oak Ridge National Laboratory"]
-#github-id: maherou
 ---
 Ashley Barker is the Group Leader for the User Assistance and Outreach
 (UAO) team at the Oak Ridge Leadership Computing Facility (OLCF)

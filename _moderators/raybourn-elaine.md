@@ -2,9 +2,8 @@
 person-id: raybourn-elaine
 lastname: Raybourn
 firstname: Elaine
-#pres-url: http://www.mcs.anl.gov/person/anshu-dubey
-affiliations: ["[Sandia National Laboratories](http://www.sandia.gov/)"]
-#github-id: adubey64
+affiliations: ["Sandia National Laboratories"]
+github-id: elaineraybourn
 ---
 Elaine Raybourn is a social scientist who has worked remotely for a
 combined total of 14 years while at Sandia National Laboratories: from
