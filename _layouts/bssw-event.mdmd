@@ -1,0 +1,149 @@
+---
+layout: none
+---
+{% comment %}-- Warn if any variables are missing --{% endcomment %}
+{% include require-variable var=page.date varname="date"
+   source="panel front matter" %}
+{% include require-variable var=page.title varname="title"
+   source="panel front matter" %}
+{% include require-variable var=page.panel-id varname="panel-id"
+   source="panel front matter" %}
+{% include require-variable var=page.panelist-ids varname="panelist-ids"
+   source="panel front matter" %}
+{% include require-variable var=page.moderator-ids varname="moderator-ids"
+   source="panel front matter" %}
+
+{% include require-variable var=site.swr-url varname="swr-url"
+   source="config.yml" %}
+
+{% comment %}-- Construct things that we need --{% endcomment %}
+{% if page.panel-id < 10 %}
+  {%- assign panel-anchor = page.panel-id | prepend: "#panel00" -%}
+{% elsif page.panel-id < 100 %}
+  {%- assign panel-anchor = page.panel-id | prepend: "#panel0" -%}
+{% elsif page.panel-id < 1000 %}
+  {%- assign panel-anchor = page.panel-id | prepend: "#panel" -%}
+{% endif %}			   
+
+<!-- Note: this label does NOT include the trailing colon -->
+{% assign psize = page.panelist-ids | size %}
+{% if psize == 1 %}
+  {%- assign plabel = "Panelist" -%}
+  {%- assign blabel = "Panelist Bio" -%}
+{% else %}
+  {%- assign plabel = "Panelists" -%}
+  {%- assign blabel = "Panelist Bios" -%}
+{% endif %}
+
+{% for pid in page.panelist-ids %}
+  {% if forloop.index > 1 %}
+    {% assign pghstring = pghstring | append: ", " %}
+    {% assign pstring = pstring | append: ", " %}
+    {% if forloop.last %}
+      {% assign pghstring = pghstring | append: " and " %}
+      {% assign pstring = pstring | append: " and " %}
+    {% endif %}
+  {% endif %}
+
+  {%- assign p = site.panelists | where: "person-id", pid -%}
+  {%- capture presname -%}{{ p[0].firstname }} {{ p[0].lastname }}{%- endcapture -%}
+  {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+  {%- if p[0].github-id -%}
+    {%- capture pghlink -%}[{{ presname }}]({{ site.github-url}}{{ p[0].github-id }} "{{ presname }} GitHub profile"){%- endcapture -%}
+    {%- assign pghstring = pghstring | append: pghlink -%}
+  {%- else -%}
+    {%- assign pghstring = pghstring | append: presname -%}
+  {%- endif -%}  
+  {%- assign pstring = pstring | append: pafil -%}
+
+  {% if p[0].content != empty %}
+    {% assign pbio = pbio | append: p[0].content | markdownify -%}
+  {% endif %}
+{% endfor %}
+
+<!-- Note: this label does NOT include the trailing colon -->
+{% assign msize = page.moderator-ids | size %}
+{% if psize == 1 %}
+  {%- assign mlabel = "Moderator" -%}
+  {%- assign mblabel = "Moderator Bio" -%}
+{% else %}
+  {%- assign mlabel = "Moderators" -%}
+  {%- assign mblabel = "Moderator Bios" -%}
+{% endif %}
+
+{% for pid in page.moderator-ids %}
+  {% if forloop.index > 1 %}
+    {% assign mghstring = mghstring | append: ", " %}
+    {% assign mstring = mstring | append: ", " %}
+    {% if forloop.last %}
+      {% assign mghstring = mghstring | append: " and " %}
+      {% assign mstring = mstring | append: " and " %}
+    {% endif %}
+  {% endif %}
+
+  {%- assign m = site.moderators | where: "person-id", pid -%}
+  {%- capture modname -%}{{ m[0].firstname }} {{ m[0].lastname }}{%- endcapture -%}
+  {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+  {%- if m[0].github-id -%}
+    {%- capture mghlink -%}[{{ modname }}]({{ site.github-url}}{{ m[0].github-id }} "{{ modname }} GitHub profile"){%- endcapture -%}
+    {%- assign mghstring = mghstring | append: mghlink -%}
+  {%- else -%}
+    {%- assign mghstring = mghstring | append: modname -%}
+  {%- endif -%}  
+  {%- assign mstring = mstring | append: mafil -%}
+
+  {% if m[0].content != empty %}
+    {% assign mbio = mbio | append: m[0].content | markdownify -%}
+  {% endif %}
+{% endfor %}
+
+# Panel: {{ page.title }}
+
+- Date: {{ page.date | date: "%F" }}
+- Location: Online
+- Event Website: {{ site.swr-url }}{{ panel-anchor}}
+- Organizers: The IDEAS Productivity Project
+			   
+This event is a part of the "Strategies for Working Remotely" 
+panel series, produced by the IDEAS Productivity
+Project. The Strategies for Working Remotely panels were launched in response to the COVID-19 pandemic and the need for many to transition to unplanned remote work. They occur approximately monthly.
+
+Resource Information | Details
+:--- | :---			   
+Panel Title | {{ page.title }}
+Date and Time | {{page.date | date: "%F %I:%M %P %Z" }}
+{{ plabel }} | {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+{{ mlabel }} | {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+Registration, Information, and Archives | 	<{{ site.swr-url }}{{ panel-anchor}}>	   
+
+**Panels are free and open to the public, but advance registration is required through the Event website. Archives (recording, slides) will be posted at the same link soon after the event.**
+
+### Abstract
+{{ page.content}}
+
+{% if pbio %}
+### {{ blabel }}
+{{ pbio }}
+{% endif %}    
+
+{% if mbio %}
+### {{ mblabel }}
+{{ mbio }}
+{% endif %}    
+
+#### Contributed by {{ pghstring }} {{ mghstring }}
+
+<!---
+Publish: yes
+Categories: skills
+Topics: online learning
+Level: 2
+Prerequisites: default
+Aggregate: none
+--->
+
+
+
+
+
+

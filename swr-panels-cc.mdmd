@@ -1,0 +1,80 @@
+---
+layout: none
+---
+{% comment %}----- Warn if any variables are missing -----{% endcomment %}
+{% include require-variable var=site.swr-url varname="swr-url"
+   source="config.yml" %}
+
+# {{ site.title }}
+
+The Strategies for Working Remotely panels were launched in response
+to the COVID-19 pandemic and the need for many to transition to
+unplanned remote work. 
+
+Resource information | Details
+:--- | :---
+Resource name | {{ site.title }}
+Website | {{ site.swr-url }}
+Focus | Software productivity and sustainability
+
+Panels are scheduled on roughly a monthly basis and are available
+live and then archived for future reference. The event web site
+provides details about the panel series, including announcements of
+upcoming panels, a mailing list to receive announcements, and
+archival information for the entire series.
+
+Upcoming panels are announced on the [BSSw Events
+page](https://bssw.io/events), the IDEAS Productivity [announcements
+list](http://eepurl.com/cQCyJ5), and in other venues.
+
+Panels are free and open to the public, but advance registration is
+required for each webinar.
+
+The panel series is produced by the [IDEAS Productivity Project](https://ideas-productivity.org/) in collaboration with the [Exascale Computing Project](https://www.exascaleproject.org/).
+
+## Past Panels
+*Listed in reverse chronological order. Last updated: {{ "now" | date: "%F" }}*
+
+{% assign today = 'now' | date: "%s" %}
+
+{% assign sequence = site.panels | sort: "panel-id" | reverse %}
+{% for panel in sequence %}
+
+{% assign wdate = panel.date | date: "%s" %}
+{% if wdate > today %}{% continue %}{% endif %}
+
+{% if panel.panel-id < 10 %}
+  {%- assign panel-anchor = panel.panel-id | prepend: "#panel00" -%}
+{% elsif panel.panel-id < 100 %}
+  {%- assign panel-anchor = panel.panel-id | prepend: "#panel0" -%}
+{% elsif panel.panel-id < 1000 %}
+  {%- assign panel-anchor = panel.panel-id | prepend: "#panel" -%}
+{% endif %}			   
+
+{%- assign pstring = "" -%}
+{% for pid in panel.panelist-ids %}
+  {% if forloop.index > 1 %}
+    {% assign pstring = pstring | append: ", " %}
+    {% if forloop.last %}
+      {% assign pstring = pstring | append: " and " %}
+    {% endif %}
+  {% endif %}
+
+  {%- assign p = site.panelists | where: "person-id", pid -%}
+  {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+  {%- assign pstring = pstring | append: pafil -%}
+{% endfor %}
+
+- [*{{ panel.title }}*]({{ site.hpcbp-url }}{{ panel-anchor}}), {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}, {{ panel.date | date: "%F" }}
+{% endfor %}
+
+#### Contributed by [Elaine Raybourn](http://github.com/elaineraybourn "Elaine Raybourn GitHub Profile")
+
+<!---
+Publish: yes
+Categories: skills
+Topics: online learning
+Level: 2
+Prerequisites: default
+Aggregate: none
+--->

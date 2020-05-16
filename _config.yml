@@ -18,21 +18,52 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Strategies for Working Remotely Panel Series
+author: IDEAS Productivity Project
+email: IdeasProductivity@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+  New panel series site.  Very much a work in progress.
+baseurl: "/remote-work-panels" # the subpath of your site, e.g. /blog
+url: "https://ideas-productivity.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+#twitter_username: jekyllrb
+github_username:  ideas-productivity
+rss: rss
+
+# URL for the official panel site, where everything is archived
+# Links for specific panels are constructed from this URL by adding
+# the appropriate anchor
+swr-url: https://ideas-productivity.org/events/strategies-for-working-remotely-panels/
+
+# URL for BSSw.io Events
+# Links for specific webinars are constructed from this URL by adding
+# the appropriate slug based on the title
+bssw-events-url: https://bssw.io/events
+
+# URL for ECP training events
+# Links for specific webinars are constructed from this URL by adding
+# the abbreviation given in the webinar's front matter
+ecp-events-url: https://www.exascaleproject.org/event
+
+# URL for IDEAS Productivity Announcements mailing list signup
+ip-list-subscription-url: https://us16.list-manage.com/subscribe?u=5438ff2caf2456f6ec49ebfbf&id=a7f7d33358
+
+# Maximum length of video titles supported by YouTube
+youtube-title-max: 100
+
+# Base URLs for watching and embedding YouTube videos
+youtube-watch-url: https://www.youtube.com/watch?v=
+youtube-embed-url: https://www.youtube.com/embed/
+
+# Base URL for GitHub profiles
+github-url: https://github.com/
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+# By convention, we "operate" on US Eastern time
+timezone: America/New_York
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -53,3 +84,73 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# This is needed to generate output for future webinars
+future: true
+
+collections:
+  panels:
+    output: true
+# Symlink to panels to generate code for ideas-productivity.org Wordpress site
+  ipweb-entries:
+    output: true
+# Symlink to panels to generate code for BSSw Events
+  bssw-events:
+    output: true
+# Symlink to panels to generate code for BSSw Digest entries for events
+  bssw-events-digest:
+    output: true
+# Symlink to panels to generate text for YouTube uploads
+  youtube-videos:
+    output: true
+# Symlink to panels to generate text for connection info email
+  connection-emails:
+    output: true
+  panelists:
+    output: true
+  moderators:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "panels"
+    values:
+      layout: "panel"
+  - scope:
+      path: ""
+      type: "ipweb-entries"
+    values:
+      layout: "ipweb-panel"
+  - scope:
+      path: ""
+      type: "youtube-videos"
+    values:
+      layout: "youtube-panel"
+  - scope:
+      path: ""
+      type: "bssw-events"
+    values:
+      layout: "bssw-event"
+  - scope:
+      path: ""
+      type: "bssw-events-digest"
+    values:
+      layout: "bssw-event-digest"
+  - scope:
+      path: ""
+      type: "connection-emails"
+    values:
+      layout: "connection-email"
+  - scope:
+      path: ""
+      type: "panelists"
+    values:
+      layout: "panelist"
+  - scope:
+      path: ""
+      type: "moderators"
+    values:
+      layout: "moderator"
+
+# End of file

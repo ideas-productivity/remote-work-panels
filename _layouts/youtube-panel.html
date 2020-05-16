@@ -1,0 +1,105 @@
+---
+layout: none
+---
+<h2>Content for YouTube</h2>			 
+
+<!-- Warn if any variables are missing -->
+
+{% include require-variable var=page.date varname="date"
+   source="webinar front matter" %}
+{% include require-variable var=page.title varname="title"
+   source="webinar front matter" %}
+{% include require-variable var=page.panel-id varname="panel-id"
+   source="webinar front matter" %}
+{% include require-variable var=page.panelist-ids varname="panelist-ids"
+   source="webinar front matter" %}
+{% include require-variable var=page.moderator-ids varname="moderator-ids"
+   source="webinar front matter" %}
+
+{% include require-variable var=site.swr-url varname="swr-url"
+   source="config.yml" %}
+{% include require-variable var=site.youtube-title-max varname="youtube-title-max"
+   source="config.yml" %}
+
+<!-- Construct things that we need -->
+{% if page.panel-id < 10 %}
+  {%- assign panel-number-filled = page.panel-id | prepend: "00" -%}
+{% elsif page.panel-id < 100 %}
+  {%- assign panel-number-filled = page.panel-id | prepend: "0" -%}
+{% elsif page.panel-id < 1000 %}
+  {%- assign panel-number-filled = page.panel-id -%}
+{% endif %}			   
+
+{% for pid in page.panelist-ids %}
+  {% if forloop.index > 1 %}
+    {% assign pstring = pstring | append: ", " %}
+    {% if forloop.last %}
+      {% assign pstring = pstring | append: " and " %}
+    {% endif %}
+  {% endif %}
+
+  {%- assign p = site.panelists | where: "person-id", pid -%}
+  {% unless p[0] %}<p><strong><em><font color="red">ERROR: no match for presenter-id {{ pid }}</font></em></strong></p>{% endunless %}
+  {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+  {%- assign pstring = pstring | append: pafil -%}
+{% endfor %}
+
+{% for mid in page.moderator-ids %}
+  {% if forloop.index > 1 %}
+    {% assign mstring = mstring | append: ", " %}
+    {% if forloop.last %}
+      {% assign mstring = mstring | append: " and " %}
+    {% endif %}
+  {% endif %}
+
+  {%- assign m = site.moderators | where: "person-id", mid -%}
+  {% unless m[0] %}<p><strong><em><font color="red">ERROR: no match for presenter-id {{ pid }}</font></em></strong></p>{% endunless %}
+  {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+  {%- assign mstring = mstring | append: mafil -%}
+{% endfor %}
+			 
+{%- assign tfull = "Panel " -%}
+{%- assign tfull = tfull | append:  panel-number-filled -%}
+{%- assign tfull = tfull | append: ": " -%}
+{%- assign tfull = tfull | append: page.title -%}
+
+{% assign tlength = tfull | size %}
+
+
+<h3>Basic Tab</h3>
+
+{% if tlength > site.youtube-title-max %}
+<p><strong><em><font color="red">WARNING: Full title is longer than YouTube limit of {{ site.youtube-title-max }} characters.</font></em></strong></p>
+
+  <p><strong>Full title:</strong> {{ tfull }}</p>
+  <p><strong>Truncated title:</strong> {{ tfull | truncate: site.youtube-title-max, "" }}
+    <p><em>Preferred alternative: edit title to make sense at {{ site.youtube-title-max }} characters.</em></p>
+{% else %}
+<p><strong>Title:</strong> {{ tfull }}</strong></p>
+{% endif %}
+
+
+<p><strong>Description:</strong><br>
+<section style="border: 3px; border-style: solid; padding: 1em">
+{% if tlength > site.youtube-title-max %}
+Full title: {{ page.title }}<br>
+{% endif %}
+Panelist(s): {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}<br>
+Moderator(s): {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}<br>
+Presented on: {{ page.date | date: "%F" }}
+
+{{ content }}
+
+For more information about the Strategies for Working Remotely panels, including
+slides and other materials for this presentation, other presentations in
+the series, and a mailing list for announcements of future panels,
+please visit {{ site.swr-url }}
+</section>
+
+<p><strong>Tags:</strong> Strategies for Working Remotely panels</p>
+  
+<h3>Advanced Tab</h3>
+
+<p><strong>Recording Date:</strong> {{ page.date | date: "%b %d, %Y" }}</p>
+
+</section>

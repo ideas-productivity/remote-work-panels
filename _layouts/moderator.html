@@ -1,0 +1,101 @@
+---
+layout: default
+---
+<h2>Moderator Details</h2>
+
+<!-- Warn if any variables are missing -->
+
+{% include require-variable var=page.firstname varname="firstname"
+   source="moderator front matter" %}
+{% include require-variable var=page.lastname varname="lastname"
+   source="moderator front matter" %}
+
+{% comment
+  ----- We don't really want to warn about these here -----
+{% include optional-variable var=page.pres-email varname="pres-email"
+   source="moderator front matter" %}
+{% include optional-variable var=page.pres-url varname="pres-url"
+   source="moderator front matter" %}
+{% include optional-variable var=page.aka varname="aka"
+   source="moderator front matter" %}
+{% include optional-variable var=page.affiliations varname="affiliations"
+   source="moderator front matter" %}
+{% include optional-variable var=page.past-affiliations varname="past-affiliations"
+   source="moderator front matter" %}
+{% endcomment %}
+
+
+{% assign asize = page.affiliations | size %}
+{% if asize == 1 %}
+  {%- assign alabel = "Affiliation:" -%}
+{% else %}
+  {%- assign alabel = "Affiliations:" -%}
+{% endif %}
+
+{% assign pasize = page.past-affiliations | size %}
+{% if pasize == 1 %}
+  {%- assign palabel = "Past Affiliation:" -%}
+{% else %}
+  {%- assign palabel = "Past Affiliations:" -%}
+{% endif %}
+
+
+<section>
+  <h3><strong>{{ page.firstname }} {{page.lastname }}</strong>
+  </h3> 
+
+  {% if page.aka %}
+    <p><strong>Also Known As:</strong> {{ page.aka }}
+    </p>
+  {% endif %}
+
+  {% if page.affiliations %}
+    <p><strong>{{ alabel }}</strong>
+      {{ page.affiliations | array_to_sentence_string | markdownify |
+        remove: "<p>" | remove: "</p>" | lstrip | rstrip }}
+    </p>
+  {% endif %}
+
+  {% if page.past-affiliations %}
+    <p><strong>{{ palabel }}</strong>
+      {{ page.past-affiliations | array_to_sentence_string | markdownify |
+        remove: "<p>" | remove: "</p>" | lstrip | rstrip }}
+    </p>
+  {% endif %}
+    
+  {% if page.pres-email %}
+    <p><strong>Email:</strong>
+      <a href="mailto:{{ page.pres-email}}">{{ page.pres-email }}
+      </a>
+    </p>
+  {% endif %}
+
+  {% if page.pres-url %}
+    <p><strong>Web:</strong>
+      <a href="{{ page.pres-url}}">{{ page.pres-url }}
+      </a>
+    </p>
+  {% endif %}
+
+  {% if page.github-id %}
+    <p><strong>GitHub ID:</strong>
+      <a href="{{ site.github-url }}{{ page.github-id }}">{{ page.github-id }}
+      </a>
+    </p>
+  {% endif %}
+    
+  {{ content }}
+
+    <br>
+    
+  {% assign w = site.panels | where: "moderator-ids", page.person-id | sort: "panel-id" | reverse %}
+  {% if w %}
+    <p><strong>Panels:</strong> </p>
+
+    {% for w2 in w %}
+      <p>{{ w2.panel-id }}. 
+        <strong><a href="{{ site.baseurl }}{{ w2.url }}">{{ w2.title }}</a></strong> ({{ w2.date | date: "%F" }})
+      </p>
+    {% endfor %}  
+  {% endif %}  
+</section>

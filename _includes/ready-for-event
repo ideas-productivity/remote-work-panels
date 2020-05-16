@@ -1,0 +1,16 @@
+{% comment %}
+   ready-for-event: set 'ready-for-event' true/false based on whether argument panel contains the required variables
+   argument: panel
+
+   note: vtc-password is optional
+{% endcomment %}
+
+{% if include.panel.ecp-abbreviation
+   and include.panel.vtc-url
+   and include.panel.vtc-session
+   and include.panel.qa-public-url
+   and include.panel.survey-public-url %}
+   {% assign ready-for-event = true %}
+{% else %}
+   {% assign ready-for-event = false %}
+{% endif %}

@@ -1,0 +1,148 @@
+---
+layout: default
+---
+{% include upcoming-event event=page.date %}
+
+<!-- Warn if any variables are missing -->
+
+{% include require-variable var=page.date varname="date"
+   source="panel front matter" %}
+{% include require-variable var=page.title varname="title"
+   source="panel front matter" %}
+{% include require-variable var=page.panel-id varname="panel-id"
+   source="panel front matter" %}
+{% include require-variable var=page.panelist-ids varname="panelist-ids"
+   source="panel front matter" %}
+{% include require-variable var=page.moderator-ids varname="moderator-ids"
+   source="panel front matter" %}
+{% if upcoming %}
+  {% include require-variable var=page.registration-url varname="registration-url"
+     source="panel front matter" %}
+{% endif %}
+
+
+<!-- Construct things we need --> 
+{% assign psize = page.panelist-ids | size %}
+{% if psize == 1 %}
+  {%- assign plabel = "Panelist:" -%}
+  {%- assign blabel = "Panelist Bio:" -%}
+{% else %}
+  {%- assign plabel = "Panelists:" -%}
+  {%- assign blabel = "Panelist Bios:" -%}
+{% endif %}
+
+{% for pid in page.panelist-ids %}
+  {% if forloop.index > 1 %}
+    {% assign pstring = pstring | append: ", " %}
+    {% if forloop.last %}
+      {% assign pstring = pstring | append: " and " %}
+    {% endif %}
+  {% endif %}
+
+  {%- assign p = site.panelists | where: "person-id", pid -%}
+  {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+  {%- assign pstring = pstring | append: pafil -%}
+
+  {% if p[0].content != empty %}
+    {% assign pbio = pbio | append: p[0].content | markdownify -%}
+  {% endif %}
+{% endfor %}
+
+{% assign msize = page.moderator-ids | size %}
+{% if msize == 1 %}
+  {%- assign mlabel = "Moderator:" -%}
+  {%- assign mblabel = "Moderator Bio:" -%}
+{% else %}
+  {%- assign mlabel = "Moderators:" -%}
+  {%- assign mblabel = "Moderator Bios:" -%}
+{% endif %}
+
+{% for mid in page.moderator-ids %}
+  {% if forloop.index > 1 %}
+    {% assign mstring = mstring | append: ", " %}
+    {% if forloop.last %}
+      {% assign mstring = mstring | append: " and " %}
+    {% endif %}
+  {% endif %}
+
+  {%- assign m = site.moderators | where: "person-id", mid -%}
+  {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+  {%- assign mstring = mstring | append: mafil -%}
+
+  {% if m[0].content != empty %}
+    {% assign mbio = mbio | append: m[0].content | markdownify -%}
+  {% endif %}
+{% endfor %}
+
+{% assign today = 'now' | date: "%s" %}
+{% assign wdate = page.date | date: "%s" %}
+
+{% if upcoming %}<h2>Upcoming Panel</h2>{% else %}<h2>Panel Details</h2>{% endif %}
+
+<section>
+  <h3>{{ page.panel-id }}. 
+    <strong>{{ page.title }}</strong>
+    {% if upcoming %}
+      {% if page.registration-url %}
+        [<a href="{{ page.registration-url }}">Register</a>]
+      {% endif %}
+    {% endif %}
+  </h3> 
+  <ul>
+    {% if upcoming %}
+    <li><strong>Date:</strong> {{page.date | date: "%F %I:%M %P %Z" }}</li>
+    {% else %}
+    <li><strong>Date:</strong> {{ page.date | date: "%F" }}</li>
+    {% endif %}
+    {% if pstring %}
+      <li><strong>{{ plabel }}</strong> {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+      </li>
+    {% endif %}
+    {% if mstring %}
+      <li><strong>{{ mlabel }}</strong> {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+      </li>
+    {% endif %}
+
+    {% if page.archives %}
+    <li><strong>Archives:</strong>
+      {% for i in page.archives %}
+        {% if i.yt-video-id %}
+          <a href="{{ site.youtube-watch-url }}{{ i.yt-video-id }}">{{ i.label }}</a>
+        {% elsif i.url %}
+          <a href="{{ i.url }}">{{ i.label }}</a>
+        {% else %}
+	  <strong><em><font color="red">ERROR: Missing URL for label {{ i.label }}</font></em></strong>
+        {% endif %}
+        {% if i.format %} ({{ i.format }}){% endif %}
+        {% unless forloop.last %} | {% endunless %}
+      {% endfor %}
+      </li>
+    {% else %}{% unless upcoming %}
+      <li><strong>Archives:</strong> <em>to be published</em>
+      </li>{% endunless %}
+    {% endif %}
+
+    <li><strong>Decription:</strong> {{ content }}</li>
+  </ul>
+
+  {% comment %}
+    Embed embeddable archive items below the Description
+  {% endcomment %}	  
+  {% for i in page.archives %}
+    {% if i.yt-video-id %}
+      {% unless i.dont-embed %}
+        <p align="center">{% include youtube-embed id=i.yt-video-id %}</p>
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+
+  {% if pbio %}
+    <strong>{{ blabel }}</strong>
+    {{ pbio }}
+  {% endif %}    
+
+  {% if mbio %}
+    <strong>{{ mblabel }}</strong>
+    {{ mbio }}
+  {% endif %}    
+</section>
