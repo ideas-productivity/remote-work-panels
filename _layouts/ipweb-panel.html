@@ -49,16 +49,9 @@ Cut-and-paste into Wordpress as appropriate.</em>
 {% endif %}
 
 {% for pid in page.panelist-ids %}
-  {% if forloop.index > 1 %}
-    {% assign pstring = pstring | append: ", " %}
-    {% if forloop.last %}
-      {% assign pstring = pstring | append: " and " %}
-    {% endif %}
-  {% endif %}
-
   {%- assign p = site.panelists | where: "person-id", pid -%}
   {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-  {%- assign pstring = pstring | append: pafil -%}
+  {%- assign pstring = pstring | append: "<li>" | append: pafil | append: "</li>" -%}
 
   {% if p[0].content != empty %}
     {% assign pbio = pbio | append: p[0].content | markdownify -%}
@@ -75,16 +68,9 @@ Cut-and-paste into Wordpress as appropriate.</em>
 {% endif %}
 
 {% for mid in page.moderator-ids %}
-  {% if forloop.index > 1 %}
-    {% assign mstring = mstring | append: ", " %}
-    {% if forloop.last %}
-      {% assign mstring = mstring | append: " and " %}
-    {% endif %}
-  {% endif %}
-
   {%- assign m = site.moderators | where: "person-id", mid -%}
   {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-  {%- assign mstring = mstring | append: mafil -%}
+  {%- assign mstring = mstring | append: "<li>" | append: mafil | append: "</li>" -%}
 
   {% if m[0].content != empty %}
     {% assign mbio = mbio | append: m[0].content | markdownify -%}
@@ -113,20 +99,26 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
 <ul>
   {%- if upcoming -%}
-    <li><strong>Date and Time: </strong>
+    <li style="margin-top: 15px"><strong>Date and Time: </strong>
     {{page.date | date: "%A, %B %-d, %Y, %I:%M %P %Z" }}</li>
   {%- endif -%}
 
     {% if pstring %}
-      <li><strong>{{ plabel }}</strong> {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+      <li style="margin-top: 15px"><strong>{{ plabel }}</strong>
+	<ul>
+          {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+	</ul>
       </li>
     {% endif %}
     {% if mstring %}
-      <li><strong>{{ mlabel }}</strong> {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+      <li style="margin-top: 15px"><strong>{{ mlabel }}</strong>
+	<ul>
+          {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+	</ul>
       </li>
     {% endif %}
     {% if page.archives %}
-    <li><strong>Archives:</strong>
+    <li style="margin-top: 15px"><strong>Archives:</strong>
       {% for i in page.archives %}
       {% if i.yt-video-id %}
           <a href="https://www.youtube.com/watch?v={{ i.yt-video-id }}">{{ i.label }}</a>
@@ -140,10 +132,10 @@ Cut-and-paste into Wordpress as appropriate.</em>
       {% endfor %}
       </li>
     {% elsif wdate < today %}
-      <li><strong>Archives:</strong> <em>to be published</em>
+      <li style="margin-top: 15px"><strong>Archives:</strong> <em>to be published</em>
       </li>
     {% endif %}
-    <li><strong>Abstract:</strong> {{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+    <li style="margin-top: 15px"><strong>Abstract:</strong> {{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
 </ul>
 </li>
 {% unless upcoming %}<!-- ----- END PAST ENTRY ----- -->{% endunless %}
