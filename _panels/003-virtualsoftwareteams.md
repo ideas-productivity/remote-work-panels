@@ -4,6 +4,7 @@ date: 2020-05-21T15:00-400
 title: "Making the Transition to Virtual Software Teams"
 panelist-ids: [billings-jayjay, gates-mark, halappanavar-mahantesh, herring-angela, huebl-axel]
 moderator-ids: [barker-ashley, raybourn-elaine]
+registration-url: https://www.eventbrite.com/e/strategies-for-working-remotely-making-the-transition-to-virtual-software-teams-tickets-104685978580?aff=affiliate2
 ecp-abbreviation: virtualsoftwareteams
 #vtc-url: https://ecptr.webex.com/ecptr/onstage/g.php?MTID=e7647cc0f98a8d0edacdd8e79f9c3b997
 #vtc-session: "902 755 266"
