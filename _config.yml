@@ -106,9 +106,7 @@ collections:
 # Symlink to panels to generate text for connection info email
   connection-emails:
     output: true
-  panelists:
-    output: true
-  moderators:
+  people:
     output: true
 
 defaults:
@@ -144,13 +142,8 @@ defaults:
       layout: "connection-email"
   - scope:
       path: ""
-      type: "panelists"
+      type: "people"
     values:
-      layout: "panelist"
-  - scope:
-      path: ""
-      type: "moderators"
-    values:
-      layout: "moderator"
+      layout: "participant"
 
 # End of file

@@ -32,7 +32,7 @@ layout: default
 {% endif %}
 
 {% for pid in page.panelist-ids %}
-  {%- assign p = site.panelists | where: "person-id", pid -%}
+  {%- assign p = site.people | where: "person-id", pid -%}
   {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
   {%- assign pstring = pstring | append: "<li>" | append: pafil | append: "</li>" -%}
 
@@ -51,7 +51,7 @@ layout: default
 {% endif %}
 
 {% for mid in page.moderator-ids %}
-  {%- assign m = site.moderators | where: "person-id", mid -%}
+  {%- assign m = site.people | where: "person-id", mid -%}
   {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
   {%- assign mstring = mstring | append: "<li>" | append: mafil | append: "</li>" -%}
 

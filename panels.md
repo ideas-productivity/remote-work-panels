@@ -24,7 +24,7 @@ layout: home
     {% endif %}
   {% endif %}
 
-  {%- assign p = site.panelists | where: "person-id", pid -%}
+  {%- assign p = site.people | where: "person-id", pid -%}
   {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
   {%- assign pstring = pstring | append: pafil -%}
 {% endfor %}
@@ -45,7 +45,7 @@ layout: home
     {% endif %}
   {% endif %}
 
-  {%- assign m = site.moderators | where: "person-id", mid -%}
+  {%- assign m = site.people | where: "person-id", mid -%}
   {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
   {%- assign mstring = mstring | append: mafil -%}
 {% endfor %}

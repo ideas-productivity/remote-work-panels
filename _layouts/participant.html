@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<h2>Panelist Details</h2>
+<h2>Participant Details</h2>
 
 <!-- Warn if any variables are missing -->
 
@@ -86,11 +86,20 @@ layout: default
     
   {{ content }}
 
-    <br>
-    
   {% assign w = site.panels | where: "panelist-ids", page.person-id | sort: "panel-id" | reverse %}
-  {% if w %}
+  {% if w != empty %}
     <p><strong>Panels:</strong> </p>
+
+    {% for w2 in w %}
+      <p>{{ w2.panel-id }}. 
+        <strong><a href="{{ site.baseurl }}{{ w2.url }}">{{ w2.title }}</a></strong> ({{ w2.date | date: "%F" }})
+      </p>
+    {% endfor %}  
+  {% endif %}  
+
+  {% assign w = site.panels | where: "moderator-ids", page.person-id | sort: "panel-id" | reverse %}
+  {% if w != empty %}
+    <p><strong>Moderator:</strong> </p>
 
     {% for w2 in w %}
       <p>{{ w2.panel-id }}. 

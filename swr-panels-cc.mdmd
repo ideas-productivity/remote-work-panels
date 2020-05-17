@@ -65,7 +65,7 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
     {% endif %}
   {% endif %}
 
-  {%- assign p = site.panelists | where: "person-id", pid -%}
+  {%- assign p = site.people | where: "person-id", pid -%}
   {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
   {%- assign pstring = pstring | append: pafil -%}
 {% endfor %}

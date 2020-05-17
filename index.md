@@ -9,8 +9,7 @@ layout: home
 
 - Formatted for the web
   - [List of panels](panels.html)
-  - [List of panelists](panelists.html)
-  - [List of moderators](moderators.html)
+  - [List of participants](participants.html)
 
 - Formatted for BSSw
   - [Curated content with list of past panels](swr-panels-cc.md) 
