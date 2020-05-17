@@ -22,7 +22,7 @@ layout: default
 {% include require-variable var=page.survey-public-url varname="survey-publi-url"
    source="panel front matter" %}
 
-{% include require-variable var=site.swr-url varname="swr-url"
+{% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
 {% include require-variable var=site.ecp-events-url varname="ecp-events-url"
    source="config.yml" %}
@@ -34,7 +34,7 @@ layout: default
 <section style="border: 3px; border-style: solid; padding: 1em">
 <p>Dear Panel Participant,</p>
 
-<p>The {{ page.date | date: "%B" }} IDEAS-ECP panel titled “{{ page.title }}” is scheduled for {{ page.date | date: "%A %B, %d, %Y at %I:%M %P %Z" }}.  The panel is scheduled to last approximately 90 minutes and is part of the <a href="{{ site.swr-url }}">Strategies for Working Remotely</a> series.</p>
+<p>The {{ page.date | date: "%B" }} IDEAS-ECP panel titled “{{ page.title }}” is scheduled for {{ page.date | date: "%A %B, %d, %Y at %I:%M %P %Z" }}.  The panel is scheduled to last approximately 90 minutes and is part of the <a href="{{ site.ipo-archive-url }}">Strategies for Working Remotely</a> series.</p>
 
 <p>Below are a few important details that you should read in advance of the panel.</p>
 

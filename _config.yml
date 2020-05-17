@@ -29,10 +29,10 @@ url: "https://ideas-productivity.github.io" # the base hostname & protocol for y
 github_username:  ideas-productivity
 rss: rss
 
-# URL for the official panel site, where everything is archived
+# URL for the ideas-productivity.org archive page
 # Links for specific panels are constructed from this URL by adding
 # the appropriate anchor
-swr-url: https://ideas-productivity.org/events/strategies-for-working-remotely-panels/
+ipo-archive-url: https://ideas-productivity.org/events/strategies-for-working-remotely-panels/
 
 # URL for BSSw.io Events
 # Links for specific webinars are constructed from this URL by adding

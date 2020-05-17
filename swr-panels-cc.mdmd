@@ -2,7 +2,7 @@
 layout: none
 ---
 {% comment %}----- Warn if any variables are missing -----{% endcomment %}
-{% include require-variable var=site.swr-url varname="swr-url"
+{% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
 
 # {{ site.title }}
@@ -21,7 +21,7 @@ experience.
 Resource information | Details
 :--- | :---
 Resource name | {{ site.title }}
-Website | {{ site.swr-url }}
+Website | {{ site.ipo-archive-url }}
 Focus | Software productivity and sustainability
 
 The event web site provides details about the panel series, including
@@ -70,7 +70,7 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
   {%- assign pstring = pstring | append: pafil -%}
 {% endfor %}
 
-- [*{{ panel.title }}*]({{ site.swr-url }}{{ panel-anchor}}), {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}, {{ panel.date | date: "%F" }}
+- [*{{ panel.title }}*]({{ site.ipo-archive-url }}{{ panel-anchor}}), {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}, {{ panel.date | date: "%F" }}
 {% endfor %}
 
 #### Contributed by [Elaine Raybourn](http://github.com/elaineraybourn "Elaine Raybourn GitHub Profile")

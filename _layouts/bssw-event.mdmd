@@ -13,7 +13,7 @@ layout: none
 {% include require-variable var=page.moderator-ids varname="moderator-ids"
    source="panel front matter" %}
 
-{% include require-variable var=site.swr-url varname="swr-url"
+{% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
 
 {% comment %}-- Construct things that we need --{% endcomment %}
@@ -101,7 +101,7 @@ layout: none
 
 - Date: {{ page.date | date: "%F" }}
 - Location: Online
-- Event Website: {{ site.swr-url }}{{ panel-anchor}}
+- Event Website: {{ site.ipo-archive-url }}{{ panel-anchor}}
 - Organizers: The IDEAS Productivity Project
 			   
 This event is a part of the "Strategies for Working Remotely" 
@@ -115,7 +115,7 @@ Panel Title | {{ page.title }}
 Date and Time | {{page.date | date: "%F %I:%M %P %Z" }}
 {{ plabel }} | {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 {{ mlabel }} | {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
-Registration, Information, and Archives | 	<{{ site.swr-url }}{{ panel-anchor}}>	   
+Registration, Information, and Archives | 	<{{ site.ipo-archive-url }}{{ panel-anchor}}>	   
 
 **Panels are free and open to the public. Advance registration is required through the Event website. Archives (recording, slides) will be posted at the same link soon after the event.**
 
