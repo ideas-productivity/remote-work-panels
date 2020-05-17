@@ -76,19 +76,19 @@ layout: default
   </h3> 
   <ul>
     {% if upcoming %}
-    <li style="margin-top: 15px"><strong>Date:</strong> {{page.date | date: "%F %I:%M %P %Z" }}</li>
+    <li style="margin-top: 1em"><strong>Date:</strong> {{page.date | date: "%F %I:%M %P %Z" }}</li>
     {% else %}
-    <li style="margin-top: 15px"><strong>Date:</strong> {{ page.date | date: "%F" }}</li>
+    <li style="margin-top: 1em"><strong>Date:</strong> {{ page.date | date: "%F" }}</li>
     {% endif %}
     {% if pstring %}
-      <li style="margin-top: 15px"><strong>{{ plabel }}</strong>
+      <li style="margin-top: 1em"><strong>{{ plabel }}</strong>
 	<ul>
           {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 	</ul>
       </li>
     {% endif %}
     {% if mstring %}
-    <li style="margin-top: 15px"><strong>{{ mlabel }}</strong>
+    <li style="margin-top: 1em"><strong>{{ mlabel }}</strong>
 	<ul>
           {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 	</ul>
@@ -96,7 +96,7 @@ layout: default
     {% endif %}
 
     {% if page.archives %}
-    <li style="margin-top: 15px"><strong>Archives:</strong>
+    <li style="margin-top: 1em"><strong>Archives:</strong>
       {% for i in page.archives %}
         {% if i.yt-video-id %}
           <a href="{{ site.youtube-watch-url }}{{ i.yt-video-id }}">{{ i.label }}</a>
@@ -110,11 +110,11 @@ layout: default
       {% endfor %}
       </li>
     {% else %}{% unless upcoming %}
-      <li style="margin-top: 15px"><strong>Archives:</strong> <em>to be published</em>
+      <li style="margin-top: 1em"><strong>Archives:</strong> <em>to be published</em>
       </li>{% endunless %}
     {% endif %}
 
-    <li style="margin-top: 15px"><strong>Abstract:</strong> {{ content }}</li>
+    <li style="margin-top: 1em"><strong>Abstract:</strong> {{ content }}</li>
   </ul>
 
   {% comment %}
@@ -129,12 +129,12 @@ layout: default
   {% endfor %}
 
   {% if pbio %}
-    <strong style="margin-top: 15px">{{ blabel }}</strong>
+    <strong style="margin-top: 1em">{{ blabel }}</strong>
     {{ pbio }}
   {% endif %}    
 
   {% if mbio %}
-    <strong style="margin-top: 15px">{{ mblabel }}</strong>
+    <strong style="margin-top: 1em">{{ mblabel }}</strong>
     {{ mbio }}
   {% endif %}    
 </section>

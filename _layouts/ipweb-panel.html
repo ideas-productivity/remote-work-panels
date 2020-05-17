@@ -99,26 +99,26 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
 <ul>
   {%- if upcoming -%}
-    <li style="margin-top: 15px"><strong>Date and Time: </strong>
+    <li style="margin-top: 1em"><strong>Date and Time: </strong>
     {{page.date | date: "%A, %B %-d, %Y, %I:%M %P %Z" }}</li>
   {%- endif -%}
 
     {% if pstring %}
-      <li style="margin-top: 15px"><strong>{{ plabel }}</strong>
+      <li style="margin-top: 1em"><strong>{{ plabel }}</strong>
 	<ul>
           {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 	</ul>
       </li>
     {% endif %}
     {% if mstring %}
-      <li style="margin-top: 15px"><strong>{{ mlabel }}</strong>
+      <li style="margin-top: 1em"><strong>{{ mlabel }}</strong>
 	<ul>
           {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 	</ul>
       </li>
     {% endif %}
     {% if page.archives %}
-    <li style="margin-top: 15px"><strong>Archives:</strong>
+    <li style="margin-top: 1em"><strong>Archives:</strong>
       {% for i in page.archives %}
       {% if i.yt-video-id %}
           <a href="https://www.youtube.com/watch?v={{ i.yt-video-id }}">{{ i.label }}</a>
@@ -132,10 +132,10 @@ Cut-and-paste into Wordpress as appropriate.</em>
       {% endfor %}
       </li>
     {% elsif wdate < today %}
-      <li style="margin-top: 15px"><strong>Archives:</strong> <em>to be published</em>
+      <li style="margin-top: 1em"><strong>Archives:</strong> <em>to be published</em>
       </li>
     {% endif %}
-    <li style="margin-top: 15px"><strong>Abstract:</strong> {{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+    <li style="margin-top: 1em"><strong>Abstract:</strong> {{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
 </ul>
 </li>
 {% unless upcoming %}<!-- ----- END PAST ENTRY ----- -->{% endunless %}
