@@ -1,9 +1,9 @@
 {% comment %}
-   ready-to-advertise: set 'ready-to-advertise' true/false based on whether argument panel contains the required variables
-   argument: panel
+   ready-to-advertise: set 'ready-to-advertise' true/false based on whether argument event contains the required variables
+   argument: event
 {% endcomment %}
 
-{% if include.panel.panel-id and include.panel.date and include.panel.title and include.panel.presenter-ids and include.panel.moderator-ids and include.panel.registration-url %}
+{% if include.event.panel-id and include.event.date and include.event.title and include.event.presenter-ids and include.event.moderator-ids and include.event.registration-url %}
    {% assign ready-to-advertise = true %}
 {% else %}
    {% assign ready-to-advertise = false %}

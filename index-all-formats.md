@@ -20,7 +20,7 @@ layout: home
 
 {{ panel.panel-id }}\. **{{ panel.title }}** ({{ panel.date | date: "%F" }})
 
-{% include panel-attributes-table panel=panel %}
+{% include event-attributes-table panel=panel %}
 
 *Formats* | [Web]({{ site.baseurl }}{{ panel.url }}) | [BSSw Event]({{ site.baseurl }}{{ be[0].url }}) | [BSSw Digest]({{ site.baseurl }}{{ bed[0].url }}) | [i-p.o WordPress]({{ site.baseurl }}{{ ipw[0].url }})
  | [YouTube]({{ site.baseurl }}{{ yt[0].url }}) | [Connection Email]({{ site.baseurl }}{{ ce[0].url }})

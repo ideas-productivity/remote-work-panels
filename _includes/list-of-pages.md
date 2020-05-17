@@ -1,5 +1,5 @@
-{% for panel in include.sequence %}
+{% for event in include.sequence %}
 
-{{ panel.panel-id }}\. [**{{ panel.title }}**]({{ site.baseurl }}{{ panel.url }}) ({{ panel.date | date: "%F" }})
-{% include panel-attributes-table panel=panel %}
+{{ event.panel-id }}\. [**{{ event.title }}**]({{ site.baseurl }}{{ event.url }}) ({{ event.date | date: "%F" }})
+{% include event-attributes-table event=event %}
 {% endfor %}

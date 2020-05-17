@@ -1,5 +1,5 @@
-{% include upcoming-event event=include.panel.date %}
-{% include ready-to-advertise panel=include.panel %}
-{% include ready-for-event panel=include.panel %}
+{% include upcoming-event event=include.event.date %}
+{% include ready-to-advertise event=include.event %}
+{% include ready-for-event event=include.event %}
 
 *Attributes* {% if upcoming %}| UPCOMING{% else %} | PAST{% endif %} {% if ready-to-advertise %} | <font color="green">READY-TO-ADVERTISE</font>{% else %} | <font color="red">not ready-to-advertise</font>{% endif %} {% if ready-for-event %}| <font color="green">READY-FOR-EVENT</font>{% else %}| <font color="red">not ready-for-event</font>{% endif %} {% if panel.archives %}| <font color="green">ARCHIVES</font>{% else %}| <font color="red">no archives</font>{% endif %}
