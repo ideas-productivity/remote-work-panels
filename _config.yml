@@ -22,7 +22,7 @@ title: Strategies for Working Remotely Panel Series
 author: IDEAS Productivity Project
 email: IdeasProductivity@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Strategies for Working Remotely panel series
+  Virtual panel discussions, archived for later reference.
 baseurl: "/remote-work-panels" # the subpath of your site, e.g. /blog
 url: "https://ideas-productivity.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
