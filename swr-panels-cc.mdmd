@@ -70,7 +70,7 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
   {%- assign pstring = pstring | append: pafil -%}
 {% endfor %}
 
-- [*{{ panel.title }}*]({{ site.hpcbp-url }}{{ panel-anchor}}), {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}, {{ panel.date | date: "%F" }}
+- [*{{ panel.title }}*]({{ site.swr-url }}{{ panel-anchor}}), {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}, {{ panel.date | date: "%F" }}
 {% endfor %}
 
 #### Contributed by [Elaine Raybourn](http://github.com/elaineraybourn "Elaine Raybourn GitHub Profile")
