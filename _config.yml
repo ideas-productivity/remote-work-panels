@@ -45,7 +45,7 @@ bssw-events-url: https://bssw.io/events
 ecp-events-url: https://www.exascaleproject.org/event
 
 # URL for IDEAS Productivity Announcements mailing list signup
-ip-list-subscription-url: https://us16.list-manage.com/subscribe?u=5438ff2caf2456f6ec49ebfbf&id=a7f7d33358
+ipo-subscription-url: https://us16.list-manage.com/subscribe?u=5438ff2caf2456f6ec49ebfbf&id=a7f7d33358
 
 # Maximum length of video titles supported by YouTube
 youtube-title-max: 100
