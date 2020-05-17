@@ -5,7 +5,7 @@
 layout: home
 ---
 - All formats, by event
-  - [List of events](all-formats-index.html)
+  - [List of events](index-all-formats.html)
 
 - Formatted for the web
   - [List of events](events.html)
