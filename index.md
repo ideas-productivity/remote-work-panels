@@ -23,10 +23,12 @@ layout: home
 - Formatted for YouTube
   - [List of YouTube fragments](youtube-videos-index.html)
 
+<!--
 - Formatted for Connection Information Emails
-  - [List of Connection Information Emails](connection-emails-index.html)
+-->
 
 - Currently outdated
+  - [List of Connection Information Emails](connection-emails-index.html)
   - [Table of Panels](panel-table.html)
   - [Table of Panels (LaTeX)](panel-table-latex.html)
 
