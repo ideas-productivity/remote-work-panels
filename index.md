@@ -18,7 +18,7 @@ layout: home
   - [List of BSSw Event Digest Entries](bssw-events-digest-index.html)
 
 - Formatted for ideas-productivity.org
-  - [List of Wordpress fragments](ipweb-entries-index.html)
+  - [List of i-p.o Wordpress fragments](ipo-events-index.html)
 
 - Formatted for YouTube
   - [List of YouTube fragments](youtube-videos-index.html)

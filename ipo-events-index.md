@@ -9,5 +9,5 @@ For the UPCOMING section, panels should have the UPCOMING and READY-TO-ADVERTISE
 
 For the PAST section, panels should have the PAST attribute.  Eventually, as they acquire the ARCHIVES attribute, they will need to be updated.
 
-{% assign seq = site.ipweb-entries | sort: "panel-id" | reverse %}
+{% assign seq = site.ipo-events | sort: "panel-id" | reverse %}
 {% include list-of-pages.md sequence=seq %}

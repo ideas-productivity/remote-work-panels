@@ -22,7 +22,7 @@ title: Strategies for Working Remotely Panel Series
 author: IDEAS Productivity Project
 email: IdeasProductivity@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  New panel series site.  Very much a work in progress.
+  Strategies for Working Remotely panel series
 baseurl: "/remote-work-panels" # the subpath of your site, e.g. /blog
 url: "https://ideas-productivity.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
@@ -92,7 +92,7 @@ collections:
   events:
     output: true
 # Symlink to events to generate code for ideas-productivity.org Wordpress site
-  ipweb-entries:
+  ipo-events:
     output: true
 # Symlink to events to generate code for BSSw Events
   bssw-events:
@@ -117,9 +117,9 @@ defaults:
       layout: "panel"
   - scope:
       path: ""
-      type: "ipweb-entries"
+      type: "ipo-events"
     values:
-      layout: "ipweb-panel"
+      layout: "ipo-panel"
   - scope:
       path: ""
       type: "youtube-videos"

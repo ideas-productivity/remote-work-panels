@@ -14,7 +14,7 @@ layout: home
 
 {% assign be = site.bssw-events | where: "panel-id", panel.panel-id %}
 {% assign bed = site.bssw-events-digest | where: "panel-id", panel.panel-id %}
-{% assign ipw = site.ipweb-entries | where: "panel-id", panel.panel-id %}
+{% assign ipw = site.ipo-events | where: "panel-id", panel.panel-id %}
 {% assign yt = site.youtube-videos | where: "panel-id", panel.panel-id %}
 {% assign ce = site.connection-emails | where: "panel-id", panel.panel-id %}
 
