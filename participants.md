@@ -17,8 +17,8 @@ layout: home
     {% endif %}
   </li> 
 
-{% assign w = site.panels | where: "panelist-ids", participant.person-id | sort: "panel-id" | reverse %}
-{% assign x = site.panels | where: "moderator-ids", participant.person-id | sort: "panel-id" | reverse %}
+{% assign w = site.events | where: "panelist-ids", participant.person-id | sort: "panel-id" | reverse %}
+{% assign x = site.events | where: "moderator-ids", participant.person-id | sort: "panel-id" | reverse %}
 
   <ul style="list-style: none">
     {% if w != empty %}

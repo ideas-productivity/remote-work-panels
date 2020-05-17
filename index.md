@@ -4,11 +4,11 @@
 
 layout: home
 ---
-- All formats, by panel
-  - [List of panels](all-formats-index.html)
+- All formats, by event
+  - [List of events](all-formats-index.html)
 
 - Formatted for the web
-  - [List of panels](panels.html)
+  - [List of events](events.html)
   - [List of participants](participants.html)
 
 - Formatted for BSSw

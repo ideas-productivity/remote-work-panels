@@ -1,11 +1,11 @@
 ---
 layout: home
 ---
-## List of All Generated Formats, by Panel
+## List of All Generated Formats, by Event
 
 [BSSw Curated Content](swr-panels-cc.md)
 
-{% assign sequence = site.panels | sort: "panel-id" | reverse %}
+{% assign sequence = site.events | sort: "panel-id" | reverse %}
 {% for panel in sequence %}
 
 {% include upcoming-event event=panel.date %}

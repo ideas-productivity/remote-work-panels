@@ -86,7 +86,7 @@ layout: default
     
   {{ content }}
 
-  {% assign w = site.panels | where: "panelist-ids", page.person-id | sort: "panel-id" | reverse %}
+  {% assign w = site.events | where: "panelist-ids", page.person-id | sort: "panel-id" | reverse %}
   {% if w != empty %}
     <p><strong>Panels:</strong> </p>
 
@@ -97,7 +97,7 @@ layout: default
     {% endfor %}  
   {% endif %}  
 
-  {% assign w = site.panels | where: "moderator-ids", page.person-id | sort: "panel-id" | reverse %}
+  {% assign w = site.events | where: "moderator-ids", page.person-id | sort: "panel-id" | reverse %}
   {% if w != empty %}
     <p><strong>Moderator:</strong> </p>
 

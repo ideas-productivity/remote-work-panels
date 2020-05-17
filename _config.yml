@@ -89,21 +89,21 @@ timezone: America/New_York
 future: true
 
 collections:
-  panels:
+  events:
     output: true
-# Symlink to panels to generate code for ideas-productivity.org Wordpress site
+# Symlink to events to generate code for ideas-productivity.org Wordpress site
   ipweb-entries:
     output: true
-# Symlink to panels to generate code for BSSw Events
+# Symlink to events to generate code for BSSw Events
   bssw-events:
     output: true
-# Symlink to panels to generate code for BSSw Digest entries for events
+# Symlink to events to generate code for BSSw Digest entries for events
   bssw-events-digest:
     output: true
-# Symlink to panels to generate text for YouTube uploads
+# Symlink to events to generate text for YouTube uploads
   youtube-videos:
     output: true
-# Symlink to panels to generate text for connection info email
+# Symlink to events to generate text for connection info email
   connection-emails:
     output: true
   people:
@@ -112,7 +112,7 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: "panels"
+      type: "events"
     values:
       layout: "panel"
   - scope:

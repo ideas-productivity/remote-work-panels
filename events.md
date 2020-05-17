@@ -4,7 +4,7 @@ layout: home
 ## List of Panels
 
 <dl>
-{% assign sequence = site.panels | sort: "panel-id" | reverse %}
+{% assign sequence = site.events | sort: "panel-id" | reverse %}
 {% for panel in sequence %}
 
 

@@ -42,7 +42,7 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
 
 {% assign today = 'now' | date: "%s" %}
 
-{% assign sequence = site.panels | sort: "panel-id" | reverse %}
+{% assign sequence = site.events | sort: "panel-id" | reverse %}
 {% for panel in sequence %}
 
 {% assign wdate = panel.date | date: "%s" %}

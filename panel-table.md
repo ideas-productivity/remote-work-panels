@@ -9,7 +9,7 @@ layout: default
     <th>Title, Panelist(s)</th>
   </tr>
 
-{% for panel in site.panels %}
+{% for panel in site.events %}
   {% capture seqnum %}{{ panel.panel-id | prepend: "00" | slice: -3, 3 }}{% endcapture %}
   <tr>
     <td>{{ panel.panel-id }}</td>
