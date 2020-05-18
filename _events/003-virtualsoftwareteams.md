@@ -10,8 +10,6 @@ ecp-abbreviation: virtualsoftwareteams
 #vtc-url: https://ecptr.webex.com/ecptr/onstage/g.php?MTID=e7647cc0f98a8d0edacdd8e79f9c3b997
 #vtc-session: "902 755 266"
 #vtc-password: "ideas"
-#qa-public-url: http://bit.ly/HPCBP-QA
-#survey-public-url: http://bit.ly/36VanMG
 # archives:
 #   - label: Recording
 #     format: YouTube

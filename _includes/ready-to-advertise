@@ -1,10 +1,52 @@
 {% comment %}
-   ready-to-advertise: set 'ready-to-advertise' true/false based on whether argument event contains the required variables
-   argument: event
+   ready-to-advertise: Check whether argument event contains the
+   frontmatter variables required for all of the advertisement formats
+
+   input: event
+   output: ready-to-advertise [boolean]
+
+   Tested frontmatter entries
+   * All events
+     - event-type
+     - event-id
+     - title
+     - date
+     - registration-url
+   * hpcbp-webinar events
+     - presenter-ids
+   * swr-panel events
+     - panelist-ids
+     - moderator-ids
 {% endcomment %}
 
-{% if include.event.event-id and include.event.date and include.event.title and include.event.presenter-ids and include.event.moderator-ids and include.event.registration-url %}
+{% comment %} Requirements for all type of events {% endcomment %}
+{% if include.event.event-type
+   and include.event.event-id
+   and include.event.title
+   and include.event.date
+   and include.event.registration-url %}
    {% assign ready-to-advertise = true %}
 {% else %}
    {% assign ready-to-advertise = false %}
+{% endif %}
+
+{% comment %} Requirements for hpcbp-webinars only {% endcomment %}
+{% if  include.event.event-type == "hpcbp-webinar" %}
+   {% if include.event.presenter-ids != empty
+      and ready-to-advertise == true %}
+        {% assign ready-to-advertise = true %}
+   {% else %}
+      {% assign ready-to-advertise = false %}
+   {% endif %}
+{% comment %} Requirements for swr-panel only {% endcomment %}
+{% elsif  include.event.event-type == "swr-panel" %}
+   {% if include.event.panelist-ids != empty
+      and include.event.moderator-ids != empty
+      and ready-to-advertise == true %}
+        {% assign ready-to-advertise = true %}
+   {% else %}
+      {% assign ready-to-advertise = false %}
+   {% endif %}
+{% else %}
+  ERROR: unknown event-type: {{ include.event.event-type }}
 {% endif %}

@@ -5,12 +5,11 @@ date: 2020-04-03T15:00-0400
 title: "Advice from Colleagues with Experience"
 panelist-ids: [bernhardt-mike, mcinnes-loiscurfman, miller-mark, mohror-kathryn, raybourn-elaine]
 moderator-ids: [heroux-mike]
+#registration-url: 
 ecp-abbreviation: remote
 #vtc-url: https://ecptr.webex.com/ecptr/onstage/g.php?MTID=e7647cc0f98a8d0edacdd8e79f9c3b997
 #vtc-session: "902 755 266"
 #vtc-password: "ideas"
-#qa-public-url: http://bit.ly/HPCBP-QA
-#survey-public-url: http://bit.ly/36VanMG
 archives:
   - label: Recording
     format: YouTube
