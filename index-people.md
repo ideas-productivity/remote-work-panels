@@ -1,15 +1,13 @@
 ---
 layout: home
 ---
-## List of All Generated Formats, by Person
+## List of by Person (Web format)
 
 {% assign sequence = site.people | sort: "person-id" %}
 {% for item in sequence %}
 
-**{{ item.firstname }} {{ item.lastname }}**
+[**{{ item.firstname }} {{ item.lastname }}**]({{ site.baseurl }}{{ item.url }})
 
 {% include person-attributes-table person=item %}
-
-*Formats* | [Web]({{ site.baseurl }}{{ item.url }}) 
 
 {% endfor %}
