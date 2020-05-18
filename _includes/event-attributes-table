@@ -12,7 +12,30 @@
 {% endcomment %}
 
 {% include upcoming-event event=include.event.date %}
-{% include ready-to-advertise event=include.event %}
-{% include ready-for-event event=include.event %}
+   {% if upcoming %}
+      {% assign a-upcoming = 'UPCOMING' %}
+   {% else %}		
+      {% assign a-upcoming = 'PAST' %}
+   {% endif %}
 
-*Attributes* {% if upcoming %}| UPCOMING{% else %} | PAST{% endif %} {% if ready-to-advertise %} | <font color="green">READY-TO-ADVERTISE</font>{% else %} | <font color="red">not ready-to-advertise</font>{% endif %} {% if ready-for-event %}| <font color="green">READY-FOR-EVENT</font>{% else %}| <font color="red">not ready-for-event</font>{% endif %} {% if include.event.archives %}| <font color="green">ARCHIVES</font>{% else %}| <font color="red">no archives</font>{% endif %}
+{% include ready-to-advertise event=include.event %}
+   {% if ready-to-advertise %}
+      {% assign a-advertise = '<font color="green">READY-TO-ADVERTISE</font>' %}
+   {% else %}		
+      {% assign a-advertise = '<font color="red">not ready-to-advertise</font>' %}
+   {% endif %}
+
+{% include ready-for-event event=include.event %}
+   {% if ready-for-event %}
+      {% assign a-event = '<font color="green">READY-FOR-EVENT</font>' %}
+   {% else %}		
+      {% assign a-event = '<font color="red">not ready-for-event</font>' %}
+   {% endif %}
+
+{% if include.event.archives %}
+   {% assign a-archives = '<font color="green">ARCHIVES</font>' %}
+{% else %}		
+   {% assign a-archives = '<font color="red">no archives</font>' %}
+{% endif %}
+
+*Attributes* | {{ a-upcoming }} | {{ a-advertise }} | {{ a-event }} | {{ a-archives }}
