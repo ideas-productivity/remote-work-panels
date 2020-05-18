@@ -1,5 +1,6 @@
 ---
-panel-id: 1
+event-type: swr-panel
+event-id: 1
 date: 2020-04-03T15:00-0400
 title: "Advice from Colleagues with Experience"
 panelist-ids: [bernhardt-mike, mcinnes-loiscurfman, miller-mark, mohror-kathryn, raybourn-elaine]

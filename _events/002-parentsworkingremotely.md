@@ -1,5 +1,6 @@
 ---
-panel-id: 2
+event-type: swr-panel
+event-id: 2
 date: 2020-04-24T15:00-0400
 title: "Challenges Faced by Parents Who are Working Remotely, and Overcoming Them"
 panelist-ids: [mcinnes-loiscurfman]

@@ -15,7 +15,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
    source="panel front matter" %}
 {% include require-variable var=page.title varname="title"
    source="panel front matter" %}
-{% include require-variable var=page.panel-id varname="panel-id"
+{% include require-variable var=page.event-id varname="event-id"
    source="panel front matter" %}
 {% include require-variable var=page.panelist-ids varname="panelist-ids"
    source="panel front matter" %}
@@ -31,12 +31,12 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
 
 <!-- Construct things that we need --> 
-{% if page.panel-id < 10 %}
-  {%- assign panel-anchor = page.panel-id | prepend: "panel00" -%}
-{% elsif page.panel-id < 100 %}
-  {%- assign panel-anchor = page.panel-id | prepend: "panel0" -%}
-{% elsif page.panel-id < 1000 %}
-  {%- assign panel-anchor = page.panel-id | prepend: "panel" -%}
+{% if page.event-id < 10 %}
+  {%- assign panel-anchor = page.event-id | prepend: "panel00" -%}
+{% elsif page.event-id < 100 %}
+  {%- assign panel-anchor = page.event-id | prepend: "panel0" -%}
+{% elsif page.event-id < 1000 %}
+  {%- assign panel-anchor = page.event-id | prepend: "panel" -%}
 {% endif %}			   
 
 {% assign psize = page.panelist-ids | size %}
@@ -84,7 +84,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
 <section style="border: 3px; border-style: solid; padding: 1em">
 {% if upcoming %}<!-- ----- BEGIN UPCOMING ENTRY ----- -->{% endif %}
-  <ol reversed="" start="{{ page.panel-id }}">
+  <ol reversed="" start="{{ page.event-id }}">
 {% unless upcoming %}<!-- ---- BEGIN PAST ENTRY ----- -->{% endunless %}
     <li id="{{ panel-anchor }}">
 	  <p class="entry-title"><strong>{{ page.title }}</strong>

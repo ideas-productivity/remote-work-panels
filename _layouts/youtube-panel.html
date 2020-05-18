@@ -9,7 +9,7 @@ layout: none
    source="webinar front matter" %}
 {% include require-variable var=page.title varname="title"
    source="webinar front matter" %}
-{% include require-variable var=page.panel-id varname="panel-id"
+{% include require-variable var=page.event-id varname="event-id"
    source="webinar front matter" %}
 {% include require-variable var=page.panelist-ids varname="panelist-ids"
    source="webinar front matter" %}
@@ -22,12 +22,12 @@ layout: none
    source="config.yml" %}
 
 <!-- Construct things that we need -->
-{% if page.panel-id < 10 %}
-  {%- assign panel-number-filled = page.panel-id | prepend: "00" -%}
-{% elsif page.panel-id < 100 %}
-  {%- assign panel-number-filled = page.panel-id | prepend: "0" -%}
-{% elsif page.panel-id < 1000 %}
-  {%- assign panel-number-filled = page.panel-id -%}
+{% if page.event-id < 10 %}
+  {%- assign panel-number-filled = page.event-id | prepend: "00" -%}
+{% elsif page.event-id < 100 %}
+  {%- assign panel-number-filled = page.event-id | prepend: "0" -%}
+{% elsif page.event-id < 1000 %}
+  {%- assign panel-number-filled = page.event-id -%}
 {% endif %}			   
 
 {% for pid in page.panelist-ids %}

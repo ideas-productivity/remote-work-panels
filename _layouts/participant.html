@@ -86,23 +86,23 @@ layout: default
     
   {{ content }}
 
-  {% assign w = site.events | where: "panelist-ids", page.person-id | sort: "panel-id" | reverse %}
+  {% assign w = site.events | where: "panelist-ids", page.person-id | sort: "event-id" | reverse %}
   {% if w != empty %}
     <p><strong>Panels:</strong> </p>
 
     {% for w2 in w %}
-      <p>{{ w2.panel-id }}. 
+      <p>{{ w2.event-id }}. 
         <strong><a href="{{ site.baseurl }}{{ w2.url }}">{{ w2.title }}</a></strong> ({{ w2.date | date: "%F" }})
       </p>
     {% endfor %}  
   {% endif %}  
 
-  {% assign w = site.events | where: "moderator-ids", page.person-id | sort: "panel-id" | reverse %}
+  {% assign w = site.events | where: "moderator-ids", page.person-id | sort: "event-id" | reverse %}
   {% if w != empty %}
     <p><strong>Moderator:</strong> </p>
 
     {% for w2 in w %}
-      <p>{{ w2.panel-id }}. 
+      <p>{{ w2.event-id }}. 
         <strong><a href="{{ site.baseurl }}{{ w2.url }}">{{ w2.title }}</a></strong> ({{ w2.date | date: "%F" }})
       </p>
     {% endfor %}  

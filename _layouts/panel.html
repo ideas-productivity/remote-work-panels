@@ -9,7 +9,7 @@ layout: default
    source="panel front matter" %}
 {% include require-variable var=page.title varname="title"
    source="panel front matter" %}
-{% include require-variable var=page.panel-id varname="panel-id"
+{% include require-variable var=page.event-id varname="event-id"
    source="panel front matter" %}
 {% include require-variable var=page.panelist-ids varname="panelist-ids"
    source="panel front matter" %}
@@ -66,7 +66,7 @@ layout: default
 {% if upcoming %}<h2>Upcoming Panel</h2>{% else %}<h2>Panel Details</h2>{% endif %}
 
 <section>
-  <h3>{{ page.panel-id }}. 
+  <h3>{{ page.event-id }}. 
     <strong>{{ page.title }}</strong>
     {% if upcoming %}
       {% if page.registration-url %}

@@ -17,19 +17,19 @@ layout: home
     {% endif %}
   </li> 
 
-{% assign w = site.events | where: "panelist-ids", participant.person-id | sort: "panel-id" | reverse %}
-{% assign x = site.events | where: "moderator-ids", participant.person-id | sort: "panel-id" | reverse %}
+{% assign w = site.events | where: "panelist-ids", participant.person-id | sort: "event-id" | reverse %}
+{% assign x = site.events | where: "moderator-ids", participant.person-id | sort: "event-id" | reverse %}
 
   <ul style="list-style: none">
     {% if w != empty %}
       {% for w2 in w %}
-      <li style="list-style: none">{{ w2.panel-id }}. 
+      <li style="list-style: none">{{ w2.event-id }}. 
         <strong><a href="{{ site.baseurl }}{{ w2.url }}">{{ w2.title }}</a></strong> ({{ w2.date | date: "%F" }})</li>
     {% endfor %}
   {% endif %}
   {% if x != empty %}
       {% for x2 in x %}
-      <li style="list-style: none">{{ x2.panel-id }}. 
+      <li style="list-style: none">{{ x2.event-id }}. 
         <strong><a href="{{ site.baseurl }}{{ x2.url }}">{{ x2.title }}</a></strong> ({{ x2.date | date: "%F" }}) <em>Moderator</em></li>
     {% endfor %}
   {% endif %}

@@ -42,18 +42,18 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
 
 {% assign today = 'now' | date: "%s" %}
 
-{% assign sequence = site.events | sort: "panel-id" | reverse %}
+{% assign sequence = site.events | sort: "event-id" | reverse %}
 {% for panel in sequence %}
 
 {% assign wdate = panel.date | date: "%s" %}
 {% if wdate > today %}{% continue %}{% endif %}
 
-{% if panel.panel-id < 10 %}
-  {%- assign panel-anchor = panel.panel-id | prepend: "#panel00" -%}
-{% elsif panel.panel-id < 100 %}
-  {%- assign panel-anchor = panel.panel-id | prepend: "#panel0" -%}
-{% elsif panel.panel-id < 1000 %}
-  {%- assign panel-anchor = panel.panel-id | prepend: "#panel" -%}
+{% if panel.event-id < 10 %}
+  {%- assign panel-anchor = panel.event-id | prepend: "#panel00" -%}
+{% elsif panel.event-id < 100 %}
+  {%- assign panel-anchor = panel.event-id | prepend: "#panel0" -%}
+{% elsif panel.event-id < 1000 %}
+  {%- assign panel-anchor = panel.event-id | prepend: "#panel" -%}
 {% endif %}			   
 
 {%- assign pstring = "" -%}

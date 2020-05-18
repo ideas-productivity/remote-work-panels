@@ -4,7 +4,7 @@ layout: home
 ## List of Events
 
 <dl>
-{% assign sequence = site.events | sort: "panel-id" | reverse %}
+{% assign sequence = site.events | sort: "event-id" | reverse %}
 {% for panel in sequence %}
 
 
@@ -51,7 +51,7 @@ layout: home
 {% endfor %}
 
 <section style="margin-bottom: 15px">
-  <dt>{{ panel.panel-id }}. 
+  <dt>{{ panel.event-id }}. 
       <strong><a href="{{ site.baseurl }}{{ panel.url }}">{{ panel.title }}</a></strong> ({{ panel.date | date: "%F" }})
   </dt> 
     {% if pstring %}

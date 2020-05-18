@@ -1,5 +1,6 @@
 ---
-panel-id: 3
+event-type: swr-panel
+event-id: 3
 date: 2020-05-21T15:00-400
 title: "Making the Transition to Virtual Software Teams"
 panelist-ids: [billings-jayjay, gates-mark, halappanavar-mahantesh, herring-angela, huebl-axel]

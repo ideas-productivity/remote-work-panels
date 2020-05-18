@@ -5,20 +5,20 @@ layout: home
 
 [BSSw Curated Content](swr-panels-cc.md)
 
-{% assign sequence = site.events | sort: "panel-id" | reverse %}
+{% assign sequence = site.events | sort: "event-id" | reverse %}
 {% for panel in sequence %}
 
 {% include upcoming-event event=panel.date %}
 {% include ready-to-advertise panel=panel %}
 {% include ready-for-event panel=panel %}
 
-{% assign be = site.bssw-events | where: "panel-id", panel.panel-id %}
-{% assign bed = site.bssw-events-digest | where: "panel-id", panel.panel-id %}
-{% assign ipw = site.ipo-events | where: "panel-id", panel.panel-id %}
-{% assign yt = site.youtube-videos | where: "panel-id", panel.panel-id %}
-{% assign ce = site.connection-emails | where: "panel-id", panel.panel-id %}
+{% assign be = site.bssw-events | where: "event-id", panel.event-id %}
+{% assign bed = site.bssw-events-digest | where: "event-id", panel.event-id %}
+{% assign ipw = site.ipo-events | where: "event-id", panel.event-id %}
+{% assign yt = site.youtube-videos | where: "event-id", panel.event-id %}
+{% assign ce = site.connection-emails | where: "event-id", panel.event-id %}
 
-{{ panel.panel-id }}\. **{{ panel.title }}** ({{ panel.date | date: "%F" }})
+{{ panel.event-id }}\. **{{ panel.title }}** ({{ panel.date | date: "%F" }})
 
 {% include event-attributes-table panel=panel %}
 

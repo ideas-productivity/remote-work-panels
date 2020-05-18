@@ -10,9 +10,9 @@ layout: default
   </tr>
 
 {% for panel in site.events %}
-  {% capture seqnum %}{{ panel.panel-id | prepend: "00" | slice: -3, 3 }}{% endcapture %}
+  {% capture seqnum %}{{ panel.event-id | prepend: "00" | slice: -3, 3 }}{% endcapture %}
   <tr>
-    <td>{{ panel.panel-id }}</td>
+    <td>{{ panel.event-id }}</td>
     <td>{{ panel.date | date: "%a %-d %b %Y %-I:%M %P %Z" }}</td>
     <td><em><a href="{{ archive_base }}{{ seqnum }}">{{ panel.title}}</a>,</em> 
 	  {{ panel.author }}

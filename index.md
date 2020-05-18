@@ -11,6 +11,7 @@ layout: home
 - Formats for internal use
   - Communications and publicity
     - [List of events in multiple formats](index-all-formats.html)
+    - [BSSw Curated Content](swr-panels-cc.md)
   - Reporting formats
     - [Table of Panels](panel-table.html) (Currently outdated)
     - [Table of Panels (LaTeX)](panel-table-latex.html) (Currently outdated)

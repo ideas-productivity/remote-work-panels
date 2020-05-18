@@ -3,7 +3,7 @@
    argument: event
 {% endcomment %}
 
-{% if include.event.panel-id and include.event.date and include.event.title and include.event.presenter-ids and include.event.moderator-ids and include.event.registration-url %}
+{% if include.event.event-id and include.event.date and include.event.title and include.event.presenter-ids and include.event.moderator-ids and include.event.registration-url %}
    {% assign ready-to-advertise = true %}
 {% else %}
    {% assign ready-to-advertise = false %}
