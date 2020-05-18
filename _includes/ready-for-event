@@ -18,30 +18,46 @@
 {% endcomment %}
 
 {% comment %} Requirements for all type of events {% endcomment %}
-{% if include.event.ecp-abbreviation
-   and include.event.vtc-url
-   and include.event.vtc-session %}
-   {% assign ready-for-event = true %}
-{% else %}
-   {% assign ready-for-event = false %}
-{% endif %}
+{% assign ready-for-event = true %}
+
+{% unless include.event.ecp-abbreviation %}
+   {% include error-message msg="ecp-abbreviation not present" %}
+   {% assign ready-to-advertise = false %}
+{% endunless %}
+
+{% unless include.event.vtc-url %}
+   {% include error-message msg="vtc-url not present" %}
+   {% assign ready-to-advertise = false %}
+{% endunless %}
+
+{% unless include.event.vtc-session %}
+   {% include error-message msg="vtc-session not present" %}
+   {% assign ready-to-advertise = false %}
+{% endunless %}
 
 {% comment %} Requirements for hpcbp-webinars only {% endcomment %}
 {% if  include.event.event-type == "hpcbp-webinar" %}
-   {% if include.event.qa-public-url
-      and include.event.survey-public-url
-      and ready-for-event == true %}
-        {% assign ready-for-event = true %}
-   {% else %}
-      {% assign ready-for-event = false %}
-   {% endif %}
+
+   {% unless include.event.qa-public-url %}
+      {% include error-message msg="qa-public-url not present" %}
+      {% assign ready-to-advertise = false %}
+   {% endunless %}
+
+   {% unless include.event.survey-public-url %}
+      {% include error-message msg="survey-public-url not present" %}
+      {% assign ready-to-advertise = false %}
+   {% endunless %}
+
 {% comment %} Requirements for swr-panel only {% endcomment %}
 {% elsif  include.event.event-type == "swr-panel" %}
-   {% if ready-for-event == true %}
-        {% assign ready-for-event = true %}
-   {% else %}
-      {% assign ready-for-event = false %}
-   {% endif %}
+   {% comment %}  Currently no special requirements {% endcomment %}
 {% else %}
-  ERROR: unknown event-type: {{ include.event.event-type }}
+   {% comment %}
+      Only report an error here if the event-type is one we're not familiar with.
+      Empty event-type is reported above.
+   {% endcomment %}
+   {% if include.event.event-type != empty %}
+      {% assign error-string = "ready-for-event: unknown event-type: " | append: include.event.event-type %}
+	 {% include error-message msg=error-string %}
+   {% endif %}
 {% endif %}

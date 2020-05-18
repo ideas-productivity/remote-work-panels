@@ -1,0 +1,8 @@
+{% comment %}
+   error-message: print an HTML formatted error message
+
+   input: msg
+   output: printed error message
+{% endcomment %}
+<font color="red">ERROR: {{include.msg }}</font>
+

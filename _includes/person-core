@@ -9,13 +9,28 @@
    * person-id
    * lastname
    * firstname
+   * affiliation
 {% endcomment %}
 
 {% comment %} Requirements for all people {% endcomment %}
-{% if include.person.person-id
-   and include.person.lastname
-   and include.person.firstname %}
-   {% assign person-core = true %}
-{% else %}
+{% assign person-core = true %}
+
+{% unless include.person.person-id %}
+   {% include error-message msg="person-id not present" %}
    {% assign person-core = false %}
-{% endif %}
+{% endunless %}
+
+{% unless include.person.lastname %}
+   {% include error-message msg="lastname not present" %}
+   {% assign person-core = false %}
+{% endunless %}
+
+{% unless include.person.firstname %}
+   {% include error-message msg="firstname not present" %}
+   {% assign person-core = false %}
+{% endunless %}
+
+{% unless include.person.affiliations %}
+   {% include error-message msg="affiliations not present" %}
+   {% assign person-core = false %}
+{% endunless %}

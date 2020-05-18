@@ -6,7 +6,7 @@ layout: home
 {% assign sequence = site.people | sort: "person-id" %}
 {% for item in sequence %}
 
-[**{{ item.firstname }} {{ item.lastname }}**]({{ site.baseurl }}{{ item.url }})
+{{ item.person-id }}: [**{{ item.firstname }} {{ item.lastname }}**]({{ site.baseurl }}{{ item.url }})
 
 {% include person-attributes-table person=item %}
 

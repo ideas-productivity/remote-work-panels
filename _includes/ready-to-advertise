@@ -20,33 +20,60 @@
 {% endcomment %}
 
 {% comment %} Requirements for all type of events {% endcomment %}
-{% if include.event.event-type
-   and include.event.event-id
-   and include.event.title
-   and include.event.date
-   and include.event.registration-url %}
-   {% assign ready-to-advertise = true %}
-{% else %}
+{% assign ready-to-advertise = true %}
+
+{% unless include.event.event-type %}
+   {% include error-message msg="event-type not present" %}
    {% assign ready-to-advertise = false %}
-{% endif %}
+{% endunless %}
+
+{% unless include.event.event-id %}
+   {% include error-message msg="event-id not present" %}
+   {% assign ready-to-advertise = false %}
+{% endunless %}
+
+{% unless include.event.title %}
+   {% include error-message msg="title not present" %}
+   {% assign ready-to-advertise = false %}
+{% endunless %}
+
+{% unless include.event.date %}
+   {% include error-message msg="date not present" %}
+   {% assign ready-to-advertise = false %}
+{% endunless %}
+
+{% unless include.event.registration-url %}
+   {% include error-message msg="registration-url not present" %}
+   {% assign ready-to-advertise = false %}
+{% endunless %}
 
 {% comment %} Requirements for hpcbp-webinars only {% endcomment %}
 {% if  include.event.event-type == "hpcbp-webinar" %}
-   {% if include.event.presenter-ids != empty
-      and ready-to-advertise == true %}
-        {% assign ready-to-advertise = true %}
-   {% else %}
+
+   {% unless include.event.presenter-ids %}
+      {% include error-message msg="presenter-ids not present" %}
       {% assign ready-to-advertise = false %}
-   {% endif %}
+   {% endunless %}
+
 {% comment %} Requirements for swr-panel only {% endcomment %}
 {% elsif  include.event.event-type == "swr-panel" %}
-   {% if include.event.panelist-ids != empty
-      and include.event.moderator-ids != empty
-      and ready-to-advertise == true %}
-        {% assign ready-to-advertise = true %}
-   {% else %}
+
+   {% unless include.event.panelist-ids %}
+      {% include error-message msg="panelist-ids not present" %}
       {% assign ready-to-advertise = false %}
-   {% endif %}
+   {% endunless %}
+
+   {% unless include.event.moderator-ids %}
+      {% include error-message msg="moderator-ids not present" %}
+      {% assign ready-to-advertise = false %}
+   {% endunless %}
 {% else %}
-  ERROR: unknown event-type: {{ include.event.event-type }}
+   {% comment %}
+      Only report an error here if the event-type is one we're not familiar with.
+      Empty event-type is reported above.
+   {% endcomment %}
+   {% if include.event.event-type != empty %}
+      {% assign error-string = "ready-to-advertise: unknown event-type: " | append: include.event.event-type %}
+	 {% include error-message msg=error-string %}
+   {% endif %}
 {% endif %}
