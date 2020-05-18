@@ -9,8 +9,9 @@ layout: home
   - [List of participants](participants.html)
 
 - Formats for internal use
-  - Communications and publicity
-    - [List of events in multiple formats](index-all-formats.html)
+  - Communications and publicity (also validation)
+    - [List of events in all formats](index-events.html)
+    - [List of people in all formats](index-people.html)
     - [BSSw Curated Content](swr-panels-cc.md)
   - Reporting formats
     - [Table of Panels](panel-table.html) (Currently outdated)

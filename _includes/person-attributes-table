@@ -1,0 +1,14 @@
+{% comment %}
+   person-attributes-table: Verify wheter argument person contains the
+   frontmatter variables required for various activities in the
+   production process and print out a table summarizing the results.
+   * person-core
+   * github-id present
+
+   input: person
+   output: printed table of attributes
+{% endcomment %}
+
+{% include person-core person=include.person %}
+
+*Attributes* {% if person-core %} | <font color="green">CORE READY</font>{% else %} | <font color="red">core not ready</font>{% endif %} {% if include.person.github-id %}| <font color="green">GITHUB ID</font>{% else %}| <font color="orange">no github id</font>{% endif %} 

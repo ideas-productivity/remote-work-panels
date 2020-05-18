@@ -1,0 +1,21 @@
+{% comment %}
+   person-core: Check whether argument person contains the
+   frontmatter variables required
+
+   input: person
+   output: person-core [boolean]
+
+   Tested frontmatter entries
+   * person-id
+   * lastname
+   * firstname
+{% endcomment %}
+
+{% comment %} Requirements for all people {% endcomment %}
+{% if include.person.person-id
+   and include.person.lastname
+   and include.person.firstname %}
+   {% assign person-core = true %}
+{% else %}
+   {% assign person-core = false %}
+{% endif %}
