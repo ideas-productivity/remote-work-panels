@@ -4,5 +4,5 @@
    input: msg
    output: printed error message
 {% endcomment %}
-<font color="red">ERROR: {{include.msg }}</font>
+<p><font color="red">ERROR: {{include.msg }}</font></p>
 
