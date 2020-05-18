@@ -10,5 +10,16 @@
 {% endcomment %}
 
 {% include person-core person=include.person %}
+   {% if person-core %}
+      {% assign a-core = '<font color="green">CORE READY</font>' %}
+   {% else %}		
+      {% assign a-core = '<font color="red">core not ready</font>' %}
+   {% endif %}
 
-*Attributes* {% if person-core %} | <font color="green">CORE READY</font>{% else %} | <font color="red">core not ready</font>{% endif %} {% if include.person.github-id %}| <font color="green">GITHUB ID</font>{% else %}| <font color="orange">no github id</font>{% endif %} 
+{% if include.person.github-id %}
+   {% assign a-github = '<font color="green">GITHUB ID</font>' %}
+{% else %}		
+   {% assign a-github = '<font color="orange">no github id</font>' %}
+{% endif %}
+
+*Attributes* | {{ a-core }} | {{ a-github }}
