@@ -7,9 +7,8 @@ panelist-ids: [billings-jayjay, gates-mark, halappanavar-mahantesh, herring-ange
 moderator-ids: [barker-ashley, raybourn-elaine]
 registration-url: https://www.eventbrite.com/e/strategies-for-working-remotely-making-the-transition-to-virtual-software-teams-tickets-104685978580?aff=affiliate2
 ecp-abbreviation: virtualsoftwareteams
-#vtc-url: https://ecptr.webex.com/ecptr/onstage/g.php?MTID=e7647cc0f98a8d0edacdd8e79f9c3b997
-#vtc-session: "902 755 266"
-#vtc-password: "ideas"
+vtc-url: https://exascaleproject.zoomgov.com/j/1618929902
+vtc-session: "161 892 9902"
 # archives:
 #   - label: Recording
 #     format: YouTube
