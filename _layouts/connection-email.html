@@ -17,10 +17,6 @@ layout: default
    source="panel front matter" %}
 {% include optional-variable var=page.vtc-password varname="vtc-password"
    source="panel front matter" %}
-{% include require-variable var=page.qa-public-url varname="qa-public-url"
-   source="panel front matter" %}
-{% include require-variable var=page.survey-public-url varname="survey-publi-url"
-   source="panel front matter" %}
 
 {% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
@@ -32,47 +28,62 @@ layout: default
 <p><strong>Subject:</strong> Connection Info for {{ page.date | date: "%B" }} IDEAS-ECP Panel </p>
 
 <section style="border: 3px; border-style: solid; padding: 1em">
-<p>Dear Panel Participant,</p>
+<p>Hello Panel Attendee!</p>
 
-<p>The {{ page.date | date: "%B" }} IDEAS-ECP panel titled “{{ page.title }}” is scheduled for {{ page.date | date: "%A %B, %d, %Y at %I:%M %P %Z" }}.  The panel is scheduled to last approximately 90 minutes and is part of the <a href="{{ site.ipo-archive-url }}">Strategies for Working Remotely</a> series.</p>
+<p>This is a reminder that the next installment of the <em>Strategies
+    for Working Remotely</em> panel series "<strong>{{ page.title
+    }}</strong>" is scheduled for {{ page.date | date: "%A %B, %d, %Y
+    at %I:%M %P %Z" }} and is expected to last about 90 minutes.</p>
 
-<p>Below are a few important details that you should read in advance of the panel.</p>
+<p>Below are a few important details that you should read in advance
+of the panel.</p>
 
-<p><strong><u>Presentation</u></strong></p>
+<p><u>Logistics</u></p>
 
-<p>A copy of the presentation is attached and has also been uploaded to the event page located at <a href="{{ site.ecp-events-url }}/{{ page.ecp-abbreviation }}/">{{ site.ecp-events-url }}/{{ page.ecp-abbreviation }}/</a>, under the section titled, “Materials from the Panel”.  In the event you encounter issues with WebEx, you can always dial in using the phone number provided below and follow along with the presentation.</p>
-
-<p><strong><u>Logistics</u></strong></p>
-
-<p>The meeting will be hosted via WebEx.  We will open the WebEx meeting at least 20 minutes prior to the start of the panel.  We recommend you connect as early as possible to ensure you do not encounter technical difficulties in seeing and/or hearing the presentation.  Once the presentation begins, it will be difficult to provide technical assistance.</p>
-
-<p>Join by computer<br>
+<p>Join ZoomGov Meeting<br>
 <a href="{{ page.vtc-url }}">{{ page.vtc-url }}</a><br>
-Event number: {{ page.vtc-session }}<br>
+Meeting ID: {{ page.vtc-session }}<br>
 {% if page.vtc-password %}Password: {{ page.vtc-password }}<br>{% endif %}
 <br>
-Join by phone<br>
-To receive a call back, provide your phone number when you join the event, or call the number below and enter the access code.<br>
-+1-415-527-5035<br>
-Access Code:  {{ page.vtc-session }}
+One tap mobile<br>
++16692545252,,1618929902# US (San Jose)<br>
++16468287666,,1618929902# US (New York)
 </p>
 
-<p><strong><u>During the Panel</u></strong></p>
+<p>Dial by your location<br>
+        +1 669 254 5252 US (San Jose)<br>
+        +1 646 828 7666 US (New York) <br>
+  Meeting ID: {{ page.vtc-session }}<br>
+Find your local number: <a href="https://exascaleproject.zoomgov.com/u/aZraUkiAM">https://exascaleproject.zoomgov.com/u/aZraUkiAM</a>
+</p>
 
-<p>Keep your Audio Muted – We will likely have over 100 participants in the panel. We ask that you keep your audio muted and your video turned off during the panel to give everyone the best experience possible.</p>
+<p>Join by Skype for Business<br>
+  <a href="{{ page.vtc-url }}">{{ page.vtc-url }}</a>
+</p>
 
-<p>Questions?  - We encourage questions through the WebEx chat tool.</p>
+<p><u>During the Panel</u></p>
 
-<p><strong><u>After the Panel</u></strong></p>
+<p>Keep your Audio Muted – We will likely have over 200 participants
+in the panel. We ask that you keep your audio muted and your video off
+when not speaking.
+</p>
 
-<p>Panel Recording – We plan to record the panel and will let you know when the video is available for viewing on the website.</p>
+<p>Questions? – We encourage you to ask questions during the
+discussion portion of the session.  Due to the number of people
+participating, we ask that enter your brief questions in the chat Zoom
+functionality.  We will call on people to ask their question verbally
+in the order received, curating for uniqueness.</p>
 
-<p>Survey – We request that you take a very short survey upon conclusion of the panel to help us improve future panels.  You will find a link to the survey at {{ page.survey-public-url }}.</p>
+<p><u>After the Panel</u></p>
 
-<p>Future Panels –Visit <a href="https://www.exascaleproject.org/all-training-events/">https://www.exascaleproject.org/all-training-events/</a>.  Check back often as we add new events on a regular basis. Or <a href="{{ site.ipo-subscription-url }}">sign up</a> for the IDEAS Productivity announcements mailing list for panel and other software-related events organized by the IDEAS Productivity project.</p>
+<p>Recording – We will record the panel and will let you know when the
+video is available for viewing on the website.</p>
+
+<p>Future *Strategies for Working Remotely* panel series discussions
+ – Visit <a href="https://www.exascaleproject.org/all-training-events/">https://www.exascaleproject.org/all-training-events/</a>.  Check back often as we add new events on a regular basis. Or <a href="{{ site.ipo-subscription-url }}">sign up</a> for the IDEAS Productivity announcements mailing list for panel and other software-related events organized by the IDEAS Productivity project.</p>
 
 <p>Sincerely,<br>
 Ashley Barker & Elaine Raybourn<br>
-Exascale Computing Project (ECP)
+Exascale Computing Project (ECP) and IDEAS Productivity Project
 </p>
 </section>
