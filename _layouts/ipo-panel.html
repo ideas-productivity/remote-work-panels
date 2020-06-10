@@ -86,7 +86,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 {% if upcoming %}<!-- ----- BEGIN UPCOMING ENTRY ----- -->{% endif %}
   <ol reversed="" start="{{ page.event-id }}">
 {% unless upcoming %}<!-- ---- BEGIN PAST ENTRY ----- -->{% endunless %}
-    <li id="{{ panel-anchor }}">
+    <li id="{{ panel-anchor }}" style="margin-top: 1em">
 	  <p class="entry-title"><strong>{{ page.title }}</strong>
     {%- if upcoming -%}
       {% if page.registration-url %}
