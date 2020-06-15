@@ -5,8 +5,8 @@ date: 2020-06-30T15:00-400
 title: "Virtual Onboarding and Mentoring"
 #panelist-ids: [billings-jayjay, gates-mark, halappanavar-mahantesh, herring-angela, huebl-axel]
 moderator-ids: [barker-ashley, raybourn-elaine]
-#registration-url: https://www.eventbrite.com/e/strategies-for-working-remotely-making-the-transition-to-virtual-software-teams-tickets-104685978580?aff=affiliate2
-#ecp-abbreviation: virtualsoftwareteams
+registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsfu-srTMpGidMcf8B85gYY37Rhdz-iGM
+ecp-abbreviation: virtualonboarding
 #vtc-url: https://exascaleproject.zoomgov.com/j/1618929902
 #vtc-session: "161 892 9902"
 #archives:
