@@ -3,8 +3,8 @@ event-type: swr-panel
 event-id: 4
 date: 2020-06-30T15:00-400
 title: "Virtual Onboarding and Mentoring"
-#panelist-ids: [billings-jayjay, gates-mark, halappanavar-mahantesh, herring-angela, huebl-axel]
-moderator-ids: [barker-ashley, raybourn-elaine]
+panelist-ids: [cademartori-helen, kelley-marcey, lofstead-jay, mccormick-bethany, sankaran-raj]
+moderator-ids: [barker-ashley, hartmanbaker-rebecca, raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsfu-srTMpGidMcf8B85gYY37Rhdz-iGM
 ecp-abbreviation: virtualonboarding
 #vtc-url: https://exascaleproject.zoomgov.com/j/1618929902
