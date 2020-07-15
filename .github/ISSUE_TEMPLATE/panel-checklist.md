@@ -1,7 +1,7 @@
 ---
 name: Panel checklist
 about: A pre-configured checklist to track actions related to a panel
-title: Panel-tag checklist
+title: Panel (tag) checklist
 labels: 'panel workflow'
 assignees: ''
 
