@@ -3,7 +3,7 @@ person-id: herring-angela
 lastname: Herring
 firstname: Angela
 affiliations: ["Los Alamos National Laboratory"]
-github-id: aangelaherring
+github-id: angelaherring
 ---
 Angela Herring is a staff scientist at Los Alamos National
 Laboratory. She specializes in leading multi-disciplinary, Agile
