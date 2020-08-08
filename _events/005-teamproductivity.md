@@ -3,7 +3,7 @@ event-type: swr-panel
 event-id: 5
 date: 2020-08-27T15:00-400
 title: "How to Make Teams Tick"
-#panelist-ids: [cademartori-helen, kelley-marcey, lofstead-jay, mccormick-bethany, sankaran-raj]
+panelist-ids: [coffey-todd, lamb-justin, ray-navamita, shaw-ryan, shelton-tyler, shevitz-daniel, thorson-salome]
 moderator-ids: [herring-angela, raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsdOmpqzgoHa33SfpQHh2HUPfvDpMYCGk
 ecp-abbreviation: teamproductivity
