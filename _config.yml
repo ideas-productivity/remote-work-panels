@@ -34,6 +34,12 @@ rss: rss
 # the appropriate anchor
 ipo-archive-url: https://ideas-productivity.org/events/strategies-for-working-remotely-panels/
 
+# URL for the ECP panel series page
+# This *cannot* be used as the basis of links to the ECP versions of these events.
+# For that you must use ecp-events-url.
+# But certain people like to see this URL
+ecp-archive-url: https://www.exascaleproject.org/strategies-for-working-remotely/
+
 # URL for BSSw.io Events
 # Links for specific webinars are constructed from this URL by adding
 # the appropriate slug based on the title

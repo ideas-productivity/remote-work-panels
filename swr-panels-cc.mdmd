@@ -21,7 +21,8 @@ experience.
 Resource information | Details
 :--- | :---
 Resource name | {{ site.title }}
-Website | {{ site.ipo-archive-url }}
+Website | {{ site.ecp-archive-url }}
+| or {{ site.ipo-archive-url }}
 Focus | Software productivity and sustainability
 
 The event web site provides details about the panel series, including
