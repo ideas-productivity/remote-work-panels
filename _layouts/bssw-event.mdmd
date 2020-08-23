@@ -116,8 +116,7 @@ Date and Time | {{page.date | date: "%F %I:%M %P %Z" }}
 {{ plabel }} | {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 {{ mlabel }} | {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 Registration Link | 	<{{ page.registration-url }}>
-Series Information and Archives | <{{ site.ipo-archive-url }}> or
- | <{{ site.ecp-archive-url }}>
+Series Information and Archives | <{{ site.ipo-archive-url }}> or<br><{{ site.ecp-archive-url }}>
 
 **Panels are free and open to the public. Advance registration is required through the Event website. Archives (recording, slides) will be posted at the same link soon after the event.**
 
