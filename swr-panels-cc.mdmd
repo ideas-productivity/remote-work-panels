@@ -75,6 +75,7 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
 {% endfor %}
 
 #### Contributed by [Elaine Raybourn](http://github.com/elaineraybourn "Elaine Raybourn GitHub Profile")
+#### Publication date: {{ "now" | date: "%F" }}
 
 <!---
 Publish: yes
