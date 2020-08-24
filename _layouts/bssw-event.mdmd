@@ -35,31 +35,35 @@ layout: none
   {%- assign blabel = "Panelist Bios" -%}
 {% endif %}
 
-{% for pid in page.panelist-ids %}
-  {% if forloop.index > 1 %}
-    {% assign pghstring = pghstring | append: ", " %}
-    {% assign pstring = pstring | append: ", " %}
-    {% if forloop.last %}
-      {% assign pghstring = pghstring | append: " and " %}
-      {% assign pstring = pstring | append: " and " %}
+{% if page.panelist-ids and page.panelist-ids != empty %}
+  {% for pid in page.panelist-ids %}
+    {% if forloop.index > 1 %}
+      {% assign pghstring = pghstring | append: ", " %}
+      {% assign pstring = pstring | append: ", " %}
+      {% if forloop.last %}
+        {% assign pghstring = pghstring | append: " and " %}
+        {% assign pstring = pstring | append: " and " %}
+      {% endif %}
     {% endif %}
-  {% endif %}
 
-  {%- assign p = site.people | where: "person-id", pid -%}
-  {%- capture presname -%}{{ p[0].firstname }} {{ p[0].lastname }}{%- endcapture -%}
-  {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-  {%- if p[0].github-id -%}
-    {%- capture pghlink -%}[{{ presname }}]({{ site.github-url}}{{ p[0].github-id }} "{{ presname }} GitHub profile"){%- endcapture -%}
-    {%- assign pghstring = pghstring | append: pghlink -%}
-  {%- else -%}
-    {%- assign pghstring = pghstring | append: presname -%}
-  {%- endif -%}  
-  {%- assign pstring = pstring | append: pafil -%}
+    {%- assign p = site.people | where: "person-id", pid -%}
+    {%- capture presname -%}{{ p[0].firstname }} {{ p[0].lastname }}{%- endcapture -%}
+    {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+    {%- if p[0].github-id -%}
+      {%- capture pghlink -%}[{{ presname }}]({{ site.github-url}}{{ p[0].github-id }} "{{ presname }} GitHub profile"){%- endcapture -%}
+      {%- assign pghstring = pghstring | append: pghlink -%}
+    {%- else -%}
+      {%- assign pghstring = pghstring | append: presname -%}
+    {%- endif -%}  
+    {%- assign pstring = pstring | append: pafil -%}
 
-  {% if p[0].content != empty %}
-    {% assign pbio = pbio | append: p[0].content | markdownify -%}
-  {% endif %}
-{% endfor %}
+    {% if p[0].content != empty %}
+      {% assign pbio = pbio | append: p[0].content | markdownify -%}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% assign pstring = "*to be announced*" %}
+{% endif %}
 
 <!-- Note: this label does NOT include the trailing colon -->
 {% assign msize = page.moderator-ids | size %}
@@ -71,31 +75,36 @@ layout: none
   {%- assign mblabel = "Moderator Bios" -%}
 {% endif %}
 
-{% for pid in page.moderator-ids %}
-  {% if forloop.index > 1 %}
-    {% assign mghstring = mghstring | append: ", " %}
-    {% assign mstring = mstring | append: ", " %}
-    {% if forloop.last %}
-      {% assign mghstring = mghstring | append: " and " %}
-      {% assign mstring = mstring | append: " and " %}
+{% if page.moderator-ids and page.moderator-ids != empty %}
+  {% for pid in page.moderator-ids %}
+    {% if forloop.index > 1 %}
+      {% assign mghstring = mghstring | append: ", " %}
+      {% assign mstring = mstring | append: ", " %}
+      {% if forloop.last %}
+        {% assign mghstring = mghstring | append: " and " %}
+        {% assign mstring = mstring | append: " and " %}
+      {% endif %}
     {% endif %}
-  {% endif %}
 
-  {%- assign m = site.people | where: "person-id", pid -%}
-  {%- capture modname -%}{{ m[0].firstname }} {{ m[0].lastname }}{%- endcapture -%}
-  {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-  {%- if m[0].github-id -%}
-    {%- capture mghlink -%}[{{ modname }}]({{ site.github-url}}{{ m[0].github-id }} "{{ modname }} GitHub profile"){%- endcapture -%}
-    {%- assign mghstring = mghstring | append: mghlink -%}
-  {%- else -%}
-    {%- assign mghstring = mghstring | append: modname -%}
-  {%- endif -%}  
-  {%- assign mstring = mstring | append: mafil -%}
+    {%- assign m = site.people | where: "person-id", pid -%}
+    {%- capture modname -%}{{ m[0].firstname }} {{ m[0].lastname }}{%- endcapture -%}
+    {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+    {%- if m[0].github-id -%}
+      {%- capture mghlink -%}[{{ modname }}]({{ site.github-url}}{{ m[0].github-id }} "{{ modname }} GitHub profile"){%- endcapture -%}
+      {%- assign mghstring = mghstring | append: mghlink -%}
+    {%- else -%}
+      {%- assign mghstring = mghstring | append: modname -%}
+    {%- endif -%}  
+    {%- assign mstring = mstring | append: mafil -%}
 
-  {% if m[0].content != empty %}
-    {% assign mbio = mbio | append: m[0].content | markdownify -%}
-  {% endif %}
-{% endfor %}
+    {% if m[0].content != empty %}
+      {% assign mbio = mbio | append: m[0].content | markdownify -%}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% assign mstring = "*to be announced*" %}
+{% endif %}
+
 
 # Panel: {{ page.title }}
 
