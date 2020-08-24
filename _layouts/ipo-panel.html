@@ -140,6 +140,8 @@ Cut-and-paste into Wordpress as appropriate.</em>
           <a href="https://www.youtube.com/watch?v={{ i.yt-video-id }}">{{ i.label }}</a>
         {% elsif i.url %}      
           <a href="{{ i.url }}">{{ i.label }}</a>
+        {% elsif i.note %}
+          {{ i.label }} {{ i.note }}
         {% else %}
 	  <strong><em><font color="red">ERROR: Missing URL for label {{ i.label }}</font></em></strong>
         {% endif %}
