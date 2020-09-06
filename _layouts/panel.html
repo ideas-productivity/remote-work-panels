@@ -2,6 +2,7 @@
 layout: default
 ---
 {% include upcoming-event event=page.date %}
+{% include format-date-range full-time=upcoming start=page.date end=page.end-date %}
 
 <!-- Warn if any variables are missing -->
 
@@ -68,8 +69,7 @@ layout: default
   {% assign mstring = "<em>to be announced</em>" %}
 {% endif %}
 
-{% assign today = 'now' | date: "%s" %}
-{% assign wdate = page.date | date: "%s" %}
+
 
 {% if upcoming %}<h2>Upcoming Panel</h2>{% else %}<h2>Panel Details</h2>{% endif %}
 
@@ -83,11 +83,7 @@ layout: default
     {% endif %}
   </h3> 
   <ul>
-    {% if upcoming %}
-    <li style="margin-top: 1em"><strong>Date:</strong> {{page.date | date: "%F %I:%M %P %Z" }}</li>
-    {% else %}
-    <li style="margin-top: 1em"><strong>Date:</strong> {{ page.date | date: "%F" }}</li>
-    {% endif %}
+    <li style="margin-top: 1em"><strong>Date:</strong> {{ date-range }}</li>
     {% if pstring %}
       <li style="margin-top: 1em"><strong>{{ plabel }}</strong>
 	<ul>

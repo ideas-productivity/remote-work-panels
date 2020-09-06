@@ -65,6 +65,7 @@ layout: none
 
 {% assign tlength = tfull | size %}
 
+{% include format-date-range full-time=false start=page.date end=page.end-date %}
 
 <h3>Basic Tab</h3>
 
@@ -86,7 +87,7 @@ Full title: {{ page.title }}<br>
 {% endif %}
 Panelist(s): {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}<br>
 Moderator(s): {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}<br>
-Presented on: {{ page.date | date: "%F" }}
+Presented on: {{ date-range }}
 
 {{ content }}
 

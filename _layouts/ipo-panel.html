@@ -8,6 +8,7 @@ ctrl-u, or via context (right-click) menu to view HTML source.
 Cut-and-paste into Wordpress as appropriate.</em>
 
 {% include upcoming-event event=page.date %}
+{% include format-date-range full-time=upcoming start=page.date end=page.end-date %}
 
 <!-- Warn if any variables are missing -->
 
@@ -116,7 +117,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 <ul>
   {%- if upcoming -%}
     <li style="margin-top: 1em"><strong>Date and Time: </strong>
-    {{page.date | date: "%A, %B %-d, %Y, %I:%M %P %Z" }}</li>
+    {{ date-range }}</li>
   {%- endif -%}
 
     {% if pstring %}

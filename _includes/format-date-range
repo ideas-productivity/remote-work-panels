@@ -1,0 +1,58 @@
+{% comment %}
+    format-date-range: set 'date-range' string formatted based on inputs
+    arguments:
+        full-time: render range as date AND time or just date
+        start: starting date specification (ISO 8601)
+        end: ending date specification (ISO 8601)
+    
+    Usually, full-time is used for upcoming dates, while for past dates
+    just the day alone is used because the time is not interesting.
+
+    end may not exist, in which case, render as a single time point rather
+    than as a range.
+
+    If the range starts and ends on the same date, the time range is presented
+    in a manner that is not an ISO8601 interval, but will be more familiar and 
+    readable by most people. 
+ {% endcomment %}
+
+{% if include.full-time %}
+    {% assign date-range = include.start | date: "%A %F %l:%M%P" %}
+    {% assign start-zone = include.start | date: " %Z" %}
+
+    {% unless include.end %}
+        {% assign date-range = date-range | append: start-zone %}
+    {% else %}
+        {% assign end-zone = include.end | date: " %Z" %}
+
+        {% if start-zone != end-zone %}
+            {% assign date-range = date-range | append: start-zone %}
+        {% endif %}
+
+        {% assign start-date = include.start | date: "%F" %}
+        {% assign end-date = include.end | date: "%F" %}
+
+        {% if start-date == end-date %}
+            {% assign start-time = include.start | date: "%l:%M%P" | strip %}
+            {% assign end-time = include.end | date: "%l:%M%P" | strip %}
+
+            {% if start-time == end-time %}
+                {% assign date-range = date-range | append: end-zone %}
+            {% else %}
+                {% assign date-range = date-range | append: "-" %}
+                {% assign formatted-end = end-time | append: end-zone %}
+            {% endif %}
+        {% else %}
+            {% assign date-range = date-range | append: " through " %}
+            {% assign formatted-end = include.end | date: "%A %F %l:%M%P %Z" %}
+        {% endif %}
+        {% assign date-range = date-range | append: formatted-end %}
+    {% endunless %}
+{% else %}
+    {% assign date-range = include.start | date: "%F" %}
+    {% if include.end %}
+        {% assign date-range = date-range | append: "/" %}
+        {% assign formatted-end = include.end | date: "%F" %}
+        {% assign date-range = date-range | append: formatted-end %}
+    {% endif %}
+{% endif %}
