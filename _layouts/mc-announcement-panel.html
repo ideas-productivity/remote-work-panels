@@ -1,0 +1,140 @@
+---
+layout: none
+---
+<h2>Content for MailChimp Announcement Message</h2>			 
+
+<!-- Warn if any variables are missing -->
+
+{% include require-variable var=page.date varname="date"
+   source="webinar front matter" %}
+{% include require-variable var=page.title varname="title"
+   source="webinar front matter" %}
+{% include require-variable var=page.event-id varname="event-id"
+   source="webinar front matter" %}
+{% include require-variable var=page.panelist-ids varname="panelist-ids"
+   source="webinar front matter" %}
+{% include require-variable var=page.moderator-ids varname="moderator-ids"
+   source="webinar front matter" %}
+
+{% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
+   source="config.yml" %}
+{% include require-variable var=site.youtube-title-max varname="youtube-title-max"
+   source="config.yml" %}
+
+<!-- Construct things that we need -->
+{% if page.event-id < 10 %}
+  {%- assign panel-number-filled = page.event-id | prepend: "00" -%}
+{% elsif page.event-id < 100 %}
+  {%- assign panel-number-filled = page.event-id | prepend: "0" -%}
+{% elsif page.event-id < 1000 %}
+  {%- assign panel-number-filled = page.event-id -%}
+{% endif %}		
+
+{% if page.event-id < 10 %}
+  {%- assign panel-anchor = page.event-id | prepend: "panel00" -%}
+{% elsif page.event-id < 100 %}
+  {%- assign panel-anchor = page.event-id | prepend: "panel0" -%}
+{% elsif page.event-id < 1000 %}
+  {%- assign panel-anchor = page.event-id | prepend: "panel" -%}
+{% endif %}			  
+
+{% assign psize = page.panelist-ids | size %}
+{% if psize == 1 %}
+  {%- assign plabel = "Panelist:" -%}
+  {%- assign blabel = "Panelist Bio:" -%}
+{% else %}
+  {%- assign plabel = "Panelists:" -%}
+  {%- assign blabel = "Panelist Bios:" -%}
+{% endif %}
+
+{% if page.panelist-ids and page.panelist-ids != empty %}
+  {% for pid in page.panelist-ids %}
+    {%- assign p = site.people | where: "person-id", pid -%}
+    {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+    {%- assign pstring = pstring | append: "<li>" | append: pafil | append: "</li>" -%}
+
+    {% if p[0].content != empty %}
+      {% assign pbio = pbio | append: p[0].content | markdownify -%}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% assign pstring = "<em>to be announced</em>" %}
+{% endif %}
+
+{% assign msize = page.moderator-ids | size %}
+{% if msize == 1 %}
+  {%- assign mlabel = "Moderator:" -%}
+  {%- assign mblabel = "Moderator Bio:" -%}
+{% else %}
+  {%- assign mlabel = "Moderators:" -%}
+  {%- assign mblabel = "Moderator Bios:" -%}
+{% endif %}
+
+{% if page.moderator-ids and page.moderator-ids != empty %}
+  {% for mid in page.moderator-ids %}
+    {%- assign m = site.people | where: "person-id", mid -%}
+    {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+    {%- assign mstring = mstring | append: "<li>" | append: mafil | append: "</li>" -%}
+
+    {% if m[0].content != empty %}
+      {% assign mbio = mbio | append: m[0].content | markdownify -%}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% assign mstring = "<em>to be announced</em>" %}
+{% endif %}
+
+<h3>Audience Update Information</h3>
+<p><strong>Tag:</strong> panel{{ panel-number-filled}}-{{ page.ecp-abbreviation }}</p>
+
+<h3>Campaign Information</h3>
+<p><strong>Name:</strong> panel{{ panel-number-filled }}-announcement</p>
+<p><strong>To:</strong>
+    <ul>
+        <li><strong>Audience:</strong> <em>IDEAS Productivity Announcements</em></li>
+        <li><strong>Segment or Tag:</strong> <em>All subscribers in audience</em></li>
+        <li><strong>Personalize the "To" field:</strong> ✓</li>
+    </ul>
+</p>
+<p><strong>Subject:</strong> Upcoming panel discussion: {{ page.title }}</p>
+
+<h3>Content</h3>
+<p><strong>Title Block</strong><br>
+    <em>Note: Recommend setting font size for title (only) to 18pt</em>
+</p>
+<section align="center" style="border: 3px; border-style: solid; padding: 1em">
+{{ page.title }}<br>
+{% if page.end-date %}
+  {{ page.date | date: "%l:%M%P"}}-{{ page.end-date | date: "%-l:%M%P" }} {{ page.date | date: "%Z"}}<br>
+{% else %}
+  {{ page.date | date: "%l:%M%P %Z"}}<br>
+{% endif %}
+{{ page.date | date: "%A, %B %e, %Y"}}
+</section>
+
+<p><strong>Body Block</strong></p>
+<section style="border: 3px; border-style: solid; padding: 1em">
+{% if pstring %}
+<strong>{{ plabel }}</strong>
+<ul>
+    {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+</ul>
+{% endif %}
+
+{% if mstring %}
+<strong>{{ mlabel }}</strong>
+<ul>
+    {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+</ul>
+{% endif %}
+
+<strong>Abstract:</strong> {{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+</section>
+
+<p><strong>Registration Button URL: </strong> {{ page.registration-url }}</p>
+
+<p><strong>Recordings of Previous Events Slug</strong><br>
+<em>Note: This information is used in announcements of <em>future</em> panels. Not the current one.</em></p>
+<section style="border: 3px; border-style: solid; padding: 1em">
+<ul><li><a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}">{{ page.title }}</a> ({{ page.date | date: "%F" }})</li></ul>
+</section>

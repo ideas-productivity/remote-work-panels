@@ -21,8 +21,7 @@ layout: home
 
 - Additional targets of interest
   - Mailchimp emails
-    - announcement
-	- followup (archive)
+  	- followup (archive)
   - Intro and followup slides for panel
     - Generate as web pages rather than pointpoint
   - ECP training page

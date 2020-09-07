@@ -112,6 +112,9 @@ collections:
 # Symlink to events to generate text for connection info email
   connection-emails:
     output: true
+# Symlink to events to generate text for MailChimp announcement messages
+  mc-announcements:
+    output: true
   people:
     output: true
 
@@ -146,6 +149,11 @@ defaults:
       type: "connection-emails"
     values:
       layout: "connection-email"
+  - scope:
+      path: ""
+      type: "mc-announcements"
+    values:
+      layout: "mc-announcement-panel"
   - scope:
       path: ""
       type: "people"
