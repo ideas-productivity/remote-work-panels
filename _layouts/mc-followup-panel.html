@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-<h2>Content for MailChimp Announcement Message</h2>			 
+<h2>Content for MailChimp Followup Message</h2>			 
 
 <!-- Warn if any variables are missing -->
 
@@ -88,59 +88,31 @@ layout: none
 <p><strong>Tag:</strong> panel{{ panel-number-filled}}-{{ page.ecp-abbreviation }}</p>
 
 <h3>Campaign Information</h3>
-<p><strong>Name:</strong> panel{{ panel-number-filled }}-announcement</p>
+<p><strong>Name:</strong> panel{{ panel-number-filled }}-followup</p>
 <p><strong>To:</strong>
     <ul>
         <li><strong>Audience:</strong> <em>IDEAS Productivity Announcements</em></li>
-        <li><strong>Segment or Tag:</strong> <em>All subscribers in audience</em></li>
+        <li><strong>Segment or Tag:</strong> panel{{ panel-number-filled}}-{{ page.ecp-abbreviation }}</li>
         <li><strong>Personalize the "To" field:</strong> ✓</li>
     </ul>
 </p>
 <p><strong>From:</strong>
-  <ul>
-      <li><strong>Name:</strong> IDEAS Project Outreach Lead</li>
-      <li><strong>Email address:</strong> IDEASProductivity@gmail.com</li>
-  </ul>
+    <ul>
+        <li><strong>Name:</strong> IDEAS Project Outreach Lead</li>
+        <li><strong>Email address:</strong> IDEASProductivity@gmail.com</li>
+    </ul>
 </p>
-<p><strong>Subject:</strong> Upcoming panel discussion: {{ page.title }}</p>
+<p><strong>Subject:</strong> Panel recording available: {{ page.title }}</p>
 
 <h3>Content</h3>
 <p><strong>Title Block</strong><br>
     <em>Note: Recommend setting font size for title (only) to 18pt</em>
 </p>
 <section align="center" style="border: 3px; border-style: solid; padding: 1em">
-{{ page.title }}<br>
-{% if page.end-date %}
-  {{ page.date | date: "%l:%M%P"}}-{{ page.end-date | date: "%-l:%M%P" }} {{ page.date | date: "%Z"}}<br>
-{% else %}
-  {{ page.date | date: "%l:%M%P %Z"}}<br>
-{% endif %}
-{{ page.date | date: "%A, %B %e, %Y"}}
+<a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}">{{ page.title }}</a><br>
+Presented on {{ page.date | date: "%A, %B %e, %Y"}}
 </section>
 
-<p><strong>Body Block</strong></p>
-<section style="border: 3px; border-style: solid; padding: 1em">
-{% if pstring %}
-<strong>{{ plabel }}</strong>
-<ul>
-    {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
-</ul>
+{% if page.survey-public-url %}
+<p><strong>Survey URL for feedback block: </strong> {{ page.survey-public-url }}</p>
 {% endif %}
-
-{% if mstring %}
-<strong>{{ mlabel }}</strong>
-<ul>
-    {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
-</ul>
-{% endif %}
-
-<strong>Abstract:</strong> {{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}
-</section>
-
-<p><strong>Registration Button URL: </strong> {{ page.registration-url }}</p>
-
-<p><strong>Recordings of Previous Events Slug</strong><br>
-<em>Note: This information is used in announcements of <em>future</em> panels. Not the current one.</em></p>
-<section style="border: 3px; border-style: solid; padding: 1em">
-<ul><li><a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}">{{ page.title }}</a> ({{ page.date | date: "%F" }})</li></ul>
-</section>

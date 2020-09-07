@@ -115,6 +115,9 @@ collections:
 # Symlink to events to generate text for MailChimp announcement messages
   mc-announcements:
     output: true
+# Symlink to events to generate text for MailChimp follwup messages
+  mc-followups:
+    output: true
   people:
     output: true
 
@@ -154,6 +157,11 @@ defaults:
       type: "mc-announcements"
     values:
       layout: "mc-announcement-panel"
+  - scope:
+      path: ""
+      type: "mc-followups"
+    values:
+      layout: "mc-followup-panel"  
   - scope:
       path: ""
       type: "people"
