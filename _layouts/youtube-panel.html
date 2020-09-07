@@ -1,5 +1,5 @@
 ---
-layout: none
+layout: default
 ---
 <h2>Content for YouTube</h2>			 
 
@@ -81,9 +81,11 @@ layout: none
 Full title: {{ page.title }}<br>
 {% endif %}
 Panelist(s): {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}<br>
+<br>
 Moderator(s): {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}<br>
-Presented on: {{ date-range }}
-
+<br>
+Presented on: {{ date-range }}<br>
+<br>
 {{ content }}
 
 For more information about the Strategies for Working Remotely panels, including
