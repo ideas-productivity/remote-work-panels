@@ -1,0 +1,24 @@
+{% comment %}
+    bssw-event-url generate the URL for a specific event on the bssw.io site
+    arguments
+        title: title of event to generate the url for
+    outputs: 
+        bssw-event-url
+        bssw-event-path
+
+bssw-event-url is the full url
+bssw-event-path is just the final portion
+
+Note: requires site variables:
+    site.bssw-events-dir
+    site.bssw-base-url
+{% endcomment %}
+
+{% include require-variable var=site.bssw-events-dir varname="bssw-events-dir"
+   source="_config.yml" %}
+{% include require-variable var=site.bssw-base-url varname="bssw-base-url"
+   source="_config.yml" %}
+
+{%- assign bssw-event-path = include.title | slugify | prepend: "/" | prepend: site.bssw-events-dir -%}
+
+{% assign bssw-event-url = site.bssw-base-url | append: "/" | append: bssw-event-path %}

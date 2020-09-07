@@ -7,15 +7,14 @@ layout: default
 {% include require-variable var=page.title varname="title"
    source="panel front matter" %}
 
-{% include require-variable var=site.bssw-events-url varname="bssw-events-url"
-   source="config.yml" %}
-
 <!-- Construct things we need -->
 {%- assign wtitle = page.title | prepend: "Panel: " -%}
-<!-- This assumes BSSw.io uses the same slugification convention as Jekyll -->
-{%- assign wtslug = wtitle | slugify -%}
 
-<h2>Panel Entry for BSSw Monthly Digest</h2>
+{% include bssw-event-url title=wtitle %}
+
+<h2>Miscellaneous Information for BSSw Events</h2>
+
+<h3>Panel Entry for BSSw Monthly Digest</h3>
 
 <section style="border: 3px; border-style: solid; padding: 1em">
 <!-- ----- BEGIN ENTRY ----- -->
@@ -25,6 +24,13 @@ Online, in the panel series <em>Strategies for Working Remotely</em><br />
 <br />
 {{ content }}
 <br />
-<a href="{{ site.bssw-events-url }}/{{ wtslug }}" target="_blank">Event Information &gt;</a><br />
+<a href="{{ bssw-event-url }}" target="_blank">Event Information &gt;</a><br />
+<!-- ----- END ENTRY ----- -->
+</section>
+
+<h3>Entry for <a href="https://github.com/betterscientificsoftware/bssw.io/blob/master/Site/Homepage.md">Site/Homepage.md</a> Carousel</h3>
+<section style="border: 3px; border-style: solid; padding: 1em">
+<!-- ----- BEGIN ENTRY ----- -->
+Slide0 L: {{ bssw-event-path }}
 <!-- ----- END ENTRY ----- -->
 </section>

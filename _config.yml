@@ -150,9 +150,10 @@ ipo-anchor-template: "000"
 ecp-archive-url: https://www.exascaleproject.org/strategies-for-working-remotely/
 
 # URL for BSSw.io Events
-# Links for specific webinars are constructed from this URL by adding
+# Links for specific webinars are constructed from these elements by adding
 # the appropriate slug based on the title
-bssw-events-url: https://bssw.io/events
+bssw-base-url: https://bssw.io
+bssw-events-dir: events
 
 # URL for ECP training events
 # Links for specific webinars are constructed from this URL by adding

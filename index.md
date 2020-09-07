@@ -20,8 +20,6 @@ layout: home
     - [Table of Panels (LaTeX)](panel-table-latex.html) (Currently outdated)
 
 - Additional targets of interest
-  - Mailchimp emails
-  	- followup (archive)
   - Intro and followup slides for panel
     - Generate as web pages rather than pointpoint
   - ECP training page
