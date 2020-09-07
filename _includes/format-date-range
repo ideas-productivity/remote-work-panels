@@ -11,9 +11,17 @@
     end may not exist, in which case, render as a single time point rather
     than as a range.
 
-    If the range starts and ends on the same date, the time range is presented
-    in a manner that is not an ISO8601 interval, but will be more familiar and 
-    readable by most people. 
+    Formatting, depending on common elements of start/end time:
+    ! full-time
+        %F                                          (no end)
+        %F/%F
+    full-time
+        %A %F %l:%M%P %Z                            (no end)
+        %A %F %l:%M%P %Z through %A %F %l:%M%P %Z   (different dates)
+        %A %F %l:%M%P %Z-%l:%M%P %Z                 (different time zones)
+        %A %F %l:%M:%P-%l:%M%P %Z                   (different times)
+
+    Note that %F is ISO 8601 YYYY-MM-DD, and %l is the hour without leading zeros
  {% endcomment %}
 
 {% if include.full-time %}
