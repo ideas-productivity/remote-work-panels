@@ -33,6 +33,7 @@
     {% else %}
         {% assign end-zone = include.end | date: " %Z" %}
 
+<strong>Start zone = '{{ start-zone }}' End zone = '{{ end-zone }}'</strong><br>
         {% if start-zone != end-zone %}
             {% assign date-range = date-range | append: start-zone %}
         {% endif %}
