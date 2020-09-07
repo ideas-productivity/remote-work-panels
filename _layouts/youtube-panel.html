@@ -22,13 +22,8 @@ layout: none
    source="config.yml" %}
 
 <!-- Construct things that we need -->
-{% if page.event-id < 10 %}
-  {%- assign panel-number-filled = page.event-id | prepend: "00" -%}
-{% elsif page.event-id < 100 %}
-  {%- assign panel-number-filled = page.event-id | prepend: "0" -%}
-{% elsif page.event-id < 1000 %}
-  {%- assign panel-number-filled = page.event-id -%}
-{% endif %}			   
+{% include format-filled-number number=page.event-id template="000" %}
+{% assign event-id-filled = filled-number %}  
 
 {% for pid in page.panelist-ids %}
   {% if forloop.index > 1 %}
@@ -59,7 +54,7 @@ layout: none
 {% endfor %}
 			 
 {%- assign tfull = "Panel " -%}
-{%- assign tfull = tfull | append:  panel-number-filled -%}
+{%- assign tfull = tfull | append:  event-id-filled -%}
 {%- assign tfull = tfull | append: ": " -%}
 {%- assign tfull = tfull | append: page.title -%}
 

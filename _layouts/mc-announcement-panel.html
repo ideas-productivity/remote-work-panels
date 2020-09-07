@@ -11,6 +11,8 @@ layout: none
    source="webinar front matter" %}
 {% include require-variable var=page.event-id varname="event-id"
    source="webinar front matter" %}
+{% include require-variable var=page.event-type varname="event-type"
+   source="event front matter" %}
 {% include require-variable var=page.panelist-ids varname="panelist-ids"
    source="webinar front matter" %}
 {% include require-variable var=page.moderator-ids varname="moderator-ids"
@@ -28,13 +30,8 @@ layout: none
    source="_config.yml" %}
 
 <!-- Construct things that we need -->
-{% if page.event-id < 10 %}
-  {%- assign panel-number-filled = page.event-id | prepend: "00" -%}
-{% elsif page.event-id < 100 %}
-  {%- assign panel-number-filled = page.event-id | prepend: "0" -%}
-{% elsif page.event-id < 1000 %}
-  {%- assign panel-number-filled = page.event-id -%}
-{% endif %}		
+{% include format-filled-number number=page.event-id template="000" %}
+{% assign event-id-filled = filled-number %}
 
 {% if page.event-id < 10 %}
   {%- assign panel-anchor = page.event-id | prepend: "panel00" -%}
@@ -91,10 +88,10 @@ layout: none
 {% endif %}
 
 <h3>Audience Update Information</h3>
-<p><strong>Tag:</strong> panel{{ panel-number-filled}}-{{ page.ecp-abbreviation }}</p>
+<p><strong>Tag:</strong> {{ page.event-type }}{{ event-id-filled}}-{{ page.ecp-abbreviation }}</p>
 
 <h3>Campaign Information</h3>
-<p><strong>Name:</strong> panel{{ panel-number-filled }}-announcement</p>
+<p><strong>Name:</strong> {{ page.event-type }}{{ event-id-filled }}-announcement</p>
 <p><strong>To:</strong>
     <ul>
         <li><strong>Audience:</strong> <em>{{ site.mc-audience }}</em></li>

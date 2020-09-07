@@ -32,13 +32,8 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
 
 <!-- Construct things that we need --> 
-{% if page.event-id < 10 %}
-  {%- assign panel-number-filled = page.event-id | prepend: "00" -%}
-{% elsif page.event-id < 100 %}
-  {%- assign panel-number-filled = page.event-id | prepend: "0" -%}
-{% elsif page.event-id < 1000 %}
-  {%- assign panel-number-filled = page.event-id %}
-{% endif %}			   
+{% include format-filled-number number=page.event-id template="000" %}
+{% assign event-id-filled = filled-number %}
 
 {% if page.event-id < 10 %}
   {%- assign panel-anchor = page.event-id | prepend: "panel00" -%}
@@ -184,7 +179,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
 <ul>
 <!-- ----- BEGIN ENTRY ----- -->
-<li>Strategies for Working Remotely Panel {{ panel-number-filled }}: <strong><a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}">{{ page.title }}</a></strong> ({{ page.date | date: "%B, %Y" }})</li>
+<li>Strategies for Working Remotely Panel {{ event-id-filled }}: <strong><a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}">{{ page.title }}</a></strong> ({{ page.date | date: "%B, %Y" }})</li>
 <!-- ----- END ENTRY ----- -->
 {% endunless %}
 </ul>

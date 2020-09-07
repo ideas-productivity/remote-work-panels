@@ -1,0 +1,12 @@
+{% comment %}
+    format-filled-number: generate a filled numerical string
+    arguments
+        number: value to be zero-filled
+        template: string to be used as fill
+    output: filled-number
+
+ {% endcomment %}
+
+{% capture number-length %}{{ include.number | downcase | size }}{% endcapture %}
+{% assign template-need = include.template | size | minus: number-length %}
+{% assign filled-number = include.template | slice: 0, template-need | append: include.number %}
