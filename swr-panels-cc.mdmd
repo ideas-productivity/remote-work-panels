@@ -48,13 +48,7 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
 {% assign wdate = panel.date | date: "%s" %}
 {% if wdate > today %}{% continue %}{% endif %}
 
-{% if panel.event-id < 10 %}
-  {%- assign panel-anchor = panel.event-id | prepend: "#panel00" -%}
-{% elsif panel.event-id < 100 %}
-  {%- assign panel-anchor = panel.event-id | prepend: "#panel0" -%}
-{% elsif panel.event-id < 1000 %}
-  {%- assign panel-anchor = panel.event-id | prepend: "#panel" -%}
-{% endif %}			   
+{% include ipo-event-url event-id=panel.event-id %}
 
 {%- assign pstring = "" -%}
 {% for pid in panel.panelist-ids %}
@@ -70,7 +64,7 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
   {%- assign pstring = pstring | append: pafil -%}
 {% endfor %}
 
-- [*{{ panel.title }}*]({{ site.ipo-archive-url }}{{ panel-anchor}}), {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}, {{ panel.date | date: "%F" }}
+- [*{{ panel.title }}*]({{ ipo-event-url }}), {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}, {{ panel.date | date: "%F" }}
 {% endfor %}
 
 #### Contributed by [Elaine Raybourn](http://github.com/elaineraybourn "Elaine Raybourn GitHub Profile")
