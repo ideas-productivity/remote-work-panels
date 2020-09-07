@@ -1,8 +1,8 @@
 ---
 event-type: swr-panel
 event-id: 6
-date: 2020-09-22T15:00+0400
-end-date: "2020-09-22 16:15 +0400"
+date: 2020-09-20T15:00+0400
+end-date: 2020-09-20T16:15
 title: "How to Make Teams Tock"
 panelist-ids: [coffey-todd, lamb-justin, ray-navamita, shaw-ryan, shelton-tyler, shevitz-daniel, thorson-salome, velechovsky-jan]
 moderator-ids: [herring-angela, raybourn-elaine]
