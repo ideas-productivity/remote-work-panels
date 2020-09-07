@@ -15,11 +15,17 @@ layout: none
    source="webinar front matter" %}
 {% include require-variable var=page.moderator-ids varname="moderator-ids"
    source="webinar front matter" %}
+{% include require-variable var=page.ecp-abbreviation varname="ecp-abbreviation"
+   source="event front matter" %}
 
 {% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
-{% include require-variable var=site.youtube-title-max varname="youtube-title-max"
-   source="config.yml" %}
+{% include require-variable var=site.mc-audience varname="mc-audience"
+   source="_config.yml" %}
+{% include require-variable var=site.mc-from-name varname="mc-from-name"
+   source="_config.yml" %}
+{% include require-variable var=site.mc-from-email varname="mc-from-email"
+   source="_config.yml" %}
 
 <!-- Construct things that we need -->
 {% if page.event-id < 10 %}
@@ -91,31 +97,42 @@ layout: none
 <p><strong>Name:</strong> panel{{ panel-number-filled }}-announcement</p>
 <p><strong>To:</strong>
     <ul>
-        <li><strong>Audience:</strong> <em>IDEAS Productivity Announcements</em></li>
+        <li><strong>Audience:</strong> <em>{{ site.mc-audience }}</em></li>
         <li><strong>Segment or Tag:</strong> <em>All subscribers in audience</em></li>
         <li><strong>Personalize the "To" field:</strong> ✓</li>
     </ul>
 </p>
 <p><strong>From:</strong>
   <ul>
-      <li><strong>Name:</strong> IDEAS Project Outreach Lead</li>
-      <li><strong>Email address:</strong> IDEASProductivity@gmail.com</li>
+      <li><strong>Name:</strong> {{ site.mc-from-name }}</li>
+      <li><strong>Email address:</strong> {{ site.mc-from-email }}</li>
   </ul>
 </p>
 <p><strong>Subject:</strong> Upcoming panel discussion: {{ page.title }}</p>
 
 <h3>Content</h3>
 <p><strong>Title Block</strong><br>
-    <em>Note: Recommend setting font size for title (only) to 18pt</em>
+  <em>Recommended procedure: 
+  <ol>
+      <li>View HTML version of this page in browser using "view source" feature (often
+          ctrl-u, or via context (right-click) menu.</li>
+      <li>In MailChimp, open the block and go into HTML mode (`<>`).</li>
+      <li>Cut-and-paste HTML markup between BEGIN/END comment markers
+          into MailChimp editor.</li>
+  </ol>
+</em>
 </p>
 <section align="center" style="border: 3px; border-style: solid; padding: 1em">
-{{ page.title }}<br>
+<!-- ----- BEGIN TITLE BLOCK ----- -->
+  <div style="text-align: center;"><strong><span style="font-size:18px">{{ page.title }}</span><br>
 {% if page.end-date %}
   {{ page.date | date: "%l:%M%P"}}-{{ page.end-date | date: "%-l:%M%P" }} {{ page.date | date: "%Z"}}<br>
 {% else %}
   {{ page.date | date: "%l:%M%P %Z"}}<br>
 {% endif %}
 {{ page.date | date: "%A, %B %e, %Y"}}
+</strong></div>
+<!-- ----- END TITLE BLOCK ----- -->
 </section>
 
 <p><strong>Body Block</strong></p>

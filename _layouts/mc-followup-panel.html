@@ -6,20 +6,24 @@ layout: none
 <!-- Warn if any variables are missing -->
 
 {% include require-variable var=page.date varname="date"
-   source="webinar front matter" %}
+   source="event front matter" %}
 {% include require-variable var=page.title varname="title"
-   source="webinar front matter" %}
+   source="event front matter" %}
 {% include require-variable var=page.event-id varname="event-id"
-   source="webinar front matter" %}
-{% include require-variable var=page.panelist-ids varname="panelist-ids"
-   source="webinar front matter" %}
-{% include require-variable var=page.moderator-ids varname="moderator-ids"
-   source="webinar front matter" %}
+   source="event front matter" %}
+{% include require-variable var=page.survey-public-url varname="survey-public-url"
+   source="event front matter" %}
+{% include require-variable var=page.ecp-abbreviation varname="ecp-abbreviation"
+   source="event front matter" %}
 
 {% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
-   source="config.yml" %}
-{% include require-variable var=site.youtube-title-max varname="youtube-title-max"
-   source="config.yml" %}
+   source="_config.yml" %}
+{% include require-variable var=site.mc-audience varname="mc-audience"
+   source="_config.yml" %}
+{% include require-variable var=site.mc-from-name varname="mc-from-name"
+   source="_config.yml" %}
+{% include require-variable var=site.mc-from-email varname="mc-from-email"
+   source="_config.yml" %}
 
 <!-- Construct things that we need -->
 {% if page.event-id < 10 %}
@@ -38,52 +42,6 @@ layout: none
   {%- assign panel-anchor = page.event-id | prepend: "panel" -%}
 {% endif %}			  
 
-{% assign psize = page.panelist-ids | size %}
-{% if psize == 1 %}
-  {%- assign plabel = "Panelist:" -%}
-  {%- assign blabel = "Panelist Bio:" -%}
-{% else %}
-  {%- assign plabel = "Panelists:" -%}
-  {%- assign blabel = "Panelist Bios:" -%}
-{% endif %}
-
-{% if page.panelist-ids and page.panelist-ids != empty %}
-  {% for pid in page.panelist-ids %}
-    {%- assign p = site.people | where: "person-id", pid -%}
-    {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-    {%- assign pstring = pstring | append: "<li>" | append: pafil | append: "</li>" -%}
-
-    {% if p[0].content != empty %}
-      {% assign pbio = pbio | append: p[0].content | markdownify -%}
-    {% endif %}
-  {% endfor %}
-{% else %}
-  {% assign pstring = "<em>to be announced</em>" %}
-{% endif %}
-
-{% assign msize = page.moderator-ids | size %}
-{% if msize == 1 %}
-  {%- assign mlabel = "Moderator:" -%}
-  {%- assign mblabel = "Moderator Bio:" -%}
-{% else %}
-  {%- assign mlabel = "Moderators:" -%}
-  {%- assign mblabel = "Moderator Bios:" -%}
-{% endif %}
-
-{% if page.moderator-ids and page.moderator-ids != empty %}
-  {% for mid in page.moderator-ids %}
-    {%- assign m = site.people | where: "person-id", mid -%}
-    {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-    {%- assign mstring = mstring | append: "<li>" | append: mafil | append: "</li>" -%}
-
-    {% if m[0].content != empty %}
-      {% assign mbio = mbio | append: m[0].content | markdownify -%}
-    {% endif %}
-  {% endfor %}
-{% else %}
-  {% assign mstring = "<em>to be announced</em>" %}
-{% endif %}
-
 <h3>Audience Update Information</h3>
 <p><strong>Tag:</strong> panel{{ panel-number-filled}}-{{ page.ecp-abbreviation }}</p>
 
@@ -91,28 +49,43 @@ layout: none
 <p><strong>Name:</strong> panel{{ panel-number-filled }}-followup</p>
 <p><strong>To:</strong>
     <ul>
-        <li><strong>Audience:</strong> <em>IDEAS Productivity Announcements</em></li>
+        <li><strong>Audience:</strong> <em>{{ site.mc-audience }}</em></li>
         <li><strong>Segment or Tag:</strong> panel{{ panel-number-filled}}-{{ page.ecp-abbreviation }}</li>
         <li><strong>Personalize the "To" field:</strong> ✓</li>
     </ul>
 </p>
 <p><strong>From:</strong>
     <ul>
-        <li><strong>Name:</strong> IDEAS Project Outreach Lead</li>
-        <li><strong>Email address:</strong> IDEASProductivity@gmail.com</li>
+        <li><strong>Name:</strong> {{ site.mc-from-name }}</li>
+        <li><strong>Email address:</strong> {{ site.mc-from-email }}</li>
     </ul>
 </p>
 <p><strong>Subject:</strong> Panel recording available: {{ page.title }}</p>
 
 <h3>Content</h3>
 <p><strong>Title Block</strong><br>
-    <em>Note: Recommend setting font size for title (only) to 18pt</em>
+<em>Recommended procedure: 
+    <ol>
+        <li>View HTML version of this page in browser using "view source" feature (often
+            ctrl-u, or via context (right-click) menu.</li>
+        <li>In MailChimp, open the block and go into HTML mode (`<>`).</li>
+        <li>Cut-and-paste HTML markup between BEGIN/END comment markers
+            into MailChimp editor.</li>
+    </ol>
+</em>
 </p>
 <section align="center" style="border: 3px; border-style: solid; padding: 1em">
-<a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}">{{ page.title }}</a><br>
-Presented on {{ page.date | date: "%A, %B %e, %Y"}}
+<!-- ----- BEGIN TITLE BLOCK ----- -->
+<h2 class="null" style="text-align: center;">
+        <a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}" target="_blank"><span style="font-size:18px"><strong>{{ page.title }}</strong></span></a></h2>
+        <div style="text-align: center;"><strong>Presented on {{ page.date | date: "%A, %B %e, %Y"}}</strong></div>
+<!-- ----- END TITLE BLOCK ----- -->
 </section>
+
+<h2 class="null" style="text-align: center;"></h2>
 
 {% if page.survey-public-url %}
 <p><strong>Survey URL for feedback block: </strong> {{ page.survey-public-url }}</p>
+{% else %}
+<p><strong><em><font color="red">WARNING: public-survey-url not present.  Recommend modifying message template to remove reference to survey.</font></em></strong></p>
 {% endif %}

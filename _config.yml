@@ -29,40 +29,6 @@ url: "https://ideas-productivity.github.io" # the base hostname & protocol for y
 github_username:  ideas-productivity
 rss: rss
 
-# URL for the ideas-productivity.org archive page
-# Links for specific panels are constructed from this URL by adding
-# the appropriate anchor
-ipo-archive-url: https://ideas-productivity.org/events/strategies-for-working-remotely-panels/
-
-# URL for the ECP panel series page
-# This *cannot* be used as the basis of links to the ECP versions of these events.
-# For that you must use ecp-events-url.
-# But certain people like to see this URL
-ecp-archive-url: https://www.exascaleproject.org/strategies-for-working-remotely/
-
-# URL for BSSw.io Events
-# Links for specific webinars are constructed from this URL by adding
-# the appropriate slug based on the title
-bssw-events-url: https://bssw.io/events
-
-# URL for ECP training events
-# Links for specific webinars are constructed from this URL by adding
-# the abbreviation given in the webinar's front matter
-ecp-events-url: https://www.exascaleproject.org/event
-
-# URL for IDEAS Productivity Announcements mailing list signup
-ipo-subscription-url: https://us16.list-manage.com/subscribe?u=5438ff2caf2456f6ec49ebfbf&id=a7f7d33358
-
-# Maximum length of video titles supported by YouTube
-youtube-title-max: 100
-
-# Base URLs for watching and embedding YouTube videos
-youtube-watch-url: https://www.youtube.com/watch?v=
-youtube-embed-url: https://www.youtube.com/embed/
-
-# Base URL for GitHub profiles
-github-url: https://github.com/
-
 # Build settings
 theme: minima
 plugins:
@@ -167,5 +133,46 @@ defaults:
       type: "people"
     values:
       layout: "participant"
+
+# Addition information needed by various layouts
+
+# URL for the ideas-productivity.org archive page
+# Links for specific panels are constructed from this URL by adding
+# the appropriate anchor
+ipo-archive-url: https://ideas-productivity.org/events/strategies-for-working-remotely-panels/
+
+# URL for the ECP panel series page
+# This *cannot* be used as the basis of links to the ECP versions of these events.
+# For that you must use ecp-events-url.
+# But certain people like to see this URL
+ecp-archive-url: https://www.exascaleproject.org/strategies-for-working-remotely/
+
+# URL for BSSw.io Events
+# Links for specific webinars are constructed from this URL by adding
+# the appropriate slug based on the title
+bssw-events-url: https://bssw.io/events
+
+# URL for ECP training events
+# Links for specific webinars are constructed from this URL by adding
+# the abbreviation given in the webinar's front matter
+ecp-events-url: https://www.exascaleproject.org/event
+
+# URL for IDEAS Productivity Announcements mailing list signup
+ipo-subscription-url: https://us16.list-manage.com/subscribe?u=5438ff2caf2456f6ec49ebfbf&id=a7f7d33358
+
+# Maximum length of video titles supported by YouTube
+youtube-title-max: 100
+
+# Base URLs for watching and embedding YouTube videos
+youtube-watch-url: https://www.youtube.com/watch?v=
+youtube-embed-url: https://www.youtube.com/embed/
+
+# Base URL for GitHub profiles
+github-url: https://github.com/
+
+# MailChimp information
+mc-audience: "IDEAS Productivity Announcements"
+mc-from-name: "IDEAS Project Outreach Lead"
+mc-from-email: "IDEASProductivity@gmail.com"
 
 # End of file
