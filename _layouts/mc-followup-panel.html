@@ -31,13 +31,7 @@ layout: none
 {% include format-filled-number number=page.event-id template="000" %}
 {% assign event-id-filled = filled-number %}
 
-{% if page.event-id < 10 %}
-  {%- assign panel-anchor = page.event-id | prepend: "panel00" -%}
-{% elsif page.event-id < 100 %}
-  {%- assign panel-anchor = page.event-id | prepend: "panel0" -%}
-{% elsif page.event-id < 1000 %}
-  {%- assign panel-anchor = page.event-id | prepend: "panel" -%}
-{% endif %}			  
+{% include ipo-event-url event-id=page.event-id %}
 
 <h3>Audience Update Information</h3>
 <p><strong>Tag:</strong> {{ page.event-type }}{{ event-id-filled}}-{{ page.ecp-abbreviation }}</p>
@@ -74,7 +68,7 @@ layout: none
 <section align="center" style="border: 3px; border-style: solid; padding: 1em">
 <!-- ----- BEGIN TITLE BLOCK ----- -->
 <h2 class="null" style="text-align: center;">
-        <a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}" target="_blank"><span style="font-size:18px"><strong>{{ page.title }}</strong></span></a></h2>
+        <a href="{{ ipo-event-url}}" target="_blank"><span style="font-size:18px"><strong>{{ page.title }}</strong></span></a></h2>
         <div style="text-align: center;"><strong>Presented on {{ page.date | date: "%A, %B %e, %Y"}}</strong></div>
 <!-- ----- END TITLE BLOCK ----- -->
 </section>

@@ -140,6 +140,8 @@ defaults:
 # Links for specific panels are constructed from this URL by adding
 # the appropriate anchor
 ipo-archive-url: https://ideas-productivity.org/events/strategies-for-working-remotely-panels/
+ipo-anchor-label: "panel"
+ipo-anchor-template: "000"
 
 # URL for the ECP panel series page
 # This *cannot* be used as the basis of links to the ECP versions of these events.

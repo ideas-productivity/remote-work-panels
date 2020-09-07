@@ -1,0 +1,29 @@
+{% comment %}
+    ipo-event-url generate the URL for a specific event on the i-p.o site
+    arguments
+        event-id: id of the event to generate the url for
+    outputs: 
+        ipo-event-url
+        ipo-event-anchor
+
+ipo-event-url is the full url
+ipo-event-anchor is just the anchor portion
+
+Note: requires site variables:
+    site.ipo-archive-url
+    site.ipo-anchor-label
+    site.ipo-anchor-template
+{% endcomment %}
+
+{% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
+   source="config.yml" %}
+{% include require-variable var=site.ipo-anchor-label varname="ipo-anchor-label"
+   source="config.yml" %}
+{% include require-variable var=site.ipo-anchor-template varname="ipo-anchor-template"
+   source="config.yml" %}
+
+{% include format-filled-number number=include.event-id template=site.ipo-anchor-template %}
+
+{% assign ipo-event-anchor = site.ipo-anchor-label | append: filled-number %}
+
+{% assign ipo-event-url = site.ipo-archive-url | append: "#" | append: ipo-event-anchor %}

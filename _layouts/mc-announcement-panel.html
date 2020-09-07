@@ -33,13 +33,7 @@ layout: none
 {% include format-filled-number number=page.event-id template="000" %}
 {% assign event-id-filled = filled-number %}
 
-{% if page.event-id < 10 %}
-  {%- assign panel-anchor = page.event-id | prepend: "panel00" -%}
-{% elsif page.event-id < 100 %}
-  {%- assign panel-anchor = page.event-id | prepend: "panel0" -%}
-{% elsif page.event-id < 1000 %}
-  {%- assign panel-anchor = page.event-id | prepend: "panel" -%}
-{% endif %}			  
+{% include ipo-event-url event-id=page.event-id %} 
 
 {% assign psize = page.panelist-ids | size %}
 {% if psize == 1 %}
@@ -156,5 +150,5 @@ layout: none
 <p><strong>Recordings of Previous Events Slug</strong><br>
 <em>Note: This information is used in announcements of <em>future</em> panels. Not the current one.</em></p>
 <section style="border: 3px; border-style: solid; padding: 1em">
-<ul><li><a href="{{ site.ipo-archive-url }}#{{ panel-anchor}}">{{ page.title }}</a> ({{ page.date | date: "%F" }})</li></ul>
+<ul><li><a href="{{ ipo-event-url }}">{{ page.title }}</a> ({{ page.date | date: "%F" }})</li></ul>
 </section>

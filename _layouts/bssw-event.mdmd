@@ -16,14 +16,7 @@ layout: none
 {% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
 
-{% comment %}-- Construct things that we need --{% endcomment %}
-{% if page.event-id < 10 %}
-  {%- assign panel-anchor = page.event-id | prepend: "#panel00" -%}
-{% elsif page.event-id < 100 %}
-  {%- assign panel-anchor = page.event-id | prepend: "#panel0" -%}
-{% elsif page.event-id < 1000 %}
-  {%- assign panel-anchor = page.event-id | prepend: "#panel" -%}
-{% endif %}			   
+{% include ipo-event-url event-id=page.event-id %} 
 
 <!-- Note: this label does NOT include the trailing colon -->
 {% assign psize = page.panelist-ids | size %}
@@ -111,7 +104,7 @@ layout: none
 
 - Date: {{ page.date | date: "%F" }}
 - Location: Online
-- Event Website: {{ site.ipo-archive-url }}{{ panel-anchor}}
+- Event Website: {{ ipo-event-url }}
 - Organizers: The IDEAS Productivity Project
 			   
 This event is a part of the "Strategies for Working Remotely" 

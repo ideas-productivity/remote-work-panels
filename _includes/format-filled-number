@@ -9,4 +9,4 @@
 
 {% capture number-length %}{{ include.number | downcase | size }}{% endcapture %}
 {% assign template-need = include.template | size | minus: number-length %}
-{% assign filled-number = include.template | slice: 0, template-need | append: include.number %}
+{% assign filled-number = include.template | slice: 0, template-need | append: include.number %}    
