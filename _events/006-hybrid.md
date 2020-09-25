@@ -7,6 +7,7 @@ title: "Sustainable Hybrid Approaches"
 #panelist-ids: [coffey-todd, lamb-justin, ray-navamita, shaw-ryan, shelton-tyler, shevitz-daniel, thorson-salome, velechovsky-jan]
 moderator-ids: [barker-ashley, heroux-mike, raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsceuuqjwpHDZxnfzizxflgQvrIlr5lm4
+#registration-url-ipo: https://bit.ly/366iLeN
 ecp-abbreviation: strategies-for-working-remotely-panel-series-hybrid
 vtc-url: https://exascaleproject.zoomgov.com/w/1616264736?tk=SNSbQz9A5z_BXBOMw7fc0kknyBB-D9biZ6gFArAvAYI.DQIAAAAAYFY-IBZ0RFFvZEV4aVF1YVYwVWpBY2VSN25BAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 vtc-session: "161 626 4736"
