@@ -8,8 +8,8 @@ title: "Sustainable Hybrid Approaches"
 moderator-ids: [barker-ashley, heroux-mike, raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsceuuqjwpHDZxnfzizxflgQvrIlr5lm4
 ecp-abbreviation: strategies-for-working-remotely-panel-series-hybrid
-#vtc-url: https://exascaleproject.zoomgov.com/w/1613015327?tk=wAePAJtmf5luduRLIoVFhQ-8MI1AwKMs2ijgpNqx04c.DQIAAAAAYCSpHxZWaGo3NjhYbVRTNnJJZmY4eXlHQ1ZnAAAAAAAAAAAAAAAAAAAAAAAAAAAA&pwd=KzJxMTkxeEQwZEhaZEpNNzJpQ0FLUT09
-#vtc-session: "161 301 5327"
+vtc-url: https://exascaleproject.zoomgov.com/w/1616264736?tk=SNSbQz9A5z_BXBOMw7fc0kknyBB-D9biZ6gFArAvAYI.DQIAAAAAYFY-IBZ0RFFvZEV4aVF1YVYwVWpBY2VSN25BAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+vtc-session: "161 626 4736"
 #survey-public-url: https://www.surveymonkey.com/r/95ML8Q5
 #archives:
 #  - label: Recording
