@@ -4,7 +4,7 @@ event-id: 6
 date: 2020-10-29T15:00-400
 end-date: 2020-10-29T16:15
 title: "Sustainable Hybrid Approaches"
-#panelist-ids: [coffey-todd, lamb-justin, ray-navamita, shaw-ryan, shelton-tyler, shevitz-daniel, thorson-salome, velechovsky-jan]
+panelist-ids: [antypas-katie, bernholdt-david, miller-mark, nam-haiah, taylor-valerie]
 moderator-ids: [barker-ashley, heroux-mike, raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsceuuqjwpHDZxnfzizxflgQvrIlr5lm4
 #registration-url-ipo: https://bit.ly/366iLeN
