@@ -11,7 +11,7 @@ registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsceuuq
 ecp-abbreviation: strategies-for-working-remotely-panel-series-hybrid
 vtc-url: https://exascaleproject.zoomgov.com/w/1616264736?tk=SNSbQz9A5z_BXBOMw7fc0kknyBB-D9biZ6gFArAvAYI.DQIAAAAAYFY-IBZ0RFFvZEV4aVF1YVYwVWpBY2VSN25BAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 vtc-session: "161 626 4736"
-#survey-public-url: https://www.surveymonkey.com/r/95ML8Q5
+survey-public-url: https://www.surveymonkey.com/r/NSL3WJG
 #archives:
 #  - label: Recording
 #    format: YouTube
