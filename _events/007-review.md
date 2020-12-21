@@ -7,7 +7,6 @@ title: "Year in Review: What Have We Learned So Far?"
 panelist-ids: [diachin-lori, evans-thomas, raybourn-elaine]
 moderator-ids: [barker-ashley]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsdOGqrj0tGZISJDOBjibYOzOm52nqbLw
-#registration-url-ipo: https://bit.ly/366iLeN
 ecp-abbreviation: strategies-for-working-remotely-panel-series-2020-review
 vtc-url: https://exascaleproject.zoomgov.com/w/1613820673?tk=gCF-xebRzQ67fc4Nnv4WvzNeRM72wvI8x1jInfIveqk.DQIAAAAAYDDzARZBMWpfcGt5RVNmZVhjX3lacHZtZDJRAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 vtc-session: "161 382 0673"
