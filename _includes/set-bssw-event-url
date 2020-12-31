@@ -1,5 +1,5 @@
 {% comment %}
-    bssw-event-url generate the URL for a specific event on the bssw.io site
+    set-bssw-event-url generate the URL for a specific event on the bssw.io site
     arguments
         title: title of event to generate the url for
     outputs: 
