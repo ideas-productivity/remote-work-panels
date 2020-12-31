@@ -86,7 +86,7 @@ layout: none
   {% assign mstring = "*to be announced*" %}
 {% endif %}
 
-{% include format-date-range full-time=true start=page.date end=page.end-date %}
+{% include set-date-range full-time=true start=page.date end=page.end-date %}
 
 # Panel: {{ page.title }}
 
