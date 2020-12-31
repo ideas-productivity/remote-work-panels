@@ -18,6 +18,11 @@ layout: home
 
 {{ item.event-id }}\. **{{ item.title }}** ({{ item.date | date: "%F" }})
 
+{% if item.archives %}
+  {% include validate-artifact name='archives' artifacts=item.archives
+    url_or_note=true url_xor_note=false require_format=true %}
+{% endif %}
+
 {% include event-attributes-table event=item %}
 
 *Formats* | [Web]({{ site.baseurl }}{{ item.url }}) | [BSSw Event]({{ site.baseurl }}{{ be[0].url }}) | [BSSw Miscellaneous]({{ site.baseurl }}{{ bed[0].url }}) | [i-p.o WordPress]({{ site.baseurl }}{{ ipo[0].url }})
