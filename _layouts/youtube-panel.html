@@ -52,10 +52,7 @@ layout: default
   {%- assign mstring = mstring | append: mafil -%}
 {% endfor %}
 			 
-{%- assign tfull = "Panel " -%}
-{%- assign tfull = tfull | append:  event-id-filled -%}
-{%- assign tfull = tfull | append: ": " -%}
-{%- assign tfull = tfull | append: page.title -%}
+{%- assign tfull = "Panel " | append:  event-id-filled | append: ": " | append: page.title -%}
 
 {% assign tlength = tfull | size %}
 

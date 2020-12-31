@@ -10,6 +10,6 @@
     * If number is longer than template, it will emit number
  {% endcomment %}
 
-{% capture number-length %}{{ include.number | downcase | size }}{% endcapture %}
-{% assign template-need = include.template | size | minus: number-length %}
-{{ include.template | slice: 0, template-need | append: include.number }} 
+{%- capture number-length %}{{ include.number | downcase | size }}{% endcapture -%}
+{%- assign template-need = include.template | size | minus: number-length -%}
+{{- include.template | slice: 0, template-need | append: include.number | strip -}}
