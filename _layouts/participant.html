@@ -26,19 +26,10 @@ layout: default
 
 
 {% assign asize = page.affiliations | size %}
-{% if asize == 1 %}
-  {%- assign alabel = "Affiliation:" -%}
-{% else %}
-  {%- assign alabel = "Affiliations:" -%}
-{% endif %}
+{% capture alabel %}{% include emit-plural text="Affiliation" count=asize %}{% endcapture %}
 
 {% assign pasize = page.past-affiliations | size %}
-{% if pasize == 1 %}
-  {%- assign palabel = "Past Affiliation:" -%}
-{% else %}
-  {%- assign palabel = "Past Affiliations:" -%}
-{% endif %}
-
+{% capture palabel %}{% include emit-plural text="Past Affiliation" count=pasize %}{% endcapture %}
 
 <section>
   <h3><strong>{{ page.firstname }} {{page.lastname }}</strong>
@@ -50,14 +41,14 @@ layout: default
   {% endif %}
 
   {% if page.affiliations %}
-    <p><strong>{{ alabel }}</strong>
+    <p><strong>{{ alabel }}:</strong>
       {{ page.affiliations | array_to_sentence_string | markdownify |
         remove: "<p>" | remove: "</p>" | lstrip | rstrip }}
     </p>
   {% endif %}
 
   {% if page.past-affiliations %}
-    <p><strong>{{ palabel }}</strong>
+    <p><strong>{{ palabel }}:</strong>
       {{ page.past-affiliations | array_to_sentence_string | markdownify |
         remove: "<p>" | remove: "</p>" | lstrip | rstrip }}
     </p>

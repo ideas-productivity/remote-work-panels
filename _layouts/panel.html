@@ -24,13 +24,8 @@ layout: default
 
 <!-- Construct things we need --> 
 {% assign psize = page.panelist-ids | size %}
-{% if psize == 1 %}
-  {%- assign plabel = "Panelist:" -%}
-  {%- assign blabel = "Panelist Bio:" -%}
-{% else %}
-  {%- assign plabel = "Panelists:" -%}
-  {%- assign blabel = "Panelist Bios:" -%}
-{% endif %}
+{% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
+{% capture blabel %}{% include emit-plural text="Panelist Bio" count=psize %}{% endcapture %}
 
 {% if page.panelist-ids and page.panelist-ids != empty %}
   {% for pid in page.panelist-ids %}
@@ -47,13 +42,8 @@ layout: default
 {% endif %}
 
 {% assign msize = page.moderator-ids | size %}
-{% if msize == 1 %}
-  {%- assign mlabel = "Moderator:" -%}
-  {%- assign mblabel = "Moderator Bio:" -%}
-{% else %}
-  {%- assign mlabel = "Moderators:" -%}
-  {%- assign mblabel = "Moderator Bios:" -%}
-{% endif %}
+{% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
+{% capture mblabel %}{% include emit-plural text="Moderator Bio" count=msize %}{% endcapture %}
 
 {% if page.moderator-ids and page.moderator-ids != empty %}
   {% for mid in page.moderator-ids %}
@@ -85,14 +75,14 @@ layout: default
   <ul>
     <li style="margin-top: 1em"><strong>Date:</strong> {{ date-range }}</li>
     {% if pstring %}
-      <li style="margin-top: 1em"><strong>{{ plabel }}</strong>
+      <li style="margin-top: 1em"><strong>{{ plabel }}:</strong>
 	<ul>
           {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 	</ul>
       </li>
     {% endif %}
     {% if mstring %}
-    <li style="margin-top: 1em"><strong>{{ mlabel }}</strong>
+    <li style="margin-top: 1em"><strong>{{ mlabel }}:</strong>
 	<ul>
           {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 	</ul>
@@ -124,12 +114,12 @@ layout: default
   {% endfor %}
 
   {% if pbio %}
-    <strong style="margin-top: 1em">{{ blabel }}</strong>
+    <strong style="margin-top: 1em">{{ blabel }}:</strong>
     {{ pbio }}
   {% endif %}    
 
   {% if mbio %}
-    <strong style="margin-top: 1em">{{ mblabel }}</strong>
+    <strong style="margin-top: 1em">{{ mblabel }}:</strong>
     {{ mbio }}
   {% endif %}    
 </section>

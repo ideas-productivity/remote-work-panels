@@ -37,13 +37,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 {% include ipo-event-url event-id=page.event-id %} 
 
 {% assign psize = page.panelist-ids | size %}
-{% if psize == 1 %}
-  {%- assign plabel = "Panelist:" -%}
-  {%- assign blabel = "Panelist Bio:" -%}
-{% else %}
-  {%- assign plabel = "Panelists:" -%}
-  {%- assign blabel = "Panelist Bios:" -%}
-{% endif %}
+{% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
 
 {% if page.panelist-ids and page.panelist-ids != empty %}
   {% for pid in page.panelist-ids %}
@@ -60,13 +54,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 {% endif %}
 
 {% assign msize = page.moderator-ids | size %}
-{% if msize == 1 %}
-  {%- assign mlabel = "Moderator:" -%}
-  {%- assign mblabel = "Moderator Bio:" -%}
-{% else %}
-  {%- assign mlabel = "Moderators:" -%}
-  {%- assign mblabel = "Moderator Bios:" -%}
-{% endif %}
+{% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
 
 {% if page.moderator-ids and page.moderator-ids != empty %}
   {% for mid in page.moderator-ids %}
@@ -109,14 +97,14 @@ Cut-and-paste into Wordpress as appropriate.</em>
   {%- endif -%}
 
     {% if pstring %}
-      <li style="margin-top: 1em"><strong>{{ plabel }}</strong>
+      <li style="margin-top: 1em"><strong>{{ plabel }}:</strong>
 	<ul>
           {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 	</ul>
       </li>
     {% endif %}
     {% if mstring %}
-      <li style="margin-top: 1em"><strong>{{ mlabel }}</strong>
+      <li style="margin-top: 1em"><strong>{{ mlabel }}:</strong>
 	<ul>
           {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 	</ul>
