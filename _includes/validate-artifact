@@ -1,0 +1,41 @@
+{%- comment-%}
+  validate-artifact-sequence: validate that a YAML 'artifact' sequence contains the expected information
+
+  arguments:
+    `name`: a string containing the the name of the artifact variable, for use in error messages
+    `artifacts`: is a sequence containing the artifact information
+    `url_or_note`: boolean indicating that entries are required to have either a url or a note, or both
+    `url_xor_note`: boolean indicating that entries may have EITHER a url OR a note, but NOT BOTH
+    `require_format`: boolean indicating that the format component must be present
+    Booleans default to false if argument is not provided
+
+  Expected data structure
+    artifacts:
+      - label:
+        url: or yt-video-id: (optional)
+        note: (optional)
+        format: (optional)
+
+  Notes: 
+  * the labels define the elements, so we don't test for them
+  * we treat yt-video-id like url
+  * we can't actually validate the urls themselves, just that something is present
+ {%- endcomment-%}
+
+{%- for i in include.artifacts -%}
+  {%- assign base-error-string = "validate-artifact: " | append: include.name | append: " element '" | append: i.label -%}
+  {%- assign has_url=false -%}
+  {%- if i.yt-video-id or i.url -%}{%- assign has_url=true -%}{%- endif -%}
+  {%- if include.url_xor_note and has_url and i.note -%}
+    {%- assign error-string = base-error-string | append: "' cannot have both a url and a note" -%}
+    {%- include error-message msg=error-string -%}
+  {%- endif -%}
+  {%- if include.url_or_note -%}{%- unless has_url or i.note -%}
+    {%- assign error-string = base-error-string | append: "' requires either a url or a note" -%}
+    {%- include error-message msg=error-string -%}
+  {%- endunless -%}{%- endif -%}
+  {%- unless include.dont_require_format -%}{%- unless i.format -%}
+    {%- assign error-string = base-error-string | append: "' requires a format" -%}
+    {%- include error-message msg=error-string -%}
+  {%- endunless-%}{%- endunless -%}
+{%- endfor -%}
