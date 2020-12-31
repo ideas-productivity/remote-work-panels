@@ -113,7 +113,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
     {% if page.archives %}
     <li style="margin-top: 1em"><strong>Artifacts:</strong>
-      {% include format-artifact-row artifacts=page.archives 
+      {% include emit-artifact-row.html artifacts=page.archives 
         yt-url=site.youtube-watch-url %}
     </li>
     {% else %}{% unless upcoming %}
