@@ -21,17 +21,17 @@
 {% assign ready-for-event = true %}
 
 {% unless include.event.ecp-abbreviation %}
-   {% include error-message msg="ecp-abbreviation not present" %}
+   {% include  emit-error.html msg="ecp-abbreviation not present" %}
    {% assign ready-for-event = false %}
 {% endunless %}
 
 {% unless include.event.vtc-url %}
-   {% include error-message msg="vtc-url not present" %}
+   {% include  emit-error.html msg="vtc-url not present" %}
    {% assign ready-for-event = false %}
 {% endunless %}
 
 {% unless include.event.vtc-session %}
-   {% include error-message msg="vtc-session not present" %}
+   {% include  emit-error.html msg="vtc-session not present" %}
    {% assign ready-for-event = false %}
 {% endunless %}
 
@@ -39,12 +39,12 @@
 {% if  include.event.event-type == "hpcbp-webinar" %}
 
    {% unless include.event.qa-public-url %}
-      {% include error-message msg="qa-public-url not present" %}
+      {% include  emit-error.html msg="qa-public-url not present" %}
       {% assign ready-for-event = false %}
    {% endunless %}
 
    {% unless include.event.survey-public-url %}
-      {% include error-message msg="survey-public-url not present" %}
+      {% include  emit-error.html msg="survey-public-url not present" %}
       {% assign ready-for-event = false %}
    {% endunless %}
 
@@ -58,6 +58,6 @@
    {% endcomment %}
    {% if include.event.event-type != empty %}
       {% assign error-string = "ready-for-event: unknown event-type: " | append: include.event.event-type %}
-	 {% include error-message msg=error-string %}
+	 {% include  emit-error.html msg=error-string %}
    {% endif %}
 {% endif %}

@@ -23,27 +23,27 @@
 {% assign ready-to-advertise = true %}
 
 {% unless include.event.event-type %}
-   {% include error-message msg="event-type not present" %}
+   {% include  emit-error.html msg="event-type not present" %}
    {% assign ready-to-advertise = false %}
 {% endunless %}
 
 {% unless include.event.event-id %}
-   {% include error-message msg="event-id not present" %}
+   {% include  emit-error.html msg="event-id not present" %}
    {% assign ready-to-advertise = false %}
 {% endunless %}
 
 {% unless include.event.title %}
-   {% include error-message msg="title not present" %}
+   {% include  emit-error.html msg="title not present" %}
    {% assign ready-to-advertise = false %}
 {% endunless %}
 
 {% unless include.event.date %}
-   {% include error-message msg="date not present" %}
+   {% include  emit-error.html msg="date not present" %}
    {% assign ready-to-advertise = false %}
 {% endunless %}
 
 {% unless include.event.registration-url %}
-   {% include error-message msg="registration-url not present" %}
+   {% include  emit-error.html msg="registration-url not present" %}
    {% assign ready-to-advertise = false %}
 {% endunless %}
 
@@ -51,7 +51,7 @@
 {% if  include.event.event-type == "hpcbp-webinar" %}
 
    {% unless include.event.presenter-ids %}
-      {% include error-message msg="presenter-ids not present" %}
+      {% include  emit-error.html msg="presenter-ids not present" %}
       {% assign ready-to-advertise = false %}
    {% endunless %}
 
@@ -59,12 +59,12 @@
 {% elsif  include.event.event-type == "swr-panel" %}
 
    {% unless include.event.panelist-ids %}
-      {% include error-message msg="panelist-ids not present" %}
+      {% include  emit-error.html msg="panelist-ids not present" %}
       {% assign ready-to-advertise = false %}
    {% endunless %}
 
    {% unless include.event.moderator-ids %}
-      {% include error-message msg="moderator-ids not present" %}
+      {% include  emit-error.html msg="moderator-ids not present" %}
       {% assign ready-to-advertise = false %}
    {% endunless %}
 {% else %}
@@ -74,6 +74,6 @@
    {% endcomment %}
    {% if include.event.event-type != empty %}
       {% assign error-string = "ready-to-advertise: unknown event-type: " | append: include.event.event-type %}
-	 {% include error-message msg=error-string %}
+	 {% include  emit-error.html msg=error-string %}
    {% endif %}
 {% endif %}

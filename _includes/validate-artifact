@@ -28,14 +28,14 @@
   {%- if i.yt-video-id or i.url -%}{%- assign has_url=true -%}{%- endif -%}
   {%- if include.url_xor_note and has_url and i.note -%}
     {%- assign error-string = base-error-string | append: "' cannot have both a url and a note" -%}
-    {%- include error-message msg=error-string -%}
+    {%- include  emit-error.html msg=error-string -%}
   {%- endif -%}
   {%- if include.url_or_note -%}{%- unless has_url or i.note -%}
     {%- assign error-string = base-error-string | append: "' requires either a url or a note" -%}
-    {%- include error-message msg=error-string -%}
+    {%- include  emit-error.html msg=error-string -%}
   {%- endunless -%}{%- endif -%}
   {%- unless include.dont_require_format -%}{%- unless i.format -%}
     {%- assign error-string = base-error-string | append: "' requires a format" -%}
-    {%- include error-message msg=error-string -%}
+    {%- include  emit-error.html msg=error-string -%}
   {%- endunless-%}{%- endunless -%}
 {%- endfor -%}

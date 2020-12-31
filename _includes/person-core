@@ -16,21 +16,21 @@
 {% assign person-core = true %}
 
 {% unless include.person.person-id %}
-   {% include error-message msg="person-id not present" %}
+   {% include  emit-error.html msg="person-id not present" %}
    {% assign person-core = false %}
 {% endunless %}
 
 {% unless include.person.lastname %}
-   {% include error-message msg="lastname not present" %}
+   {% include  emit-error.html msg="lastname not present" %}
    {% assign person-core = false %}
 {% endunless %}
 
 {% unless include.person.firstname %}
-   {% include error-message msg="firstname not present" %}
+   {% include  emit-error.html msg="firstname not present" %}
    {% assign person-core = false %}
 {% endunless %}
 
 {% unless include.person.affiliations %}
-   {% include error-message msg="affiliations not present" %}
+   {% include  emit-error.html msg="affiliations not present" %}
    {% assign person-core = false %}
 {% endunless %}
