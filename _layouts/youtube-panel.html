@@ -22,8 +22,7 @@ layout: default
    source="config.yml" %}
 
 <!-- Construct things that we need -->
-{% include format-filled-number number=page.event-id template="000" %}
-{% assign event-id-filled = filled-number %}  
+{%- capture event-id-filled -%}{%- include emit-filled-number number=page.event-id template="000" -%}{%- endcapture -%}
 
 {% for pid in page.panelist-ids %}
   {% if forloop.index > 1 %}

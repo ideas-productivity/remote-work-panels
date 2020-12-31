@@ -22,8 +22,8 @@ Note: requires site variables:
 {% include require-variable var=site.ipo-anchor-template varname="ipo-anchor-template"
    source="config.yml" %}
 
-{% include format-filled-number number=include.event-id template=site.ipo-anchor-template %}
+{%- capture new-filled-number -%}{%- include emit-filled-number number=include.event-id template=site.ipo-anchor-template -%}{%- endcapture -%}
 
-{% assign ipo-event-anchor = site.ipo-anchor-label | append: filled-number %}
+{% assign ipo-event-anchor = site.ipo-anchor-label | append: new-filled-number %}
 
 {% assign ipo-event-url = site.ipo-archive-url | append: "#" | append: ipo-event-anchor %}

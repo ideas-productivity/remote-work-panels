@@ -28,8 +28,7 @@ layout: default
    source="_config.yml" %}
 
 <!-- Construct things that we need -->
-{% include format-filled-number number=page.event-id template="000" %}
-{% assign event-id-filled = filled-number %}
+{%- capture event-id-filled -%}{%- include emit-filled-number number=page.event-id template="000" -%}{%- endcapture -%}
 
 {% include ipo-event-url event-id=page.event-id %}
 
