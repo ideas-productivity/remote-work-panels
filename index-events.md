@@ -29,6 +29,12 @@ layout: home
   {% include emit-error.html msg="panelist-ids missing" %}
 {% endif %}
 
+{% if item.moderator-ids %}
+  {% include validate-person-ids type="moderator" pids=item.moderator-ids people=site.people %}
+{% else %}
+  {% include emit-error.html msg="moderator-ids missing" %}
+{% endif %}
+
 {% include event-attributes-table event=item %}
 
 *Formats* | [Web]({{ site.baseurl }}{{ item.url }}) | [BSSw Event]({{ site.baseurl }}{{ be[0].url }}) | [BSSw Miscellaneous]({{ site.baseurl }}{{ bed[0].url }}) | [i-p.o WordPress]({{ site.baseurl }}{{ ipo[0].url }})
