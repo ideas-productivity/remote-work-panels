@@ -1,0 +1,13 @@
+{% comment %}
+  emit-person-content: emit the content in the given person records
+
+  arguments:
+    `pids`: an array of person-ids to be used as keys
+    `people`: an array of people records
+{% endcomment %}
+
+{%- for pid in include.pids -%}
+  {%- assign p = include.people | where: "person-id", pid -%}
+   {%- if p==Nil -%}{%- include emit-error.html msg="no match for panelist!" -%}{%- continue -%}{%- endif -%}
+    {{ p[0].content | markdownify }}
+{%- endfor -%}

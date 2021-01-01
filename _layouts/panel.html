@@ -27,40 +27,9 @@ layout: default
 {% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
 {% capture blabel %}{% include emit-plural text="Panelist Bio" count=psize %}{% endcapture %}
 
-{% if page.panelist-ids and page.panelist-ids != empty %}
-  {% for pid in page.panelist-ids %}
-    {%- assign p = site.people | where: "person-id", pid -%} 
-    {% if p==Nil %}{% include emit-error.html msg="no match for panelist!" %}{% continue %}{% endif %}
-    {%- capture pafil -%}{% include emit-name-affiliation person=p %}{%- endcapture -%}
-    {%- assign pstring = pstring | append: "<li>" | append: pafil | append: "</li>" -%}
-
-    {% if p[0].content != empty %}
-      {% assign pbio = pbio | append: p[0].content | markdownify -%}
-    {% endif %}
-  {% endfor %}
-{% else %}
-  {% assign pstring = "<em>to be announced</em>" %}
-{% endif %}
-
 {% assign msize = page.moderator-ids | size %}
 {% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
 {% capture mblabel %}{% include emit-plural text="Moderator Bio" count=msize %}{% endcapture %}
-
-{% if page.moderator-ids and page.moderator-ids != empty %}
-  {% for mid in page.moderator-ids %}
-    {%- assign m = site.people | where: "person-id", mid -%}
-    {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-    {%- assign mstring = mstring | append: "<li>" | append: mafil | append: "</li>" -%}
-
-    {% if m[0].content != empty %}
-      {% assign mbio = mbio | append: m[0].content | markdownify -%}
-    {% endif %}
-  {% endfor %}
-{% else %}
-  {% assign mstring = "<em>to be announced</em>" %}
-{% endif %}
-
-
 
 {% if upcoming %}<h2>Upcoming Panel</h2>{% else %}<h2>Panel Details</h2>{% endif %}
 
@@ -112,13 +81,15 @@ layout: default
     {% endif %}
   {% endfor %}
 
-  {% if pbio %}
+  {%- capture bios -%}{%- include emit-person-content pids=page.panelist-ids people=site.people -%}{%- endcapture -%}
+  {%- if bios -%}
     <strong style="margin-top: 1em">{{ blabel }}:</strong>
-    {{ pbio }}
-  {% endif %}    
+    {{ bios }}
+  {%- endif -%}
 
-  {% if mbio %}
+  {%- capture bios -%}{%- include emit-person-content pids=page.moderator-ids people=site.people -%}{%- endcapture -%}
+  {%- if bios -%}
     <strong style="margin-top: 1em">{{ mblabel }}:</strong>
-    {{ mbio }}
-  {% endif %}    
+    {{ bios }}
+  {%- endif -%}
 </section>

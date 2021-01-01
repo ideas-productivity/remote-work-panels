@@ -1,0 +1,26 @@
+{% comment %}
+  set-gh-profile-links-array: create an array with the GitHub profile links from each person's record
+
+  arguments:
+    `pids`: an array of person-ids to be used as keys
+    `people`: an array of people records
+    `gh_base_url`: Base URL fr GitHub profile links
+  output:
+    gh_profile_links_array
+
+  Expected elements of person structure
+    lastname (string)
+    firstname (string)
+    github-id (string)
+
+  Notes:
+  * If there is no github-id in a record, the array element will contain just the name, no link markup
+{% endcomment %}
+
+{%- assign gh_profile_links_array = "" | split: "," -%}
+{%- for pid in include.pids -%}
+  {%- assign p = include.people | where: "person-id", pid -%}
+  {%- if p==Nil -%}{%- include emit-error.html msg="no match for panelist!" -%}{%- continue -%}{%- endif -%}
+  {%- capture plink -%}{%- include emit-gh-profile-link.md person=p gh_base_url=include.gh_base_url-%}{%- endcapture -%}
+  {%- assign gh_profile_links_array = gh_profile_links_array | push: plink -%}
+{%- endfor -%}

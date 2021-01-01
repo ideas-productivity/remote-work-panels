@@ -37,38 +37,8 @@ layout: default
 {% assign psize = page.panelist-ids | size %}
 {% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
 
-{% comment %}
-{% if page.panelist-ids and page.panelist-ids != empty %}
-  {% for pid in page.panelist-ids %}
-    {%- assign p = site.people | where: "person-id", pid -%}
-    {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-    {%- assign pstring = pstring | append: "<li>" | append: pafil | append: "</li>" -%}
-
-    {% if p[0].content != empty %}
-      {% assign pbio = pbio | append: p[0].content | markdownify -%}
-    {% endif %}
-  {% endfor %}
-{% else %}
-  {% assign pstring = "<em>to be announced</em>" %}
-{% endif %}
-{% endcomment %}
-
 {% assign msize = page.moderator-ids | size %}
 {% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
-
-{% if page.moderator-ids and page.moderator-ids != empty %}
-  {% for mid in page.moderator-ids %}
-    {%- assign m = site.people | where: "person-id", mid -%}
-    {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-    {%- assign mstring = mstring | append: "<li>" | append: mafil | append: "</li>" -%}
-
-    {% if m[0].content != empty %}
-      {% assign mbio = mbio | append: m[0].content | markdownify -%}
-    {% endif %}
-  {% endfor %}
-{% else %}
-  {% assign mstring = "<em>to be announced</em>" %}
-{% endif %}
 
 <h3>Audience Update Information</h3>
 <p><strong>Tag:</strong> {{ page.event-type }}{{ event-id-filled}}-{{ page.ecp-abbreviation }}</p>
