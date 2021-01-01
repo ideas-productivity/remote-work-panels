@@ -29,8 +29,9 @@ layout: default
 
 {% if page.panelist-ids and page.panelist-ids != empty %}
   {% for pid in page.panelist-ids %}
-    {%- assign p = site.people | where: "person-id", pid -%}
-    {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
+    {%- assign p = site.people | where: "person-id", pid -%} 
+    {% if p==Nil %}{% include emit-error.html msg="no match for panelist!" %}{% continue %}{% endif %}
+    {%- capture pafil -%}{% include emit-name-affiliation person=p %}{%- endcapture -%}
     {%- assign pstring = pstring | append: "<li>" | append: pafil | append: "</li>" -%}
 
     {% if p[0].content != empty %}
@@ -74,20 +75,18 @@ layout: default
   </h3> 
   <ul>
     <li style="margin-top: 1em"><strong>Date:</strong> {{ date-range }}</li>
-    {% if pstring %}
       <li style="margin-top: 1em"><strong>{{ plabel }}:</strong>
 	<ul>
-          {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+    {% include emit-name-affiliation-li.html pids=page.panelist-ids people=site.people 
+      if_empty="<em>to be announced</em>" %}
 	</ul>
       </li>
-    {% endif %}
-    {% if mstring %}
     <li style="margin-top: 1em"><strong>{{ mlabel }}:</strong>
 	<ul>
-          {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+    {% include emit-name-affiliation-li.html pids=page.moderator-ids people=site.people 
+      if_empty="<em>to be announced</em>" %}
 	</ul>
       </li>
-    {% endif %}
 
     {% if page.archives %}
     <li style="margin-top: 1em"><strong>Artifacts:</strong>

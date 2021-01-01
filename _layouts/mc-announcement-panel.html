@@ -37,6 +37,7 @@ layout: default
 {% assign psize = page.panelist-ids | size %}
 {% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
 
+{% comment %}
 {% if page.panelist-ids and page.panelist-ids != empty %}
   {% for pid in page.panelist-ids %}
     {%- assign p = site.people | where: "person-id", pid -%}
@@ -50,6 +51,7 @@ layout: default
 {% else %}
   {% assign pstring = "<em>to be announced</em>" %}
 {% endif %}
+{% endcomment %}
 
 {% assign msize = page.moderator-ids | size %}
 {% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
@@ -115,19 +117,17 @@ layout: default
 
 <p><strong>Body Block</strong></p>
 <section style="border: 3px; border-style: solid; padding: 1em">
-{% if pstring %}
 <strong>{{ plabel }}:</strong>
 <ul>
-    {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+  {% include emit-name-affiliation-li.html pids=page.panelist-ids people=site.people 
+    if_empty="<em>to be announced</em>" %}
 </ul>
-{% endif %}
 
-{% if mstring %}
 <strong>{{ mlabel }}:</strong>
 <ul>
-    {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+  {% include emit-name-affiliation-li.html pids=page.moderator-ids people=site.people 
+    if_empty="<em>to be announced</em>" %}
 </ul>
-{% endif %}
 
 <strong>Abstract:</strong> {{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}
 </section>

@@ -23,6 +23,12 @@ layout: home
     url_or_note=true url_xor_note=false require_format=true %}
 {% endif %}
 
+{% if item.panelist-ids %}
+  {% include validate-person-ids type="panelist" pids=item.panelist-ids people=site.people %}
+{% else %}
+  {% include emit-error.html msg="panelist-ids missing" %}
+{% endif %}
+
 {% include event-attributes-table event=item %}
 
 *Formats* | [Web]({{ site.baseurl }}{{ item.url }}) | [BSSw Event]({{ site.baseurl }}{{ be[0].url }}) | [BSSw Miscellaneous]({{ site.baseurl }}{{ bed[0].url }}) | [i-p.o WordPress]({{ site.baseurl }}{{ ipo[0].url }})

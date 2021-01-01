@@ -40,31 +40,17 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
 ## Past Panels
 *Listed in reverse chronological order. Last updated: {{ "now" | date: "%F" }}*
 
-{% assign today = 'now' | date: "%s" %}
+{%- assign today = 'now' | date: "%s" -%}
 
-{% assign sequence = site.events | sort: "event-id" | reverse %}
-{% for panel in sequence %}
+{%- assign sequence = site.events | sort: "event-id" | reverse -%}
+{%- for panel in sequence -%}
 
-{% assign wdate = panel.date | date: "%s" %}
-{% if wdate > today %}{% continue %}{% endif %}
+{%- assign wdate = panel.date | date: "%s" -%}
+{%- if wdate > today -%}{%- continue -%}{%- endif -%}
 
-{% include ipo-event-url event-id=panel.event-id %}
+{%- include ipo-event-url event-id=panel.event-id -%}
 
-{%- assign pstring = "" -%}
-{% for pid in panel.panelist-ids %}
-  {% if forloop.index > 1 %}
-    {% assign pstring = pstring | append: ", " %}
-    {% if forloop.last %}
-      {% assign pstring = pstring | append: " and " %}
-    {% endif %}
-  {% endif %}
-
-  {%- assign p = site.people | where: "person-id", pid -%}
-  {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-  {%- assign pstring = pstring | append: pafil -%}
-{% endfor %}
-
-- [*{{ panel.title }}*]({{ ipo-event-url }}), {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}, {{ panel.date | date: "%F" }}
+- [*{{ panel.title }}*]({{ ipo-event-url }}), {% include emit-name-affiliation-string pids=panel.panelist-ids people=site.people %}, {{ panel.date | date: "%F" }}
 {% endfor %}
 
 #### Contributed by [Elaine Raybourn](http://github.com/elaineraybourn "Elaine Raybourn GitHub Profile")

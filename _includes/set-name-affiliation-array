@@ -1,0 +1,22 @@
+{% comment %}
+  set-name-affiliation-array: create an array with the name and affiliation from each person's record
+
+  arguments:
+    `pids`: an array of person-ids to be used as keys
+    `people`: an array of people records
+  output:
+    name_affiliation_array
+
+  Expected elements of person structure
+    lastname (string)
+    firstname (string)
+    affiliations (array)
+{% endcomment %}
+
+{%- assign name_affiliation_array = "" | split: "," -%}
+{%- for pid in include.pids -%}
+  {%- assign p = include.people | where: "person-id", pid -%}
+  {%- if p==Nil -%}{%- include emit-error.html msg="no match for panelist!" -%}{%- continue -%}{%- endif -%}
+  {%- capture pafil -%}{%- include emit-name-affiliation person=p -%}{%- endcapture -%}
+  {%- assign name_affiliation_array = name_affiliation_array | push: pafil -%}
+{%- endfor -%}

@@ -23,40 +23,18 @@ layout: default
 
 <!-- Construct things that we need -->
 {%- capture event-id-filled -%}{%- include emit-filled-number number=page.event-id template="000" -%}{%- endcapture -%}
-
-{% for pid in page.panelist-ids %}
-  {% if forloop.index > 1 %}
-    {% assign pstring = pstring | append: ", " %}
-    {% if forloop.last %}
-      {% assign pstring = pstring | append: " and " %}
-    {% endif %}
-  {% endif %}
-
-  {%- assign p = site.people | where: "person-id", pid -%}
-  {% unless p[0] %}<p><strong><em><font color="red">ERROR: no match for presenter-id {{ pid }}</font></em></strong></p>{% endunless %}
-  {%- capture pafil -%}{{ p[0].firstname }} {{ p[0].lastname }} ({{- p[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-  {%- assign pstring = pstring | append: pafil -%}
-{% endfor %}
-
-{% for mid in page.moderator-ids %}
-  {% if forloop.index > 1 %}
-    {% assign mstring = mstring | append: ", " %}
-    {% if forloop.last %}
-      {% assign mstring = mstring | append: " and " %}
-    {% endif %}
-  {% endif %}
-
-  {%- assign m = site.people | where: "person-id", mid -%}
-  {% unless m[0] %}<p><strong><em><font color="red">ERROR: no match for presenter-id {{ pid }}</font></em></strong></p>{% endunless %}
-  {%- capture mafil -%}{{ m[0].firstname }} {{ m[0].lastname }} ({{- m[0].affiliations | array_to_sentence_string | lstrip | rstrip -}}){%- endcapture -%}
-  {%- assign mstring = mstring | append: mafil -%}
-{% endfor %}
 			 
 {%- assign tfull = "Panel " | append:  event-id-filled | append: ": " | append: page.title -%}
 
 {% assign tlength = tfull | size %}
 
 {% include set-date-range full-time=false start=page.date end=page.end-date %}
+
+{% assign psize = page.panelist-ids | size %}
+{% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
+
+{% assign msize = page.moderator-ids | size %}
+{% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
 
 <h3>Basic Tab</h3>
 
@@ -76,9 +54,9 @@ layout: default
 {% if tlength > site.youtube-title-max %}
 Full title: {{ page.title }}<br>
 {% endif %}
-Panelist(s): {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}<br>
+{{ plabel }}: {% include emit-name-affiliation-string pids=page.panelist-ids people=site.people if_empty="<em>to be announced</em>" %}<br>
 <br>
-Moderator(s): {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}<br>
+{{ mlabel }}: {% include emit-name-affiliation-string pids=page.moderator-ids people=site.people if_empty="<em>to be announced</em>" %}<br>
 <br>
 Presented on: {{ date-range }}<br>
 <br>

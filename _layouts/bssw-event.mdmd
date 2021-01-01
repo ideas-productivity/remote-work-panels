@@ -104,8 +104,10 @@ Resource Information | Details
 :--- | :---			   
 Panel Title | {{ page.title }}
 Date and Time | {{ date-range}} 
-{{ plabel }} | {{ pstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
-{{ mlabel }} | {{ mstring | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+{{ plabel }} | {% include emit-name-affiliation-string pids=page.panelist-ids people=site.people 
+      if_empty="<em>to be announced</em>" %}
+{{ mlabel }} | {% include emit-name-affiliation-string pids=page.moderator-ids people=site.people 
+      if_empty="<em>to be announced</em>" %}
 Registration Link | 	<{{ page.registration-url }}>
 Series Information and Archives | <{{ site.ipo-archive-url }}> or<br><{{ site.ecp-archive-url }}>
 

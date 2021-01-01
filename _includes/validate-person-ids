@@ -1,0 +1,20 @@
+{%- comment-%}
+  validate-person-ids: validate that an array of person-ids has actual records behind it
+
+  arguments:
+    `type`: string identifying the type of person-ids for the error message (e.g., "presenter", "panelist", or "moderator")
+    `pids`: an array of person-ids to be validated
+    `people`: an array of people to compare against
+
+  Note: this validates only the *existence* of the person's record, not its content
+ {%- endcomment-%}
+
+{% for pid in include.pids %}
+  {% assign p = include.people | where: "person-id", pid %}
+  {% unless p[0] %}
+    {%- capture error-string -%}
+      validate-person-ids: no record for {{ include.type }} person-id '{{ pid }}'.
+      {%- endcapture -%}
+    {% include emit-error.html msg=error-string %}
+  {% endunless %}
+{% endfor %}
