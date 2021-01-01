@@ -15,15 +15,15 @@ Note: requires site variables:
     site.ipo-anchor-template
 {% endcomment %}
 
-{% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
-   source="config.yml" %}
-{% include require-variable var=site.ipo-anchor-label varname="ipo-anchor-label"
-   source="config.yml" %}
-{% include require-variable var=site.ipo-anchor-template varname="ipo-anchor-template"
-   source="config.yml" %}
+{%- include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
+   source="config.yml" -%}
+{%- include require-variable var=site.ipo-anchor-label varname="ipo-anchor-label"
+   source="config.yml" -%}
+{%- include require-variable var=site.ipo-anchor-template varname="ipo-anchor-template"
+   source="config.yml" -%}
 
 {%- capture new-filled-number -%}{%- include emit-filled-number number=include.event-id template=site.ipo-anchor-template -%}{%- endcapture -%}
 
-{% assign ipo-event-anchor = site.ipo-anchor-label | append: new-filled-number %}
+{%- assign ipo-event-anchor = site.ipo-anchor-label | append: new-filled-number -%}
 
-{% assign ipo-event-url = site.ipo-archive-url | append: "#" | append: ipo-event-anchor %}
+{%- assign ipo-event-url = site.ipo-archive-url | append: "#" | append: ipo-event-anchor -%}
