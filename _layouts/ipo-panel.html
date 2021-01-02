@@ -10,6 +10,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 {% include upcoming-event event=page.date %}
 {% include set-date-range full-time=upcoming start=page.date end=page.end-date %}
 
+{%- comment -%}
 <!-- Warn if any variables are missing -->
 
 {% include require-variable var=page.date varname="date"
@@ -29,6 +30,7 @@ Cut-and-paste into Wordpress as appropriate.</em>
 
 {% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
+{%- endcomment -%}
 
 <!-- Construct things that we need --> 
 {%- capture event-id-filled -%}{%- include emit-filled-number number=page.event-id template="000" -%}{%- endcapture -%}

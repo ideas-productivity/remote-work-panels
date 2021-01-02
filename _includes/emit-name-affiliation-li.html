@@ -21,3 +21,5 @@
   {% assign name_affiliation_array = name_affiliation_array | push: include.if_empty %}
 {% endif %}
 {% if name_affiliation_array != empty %}{{ name_affiliation_array | join: "</li><li>" | prepend: "<li>" }}{% endif %}
+{%- comment -%}Clean up internal variables{%- endcomment -%}
+{%- assign name_affiliation_array = nil -%}

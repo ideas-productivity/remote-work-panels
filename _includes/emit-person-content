@@ -8,6 +8,10 @@
 
 {%- for pid in include.pids -%}
   {%- assign p = include.people | where: "person-id", pid -%}
-   {%- if p==Nil -%}{%- include emit-error.html msg="no match for panelist!" -%}{%- continue -%}{%- endif -%}
+  {%- comment -%} If the person-id is not in people, skip it{%- endcomment -%}
+  {%- unless p[0] -%}{%- continue -%}{%- endunless -%}
     {{ p[0].content | markdownify }}
 {%- endfor -%}
+{%- comment -%}Clean up internal variables{%- endcomment -%}
+{%- assign pid = nil -%}
+{%- assign p = nil -%}

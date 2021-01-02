@@ -5,7 +5,7 @@ layout: default
 {% include set-date-range full-time=upcoming start=page.date end=page.end-date %}
 
 <!-- Warn if any variables are missing -->
-
+{%- comment -%}
 {% include require-variable var=page.date varname="date"
    source="panel front matter" %}
 {% include require-variable var=page.title varname="title"
@@ -20,7 +20,7 @@ layout: default
   {% include require-variable var=page.registration-url varname="registration-url"
      source="panel front matter" %}
 {% endif %}
-
+{%- endcomment -%}
 
 <!-- Construct things we need --> 
 {% assign psize = page.panelist-ids | size %}
@@ -82,13 +82,13 @@ layout: default
   {% endfor %}
 
   {%- capture bios -%}{%- include emit-person-content pids=page.panelist-ids people=site.people -%}{%- endcapture -%}
-  {%- if bios -%}
+  {%- if bios !=  empty -%}
     <strong style="margin-top: 1em">{{ blabel }}:</strong>
     {{ bios }}
   {%- endif -%}
 
   {%- capture bios -%}{%- include emit-person-content pids=page.moderator-ids people=site.people -%}{%- endcapture -%}
-  {%- if bios -%}
+  {%- if bios != empty -%}
     <strong style="margin-top: 1em">{{ mblabel }}:</strong>
     {{ bios }}
   {%- endif -%}

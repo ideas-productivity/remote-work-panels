@@ -19,3 +19,5 @@
   {%- assign name_affiliation_array = name_affiliation_array | push: include.if_empty -%}
 {%- endif -%}
 {%- if name_affiliation_array != empty -%}{{ name_affiliation_array | array_to_sentence_string }}{%- endif -%}
+{%- comment -%}Clean up internal variables{%- endcomment -%}
+{%- assign name_affiliation_array = nil -%}

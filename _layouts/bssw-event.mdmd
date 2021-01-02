@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% comment %}-- Warn if any variables are missing --{% endcomment %}
+{% comment %}-- Warn if any variables are missing --
 {% include require-variable var=page.date varname="date"
    source="panel front matter" %}
 {% include require-variable var=page.title varname="title"
@@ -15,6 +15,7 @@ layout: none
 
 {% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
+{% endcomment %}
 
 {% include ipo-event-url event-id=page.event-id %} 
 
@@ -57,18 +58,25 @@ Series Information and Archives | <{{ site.ipo-archive-url }}> or<br><{{ site.ec
 {{ page.content}}
 
 {%- capture bios -%}{%- include emit-person-content pids=page.panelist-ids people=site.people -%}{%- endcapture -%}
-{%- if bios -%}
+{%- if bios != empty -%}
 ### {{ blabel }}
 {{ bios }}
 {%- endif -%}
 
 {%- capture bios -%}{%- include emit-person-content pids=page.moderator-ids people=site.people -%}{%- endcapture -%}
-{%- if bios -%}
+{%- if bios != empty -%}
 ### {{ mblabel }}
 {{ bios }}
 {%- endif -%}
 
-{%- assign contributors = page.panelist-ids | concat: page.moderator-ids | uniq -%}
+{%- if page.panelist-ids -%}
+   {%- assign contributors = page.panelist-ids -%}
+{%- else -%}
+   {%- assign contributors = "" -%}
+{%- endif -%}
+{% if page.moderator-ids -%}
+   {%- assign contributors = contributors | concat: page.moderator-ids | uniq -%}
+{%- endif -%}
 {%- include set-gh-profile-links-array pids=contributors people=site.people gh_base_url=site.github-url -%}
 #### Contributed by {{ gh_profile_links_array | array_to_sentence_string }}
 

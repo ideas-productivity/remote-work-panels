@@ -3,6 +3,7 @@ layout: default
 ---
 <h2>Content for MailChimp Announcement Message</h2>			 
 
+{%- comment -%}
 <!-- Warn if any variables are missing -->
 
 {% include require-variable var=page.date varname="date"
@@ -28,6 +29,7 @@ layout: default
    source="_config.yml" %}
 {% include require-variable var=site.mc-from-email varname="mc-from-email"
    source="_config.yml" %}
+{%- endcomment -%}
 
 <!-- Construct things that we need -->
 {%- capture event-id-filled -%}{%- include emit-filled-number number=page.event-id template="000" -%}{%- endcapture -%}

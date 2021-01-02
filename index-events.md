@@ -25,14 +25,10 @@ layout: home
 
 {% if item.panelist-ids %}
   {% include validate-person-ids type="panelist" pids=item.panelist-ids people=site.people %}
-{% else %}
-  {% include emit-error.html msg="panelist-ids missing" %}
 {% endif %}
 
 {% if item.moderator-ids %}
   {% include validate-person-ids type="moderator" pids=item.moderator-ids people=site.people %}
-{% else %}
-  {% include emit-error.html msg="moderator-ids missing" %}
 {% endif %}
 
 {% include event-attributes-table event=item %}

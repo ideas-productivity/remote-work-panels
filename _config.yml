@@ -178,4 +178,12 @@ mc-audience: "IDEAS Productivity Announcements"
 mc-from-name: "IDEAS Project Outreach Lead"
 mc-from-email: "IDEASProductivity@gmail.com"
 
+# Useful for debugging and quality assurance
+# Note: setting strict_variables turns out not to be so useful
+# because use of undefined variables is common (i.e., checking
+# to see if they've been defined)
+liquid:
+  error_mode: strict
+  strict_filters: true
+
 # End of file
