@@ -78,7 +78,7 @@ Series Information and Archives | <{{ site.ipo-archive-url }}> or<br><{{ site.ec
    {%- assign contributors = contributors | concat: page.moderator-ids | uniq -%}
 {%- endif -%}
 {%- include set-gh-profile-links-array pids=contributors people=site.people gh_base_url=site.github-url -%}
-#### Contributed by {{ gh_profile_links_array | array_to_sentence_string }}
+#### Contributed by {{ gh_profile_links_array | join: ", " }}
 
 <!---
 Publish: yes
