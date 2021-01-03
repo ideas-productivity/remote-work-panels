@@ -1,0 +1,13 @@
+{% comment %}
+  array-to-li.html: emit a series of HTML list items based the contents of an array
+
+  arguments:
+    `array`: an array strings
+    `if_empty`: alternate text to return if array is empty
+
+  Note: generates only the <li></li> themselves, not the enclosing <ul></ul> or <ol></ol>
+{% endcomment %}
+
+{%- if include.array and include.array != empty -%}
+{{ name_affiliation_array | join: "</li><li>" | prepend: "<li>" }}
+{%- elsif include.if_empty -%}{{- include.if_empty -}}{%- endif -%}

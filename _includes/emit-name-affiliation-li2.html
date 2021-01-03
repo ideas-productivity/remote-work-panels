@@ -1,0 +1,25 @@
+{% comment %}
+  emit-name-affiliation-li: emit a series of HTML list items based on a set of person-ids
+
+  arguments:
+    `pids`: an array of person-ids to be used as keys
+    `people`: an array of people records
+    `if_empty`: alternate text to return if there are no (valid) pids
+
+  Expected elements of person structure
+    lastname (string)
+    firstname (string)
+    affiliations (array)
+
+  Note: only the <li></li> themselves, not the enclosing <ul></ul> or <ol></ol>
+{% endcomment %}
+
+{% assign name_affiliation_array = "" | split: "," %}
+{% if include.people and include.people != empty %}
+  {% include set-name-affiliation-array2 people=include.people %}
+{% elsif include.if_empty %}
+  {% assign name_affiliation_array = name_affiliation_array | push: include.if_empty %}
+{% endif %}
+{% if name_affiliation_array != empty %}{{ name_affiliation_array | join: "</li><li>" | prepend: "<li>" }}{% endif %}
+{%- comment -%}Clean up internal variables{%- endcomment -%}
+{%- assign name_affiliation_array = nil -%}

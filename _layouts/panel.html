@@ -23,11 +23,23 @@ layout: default
 {%- endcomment -%}
 
 <!-- Construct things we need --> 
-{% assign psize = page.panelist-ids | size %}
+
+{% include extract-array-subset key="person-id" values=page.panelist-ids source=site.people %}
+{% include set-name-affiliation-array people=extract_subset_array %}
+{% capture pnamafil %}{% include array-to-li.html array=name_affiliation_array 
+  if_empty="<em>to be announced</em>" %}{% endcapture %}
+{% capture pbios %}{% include emit-array-content.html array=extract_subset_array %}{% endcapture %}
+{% assign psize = extract_subset_array | size %}
 {% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
 {% capture blabel %}{% include emit-plural text="Panelist Bio" count=psize %}{% endcapture %}
 
-{% assign msize = page.moderator-ids | size %}
+{% include extract-array-subset key="person-id" values=page.moderator-ids source=site.people %}
+{% include set-name-affiliation-array people=extract_subset_array %}
+{% assign moderator_name_affiliations = name_affiliation_array %}
+{% capture mnamafil %}{% include array-to-li.html array=name_affiliation_array 
+  if_empty="<em>to be announced</em>" %}{% endcapture %}
+{% capture mbios %}{% include emit-array-content.html array=extract_subset_array %}{% endcapture %}
+{% assign msize = extract_subset_array | size %}
 {% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
 {% capture mblabel %}{% include emit-plural text="Moderator Bio" count=msize %}{% endcapture %}
 
@@ -46,14 +58,12 @@ layout: default
     <li style="margin-top: 1em"><strong>Date:</strong> {{ date-range }}</li>
       <li style="margin-top: 1em"><strong>{{ plabel }}:</strong>
 	<ul>
-    {% include emit-name-affiliation-li.html pids=page.panelist-ids people=site.people 
-      if_empty="<em>to be announced</em>" %}
+    {{ pnamafil }}
 	</ul>
       </li>
     <li style="margin-top: 1em"><strong>{{ mlabel }}:</strong>
 	<ul>
-    {% include emit-name-affiliation-li.html pids=page.moderator-ids people=site.people 
-      if_empty="<em>to be announced</em>" %}
+    {{ mnamafil }}
 	</ul>
       </li>
 
@@ -81,15 +91,13 @@ layout: default
     {% endif %}
   {% endfor %}
 
-  {%- capture bios -%}{%- include emit-person-content pids=page.panelist-ids people=site.people -%}{%- endcapture -%}
-  {%- if bios !=  empty -%}
+  {%- if pbios !=  empty -%}
     <strong style="margin-top: 1em">{{ blabel }}:</strong>
-    {{ bios }}
+    {{ pbios }}
   {%- endif -%}
 
-  {%- capture bios -%}{%- include emit-person-content pids=page.moderator-ids people=site.people -%}{%- endcapture -%}
-  {%- if bios != empty -%}
+  {%- if mbios !=  empty -%}
     <strong style="margin-top: 1em">{{ mblabel }}:</strong>
-    {{ bios }}
+    {{ mbios }}
   {%- endif -%}
 </section>

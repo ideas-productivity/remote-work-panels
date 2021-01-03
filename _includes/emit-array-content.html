@@ -1,0 +1,13 @@
+{% comment %}
+  emit-array-content.html: emit the content in the given array
+
+  arguments:
+    `array`: an array of content
+
+  Notes:
+  * Content is markdownified (i.e., converted to HTML)
+{% endcomment %}
+
+{%- for p in include.array -%}
+    {{ p[0].content | markdownify }}
+{%- endfor -%}

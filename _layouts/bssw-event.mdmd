@@ -19,13 +19,28 @@ layout: none
 
 {% include ipo-event-url event-id=page.event-id %} 
 
-{% assign psize = page.panelist-ids | size %}
+{% include extract-array-subset key="person-id" values=page.panelist-ids source=site.people %}
+{% include set-name-affiliation-array people=extract_subset_array %}
+{% capture pnamafil %}{% include array-to-sentence array=name_affiliation_array 
+  if_empty="<em>to be announced</em>" %}{% endcapture %}
+{% capture pbios %}{% include emit-array-content.html array=extract_subset_array %}{% endcapture %}
+{% assign psize = extract_subset_array | size %}
 {% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
 {% capture blabel %}{% include emit-plural text="Panelist Bio" count=psize %}{% endcapture %}
+{% include set-gh-profile-links-array people=extract_subset_array gh_base_url=site.github-url -%}
+{% assign contributor_gh_profile_links = gh_profile_links_array %}
 
-{% assign msize = page.moderator-ids | size %}
+{% include extract-array-subset key="person-id" values=page.moderator-ids source=site.people %}
+{% include set-name-affiliation-array people=extract_subset_array %}
+{% assign moderator_name_affiliations = name_affiliation_array %}
+{% capture mnamafil %}{% include array-to-sentence array=name_affiliation_array 
+  if_empty="<em>to be announced</em>" %}{% endcapture %}
+{% capture mbios %}{% include emit-array-content.html array=extract_subset_array %}{% endcapture %}
+{% assign msize = extract_subset_array | size %}
 {% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
 {% capture mblabel %}{% include emit-plural text="Moderator Bio" count=msize %}{% endcapture %}
+{% include set-gh-profile-links-array people=extract_subset_array gh_base_url=site.github-url -%}
+{% assign contributor_gh_profile_links = contributor_gh_profile_links | concat: gh_profile_links_array %}
 
 {% include set-date-range full-time=true start=page.date end=page.end-date %}
 
@@ -45,10 +60,8 @@ Resource Information | Details
 :--- | :---			   
 Panel Title | {{ page.title }}
 Date and Time | {{ date-range}} 
-{{ plabel }} | {% include emit-name-affiliation-string pids=page.panelist-ids people=site.people 
-      if_empty="<em>to be announced</em>" %}
-{{ mlabel }} | {% include emit-name-affiliation-string pids=page.moderator-ids people=site.people 
-      if_empty="<em>to be announced</em>" %}
+{{ plabel }} | {{ pnamafil }}
+{{ mlabel }} | {{ mnamafil }}
 Registration Link | 	<{{ page.registration-url }}>
 Series Information and Archives | <{{ site.ipo-archive-url }}> or<br><{{ site.ecp-archive-url }}>
 
@@ -57,28 +70,17 @@ Series Information and Archives | <{{ site.ipo-archive-url }}> or<br><{{ site.ec
 ### Abstract
 {{ page.content}}
 
-{%- capture bios -%}{%- include emit-person-content pids=page.panelist-ids people=site.people -%}{%- endcapture -%}
-{%- if bios != empty -%}
+{%- if pbios != empty -%}
 ### {{ blabel }}
-{{ bios }}
+{{ pbios }}
 {%- endif -%}
 
-{%- capture bios -%}{%- include emit-person-content pids=page.moderator-ids people=site.people -%}{%- endcapture -%}
-{%- if bios != empty -%}
+{%- if mbios != empty -%}
 ### {{ mblabel }}
-{{ bios }}
+{{ mbios }}
 {%- endif -%}
 
-{%- if page.panelist-ids -%}
-   {%- assign contributors = page.panelist-ids -%}
-{%- else -%}
-   {%- assign contributors = "" -%}
-{%- endif -%}
-{% if page.moderator-ids -%}
-   {%- assign contributors = contributors | concat: page.moderator-ids | uniq -%}
-{%- endif -%}
-{%- include set-gh-profile-links-array pids=contributors people=site.people gh_base_url=site.github-url -%}
-#### Contributed by {{ gh_profile_links_array | join: ", " }}
+#### Contributed by {{ contributor_gh_profile_links | join: ", " }}
 
 <!---
 Publish: yes
