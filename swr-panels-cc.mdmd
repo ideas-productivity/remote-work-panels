@@ -5,29 +5,6 @@ layout: none
 {% include require-variable var=site.ipo-archive-url varname="ipo-archive-url"
    source="config.yml" %}
 
-{% include extract-array-subset key="person-id" values=panel.panelist-ids source=site.people %}
-{% include set-name-affiliation-array people=extract_subset_array %}
-{% capture pnamafil %}{% include array-to-sentence array=name_affiliation_array 
-  if_empty="<em>to be announced</em>" %}{% endcapture %}
-{% capture pbios %}{% include emit-array-content.html array=extract_subset_array %}{% endcapture %}
-{% assign psize = extract_subset_array | size %}
-{% capture plabel %}{% include emit-plural text="Panelist" count=psize %}{% endcapture %}
-{% capture blabel %}{% include emit-plural text="Panelist Bio" count=psize %}{% endcapture %}
-{% include set-gh-profile-links-array people=extract_subset_array gh_base_url=site.github-url -%}
-{% assign contributor_gh_profile_links = gh_profile_links_array %}
-
-{% include extract-array-subset key="person-id" values=panel.moderator-ids source=site.people %}
-{% include set-name-affiliation-array people=extract_subset_array %}
-{% assign moderator_name_affiliations = name_affiliation_array %}
-{% capture mnamafil %}{% include array-to-sentence array=name_affiliation_array 
-  if_empty="<em>to be announced</em>" %}{% endcapture %}
-{% capture mbios %}{% include emit-array-content.html array=extract_subset_array %}{% endcapture %}
-{% assign msize = extract_subset_array | size %}
-{% capture mlabel %}{% include emit-plural text="Moderator" count=msize %}{% endcapture %}
-{% capture mblabel %}{% include emit-plural text="Moderator Bio" count=msize %}{% endcapture %}
-{% include set-gh-profile-links-array people=extract_subset_array gh_base_url=site.github-url -%}
-{% assign contributor_gh_profile_links = contributor_gh_profile_links | concat: gh_profile_links_array %}
-
 # {{ site.title }}
 
 In response to the COVID-19 pandemic and need for many in our
@@ -63,17 +40,19 @@ The panel series is produced by the [IDEAS Productivity Project](https://ideas-p
 ## Past Panels
 *Listed in reverse chronological order. Last updated: {{ "now" | date: "%F" }}*
 
-{%- assign today = 'now' | date: "%s" -%}
-
-{%- assign sequence = site.events | sort: "event-id" | reverse -%}
-{%- for panel in sequence -%}
+{% assign today = 'now' | date: "%s" %}
+{% assign sequence = site.events | sort: "event-id" | reverse %}
+{% for panel in sequence %}
 
 {%- assign wdate = panel.date | date: "%s" -%}
 {%- if wdate > today -%}{%- continue -%}{%- endif -%}
-
 {%- include ipo-event-url event-id=panel.event-id -%}
+{%- include extract-array-subset key="person-id" values=panel.panelist-ids source=site.people -%}
+{%- include set-name-affiliation-array people=extract_subset_array -%}
+{%- capture pnamafil -%}{%- include array-to-sentence array=name_affiliation_array 
+  if_empty="<em>to be announced</em>" -%}{%- endcapture -%}
 
-- [*{{ panel.title }}*]({{ ipo-event-url }}), {{ pnamafil }}, {{ panel.date | date: "%F" }}
+- *[{{ panel.title }}]({{ ipo-event-url }})*, {{ pnamafil }}, {{ panel.date | date: "%F" }}
 {% endfor %}
 
 #### Contributed by [Elaine Raybourn](http://github.com/elaineraybourn "Elaine Raybourn GitHub Profile")
