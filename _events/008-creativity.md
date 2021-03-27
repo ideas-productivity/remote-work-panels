@@ -8,13 +8,13 @@ panelist-ids: [malviya-addithakur, quillen-pat, raybourn-elaine, rouson-damian, 
 moderator-ids: [barker-ashley]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItfuqtpjIvEyEVHRtM5N7u6QWdJXDM_08
 ecp-abbreviation: strategies-for-working-remotely-panel-series-creativity
-#vtc-url: https://exascaleproject.zoomgov.com/w/1613820673?tk=gCF-xebRzQ67fc4Nnv4WvzNeRM72wvI8x1jInfIveqk.DQIAAAAAYDDzARZBMWpfcGt5RVNmZVhjX3lacHZtZDJRAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-#vtc-session: "161 382 0673"
-#survey-public-url: https://www.surveymonkey.com/r/HS6CNZM
-#archives:
-#  - label: Recording
-#    format: YouTube
-#    yt-video-id: VUwpYVCS5PY
+vtc-url: https://exascaleproject.zoomgov.com/w/1609358959?tk=f6KFZTXSiKBnUK8-J7IfUnwZbhDvYrkzXN3lB3TToDc.DQIAAAAAX-zebxZsNmRUTUViZ1NTYXpBVndXRDQ0Tnp3AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+vtc-session: "160 935 8959"
+survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
+archives:
+  - label: Recording
+    format: YouTube
+    yt-video-id: eC761xxprWg
 #  - label: Slides
 #    format: PDF
 #    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2020/11/panel006-hybrid.pdf
