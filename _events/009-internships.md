@@ -21,4 +21,4 @@ registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItdeqpq
 ---
 Many virtual student internship programs across the national labs complex, industry, and academia are underway with students working remotely while geographically dispersed. What does a “virtual internship” lack, and what changes to mentoring or onboarding must be made? How can students get the most out of their internships—what opportunities should they look for, and how can they prepare for challenges? In the ninth installment of the panel discussion series, seasoned scientists offer career advice for students and early career scientists on weathering a pandemic, time management, and how to adjust to long-term changes while working remotely.
 
-*Additional panelists will be added as their participation is confirmed*
+<br><br>*Additional panelists will be added as their participation is confirmed*
