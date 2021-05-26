@@ -4,8 +4,8 @@ event-id: 9
 date: 2021-06-24T15:00-400
 end-date: 2021-06-24T16:15
 title: "I Finally Have the Internship I Always Wanted, Now What?"
-panelist-ids: [arnold-dorian, harvey-christine, raybourn-elaine]
-moderator-ids: [barker-ashley]
+panelist-ids: [arnold-dorian, hartmanbaker-rebecca, harvey-christine, lofstead-jay]
+moderator-ids: [barker-ashley, raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItdeqpqz0iE1t-Tcjep4GTaFk3IqbBBAY
 ecp-abbreviation: strategies-for-working-remotely-panel-series-june
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
