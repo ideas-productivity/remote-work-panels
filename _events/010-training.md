@@ -1,8 +1,8 @@
 ---
 event-type: swr-panel
 event-id: 10
-#date: 2021-09-23T15:00-400
-#end-date: 2021-09-23T16:15
+date: 2021-09-23T15:00-400
+end-date: 2021-09-23T16:15
 title: "Training Virtualization"
 #panelist-ids: [papatheodore-thomas]
 #moderator-ids: [barker-ashley, marques-osni]
