@@ -8,11 +8,11 @@ panelist-ids: [arnold-dorian, hartmanbaker-rebecca, harvey-christine, lofstead-j
 moderator-ids: [barker-ashley, raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItdeqpqz0iE1t-Tcjep4GTaFk3IqbBBAY
 ecp-abbreviation: strategies-for-working-remotely-panel-series-june
-#survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
-#archives:
-#  - label: Recording
-#    format: YouTube
-#    yt-video-id: eC761xxprWg
+survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
+archives:
+  - label: Recording
+    format: YouTube
+    yt-video-id: CKIG-q1Kzq8
 #  - label: Slides
 #    format: PDF
 #    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
