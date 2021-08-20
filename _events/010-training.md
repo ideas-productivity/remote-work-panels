@@ -4,10 +4,10 @@ event-id: 10
 date: 2021-09-23T15:00-400
 end-date: 2021-09-23T16:15
 title: "Training Virtualization"
-#panelist-ids: [papatheodore-thomas]
-#moderator-ids: [barker-ashley, marques-osni]
+panelist-ids: [barnes-kelly, he-helen, levites-julia, papatheodore-thomas]
+moderator-ids: [barker-ashley, marques-osni]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItduChpzkrGhmO-R1WiGPeoEcsqD7EQFA
-ecp-abbreviation: strategies-for-working-remotely-panel-series-training-virtualization
+ecp-abbreviation:  strategies-for-working-remotely-panel-series-training-virtualization
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
 #archives:
 #  - label: Recording
