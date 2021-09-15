@@ -21,15 +21,12 @@ assignees: ''
   - [ ] moderator affiliation(s)
   - [ ] moderator github id(s)
   - [ ] moderator bio(s)
+  - [ ] `registration-url`
 - [ ] technical editor checks webinar abstract
 - Add panelist(s), moderator(s), and panel to GitHub repo
   - [ ] create presenter record(s)
   - [ ] create panel record
   - [ ] verify content and formatting
-- *Update EventBrite*
-  - *add full upcoming event*
-  - [ ] obtain `registration-url`
-- [ ] Add `registration-url` to panel record in GitHub repo
 
 **Advertising webinar**
 - *Update ECP training site*
@@ -42,7 +39,6 @@ assignees: ''
   - [ ] add upcoming event bullet to <https://ideas-productivity.org/>
 - Add BSSw Event 
   - [ ] add event to <https://github.com/betterscientificsoftware/betterscientificsoftware.github.io/tree/master/Events>
-  - [ ] update <https://github.com/betterscientificsoftware/betterscientificsoftware.github.io/Site/Announcements/Announcements.md>
   - [ ] Publish updates on BSSw.io
   - [ ] Notify BSSw Digest team, with link to text formatted for digest
 - Prepare and send MailChimp campaign to full audience
@@ -52,11 +48,7 @@ assignees: ''
 
 **Preparing for event**
 - Add event metadata
-  - [ ] `vtc-url`
-  - [ ] `vtc-session`
-  - [ ] `vtc-password`
   - [ ] `survey public-url`
-- *send connection email*
 
 **Post-event artifact collection**
 - [ ] obtain panel registration list
@@ -74,14 +66,13 @@ assignees: ''
   - [ ] remove **upcoming** event bullet from <https://ideas-productivity.org/>
 
 **Artifact archiving**
-- Add archive information to webinar record
-  - [ ] `archives`
+- [ ] Add `archives` information to webinar record
 
 **Webinar followup communications**
 - *update ECP training site*
 - Update i-p.o site
   - [ ] update past event with archives on <https://ideas-productivity.org/events/strategies-for-working-remotely-panels/>
-- [ ] update <https://github.com/betterscientificsoftware/betterscientificsoftware.github.io/blob/master/CuratedContent/swr-panels-cc.md>
+  - [ ] update <https://github.com/betterscientificsoftware/betterscientificsoftware.github.io/blob/master/CuratedContent/swr-panels-cc.md>
   - [ ] Publish updates on BSSw.io
 - Update MailChimp audience w/ appropriate tag
   - [ ] add panel registrants w/ appropriate tag
