@@ -8,11 +8,11 @@ panelist-ids: [barnes-kelly, he-helen, levites-julia, papatheodore-thomas]
 moderator-ids: [barker-ashley, marques-osni]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItduChpzkrGhmO-R1WiGPeoEcsqD7EQFA
 ecp-abbreviation:  strategies-for-working-remotely-panel-series-training-virtualization
-#survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
-#archives:
-#  - label: Recording
-#    format: YouTube
-#    yt-video-id: eC761xxprWg
+survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
+archives:
+  - label: Recording
+    format: YouTube
+    yt-video-id: cq43uJNvAaU
 #  - label: Slides
 #    format: PDF
 #    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
