@@ -1,7 +1,7 @@
 ---
 person-id: nakajima-kengo
 lastname: Nakajima
-firstname: DevinKengo
+firstname: Kengo
 affiliations: ["University of Tokyo"]
 #github-id: 
 ---
