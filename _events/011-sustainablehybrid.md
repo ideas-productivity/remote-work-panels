@@ -4,7 +4,7 @@ event-id: 11
 date: 2021-11-19T16:30-500
 end-date: 2021-11-19T18:00
 title: "Sustainable Hybrid Approaches for HPC"
-panelist-ids: [alam-sadaf, bischof-christian, cadematori-helen, hodge-devin, nakajima-kenjo, quillen-pat]
+panelist-ids: [alam-sadaf, bischof-christian, cademartori-helen, hodge-devin, nakajima-kengo, quillen-pat]
 moderator-ids: [raybourn-elaine]
 registration-url: https://sc21.supercomputing.org/attend/register
 ecp-abbreviation:  strategies-for-working-remotely-sc21
