@@ -1,6 +1,6 @@
 ---
 event-type: swr-panel
-event-id: 11
+event-id: 12
 date: 2021-11-19T16:30-500
 end-date: 2021-11-19T18:00
 title: "Sustainable Hybrid Approaches for HPC"
