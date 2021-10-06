@@ -6,7 +6,7 @@ end-date: 2021-10-13T15:00
 title: "Effective Teaming and Virtual Collaboration"
 panelist-ids: [cooke-nancy, olson-gary, raybourn-elaine2, poli-francesca]
 moderator-ids: [howieson-susannah]
-registration-url: https://science.osti.gov/Leaving-Office-of-Science?url=https%3a%2f%2fscience-doe.zoomgov.com%2fwebinar%2fregister%2fWN_VSDAJ903Q-CtGXWj76VLUA&external=true
+registration-url: https://science-doe.zoomgov.com/webinar/register/WN_VSDAJ903Q-CtGXWj76VLUA
 ecp-abbreviation:  strategies-for-working-remotely-panel-series-doe-future-labs
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
 #archives:
