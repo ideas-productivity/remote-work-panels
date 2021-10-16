@@ -17,7 +17,7 @@ ecp-abbreviation:  strategies-for-working-remotely-panel-series-doe-future-labs
 #    format: PDF
 #    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
 ---
-**This panel discussion is part of the DOE Laboratories of the Future (LOTF) workshop series. Registration is required.**
+**This panel discussion is part of the [DOE Laboratories of the Future](https://science.osti.gov/Strategic-Planning-and-Interagency-Coordination/DOE-Laboratories-of-the-Future) (LOTF) workshop series. Registration is required.**
 
 DOE laboratories are globally recognized to be masters of science at scale, interdisciplinary research, and operating national user facilities. At the same time, the laboratory complex is entering its eighth decade of existence and retains vestiges of its World War II roots. As the stewards of this national treasure, it is our job to ensure the laboratories have the resources and structures to thrive for the next 70 years and beyond.
 
