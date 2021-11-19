@@ -1,8 +1,8 @@
 ---
 event-type: swr-panel
 event-id: 12
-date: 2021-11-19T16:30-500
-end-date: 2021-11-19T18:00
+date: 2021-11-18T16:30-500
+end-date: 2021-11-18T18:00
 title: "Sustainable Hybrid Approaches for HPC"
 panelist-ids: [alam-sadaf, bischof-christian, cademartori-helen, hodge-devin, nakajima-kengo, quillen-pat]
 moderator-ids: [raybourn-elaine]
