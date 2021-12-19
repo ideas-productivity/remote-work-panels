@@ -9,13 +9,10 @@ moderator-ids: [howieson-susannah]
 registration-url: https://science-doe.zoomgov.com/webinar/register/WN_VSDAJ903Q-CtGXWj76VLUA
 ecp-abbreviation:  strategies-for-working-remotely-panel-series-doe-future-labs
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
-#archives:
-#  - label: Recording
-#    format: YouTube
-#    yt-video-id: cq43uJNvAaU
-#  - label: Slides
-#    format: PDF
-#    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
+archives:
+  - label: Slides
+    format: Various
+    url: https://science.osti.gov/Strategic-Planning-and-Interagency-Coordination/DOE-Laboratories-of-the-Future/LOTF-Workshops/Effective-Teaming-and-Virtual-Collaboration
 ---
 **This panel discussion is part of the [DOE Laboratories of the Future](https://science.osti.gov/Strategic-Planning-and-Interagency-Coordination/DOE-Laboratories-of-the-Future) (LOTF) workshop series. Registration is required.**
 
