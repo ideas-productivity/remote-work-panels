@@ -11,9 +11,9 @@ ecp-abbreviation:  strategies-for-working-remotely-sc21
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
 archives:
   - label: Recording
-    format: SC21 Hubb
+    format: YouTube
     url: https://sc21.hubb.me/fe/schedule-builder/sessions/876979
-#    yt-video-id: cq43uJNvAaU
+#    yt-video-id: EWZCrnWYh8U
 #  - label: Slides
 #    format: PDF
 #    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
