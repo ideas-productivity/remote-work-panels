@@ -1,0 +1,22 @@
+---
+event-type: swr-panel
+event-id: 13
+date: 2022-03-24T15:00-400
+end-date: 2022-03-24T16:30
+title: "Sustainable Hybrid Approaches for HPC (Rebroadcast)"
+panelist-ids: [alam-sadaf, bischof-christian, cademartori-helen, hodge-devin, nakajima-kengo, quillen-pat]
+moderator-ids: [raybourn-elaine]
+#registration-url: https://sc21.supercomputing.org/attend/register
+ecp-abbreviation:  strategies-for-working-remotely-sc21-rebroadcast
+#survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
+#archives:
+#  - label: Recording
+#    format: YouTube
+#    yt-video-id: EWZCrnWYh8U
+#  - label: Slides
+#    format: PDF
+#    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
+---
+**This panel discussion was held during SC21 and is being rebroadcast with live chat Q&A. The panel explored strategies for working remotely, with emphasis on how teams in high-performance computing (HPC) can be effective and efficient in long-term hybrid settings, where some staff work remotely and others on site, or collaborate while geographically dispersed.**
+
+In spring 2020 many of us abruptly transitioned from a primarily on-site to a primarily remote work experience. Unplanned and imposed remote work created a sea change that has altered the way we work now and will likely impact the way we work in the future. This panel will explore strategies for working remotely, with emphasis on how teams in high-performance computing (HPC) can be effective and efficient in long-term hybrid settings, where some staff work remotely and others on site, or collaborate while geographically dispersed. This shift provides an opportunity to be more inclusive and compassionate, opening doors for technological innovation to support how we work and communicate as teams of scientists. By exploring how hybrid settings can help with hiring and retaining a diverse set of employees, this panel session will offer an opportunity for dialog to help shape and influence the future of HPC work (see <https://sc20.supercomputing.org/proceedings/sotp/sotp_files/sotp114s2-file1.pdf>).
