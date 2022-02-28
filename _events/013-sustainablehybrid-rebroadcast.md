@@ -6,7 +6,7 @@ end-date: 2022-03-24T16:30
 title: "Sustainable Hybrid Approaches for HPC (Rebroadcast)"
 panelist-ids: [alam-sadaf, bischof-christian, cademartori-helen, hodge-devin, nakajima-kengo, quillen-pat]
 moderator-ids: [raybourn-elaine]
-#registration-url: https://sc21.supercomputing.org/attend/register
+registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItdeqhrjouGoacS77OEdg1_GN2rogsICc
 ecp-abbreviation:  strategies-for-working-remotely-sc21-rebroadcast
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
 #archives:
