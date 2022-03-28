@@ -46,7 +46,7 @@ layout: none
 
 # Panel: {{ page.title }}
 
-- Date: {{ page.date | date: "%F" }}
+- Event Date: {{ page.date | date: "%F" }}
 - Location: Online
 - Event Website: {{ ipo-event-url }}
 - Organizers: The IDEAS Productivity Project
