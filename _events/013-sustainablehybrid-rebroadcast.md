@@ -9,10 +9,10 @@ moderator-ids: [raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItdeqhrjouGoacS77OEdg1_GN2rogsICc
 ecp-abbreviation:  strategies-for-working-remotely-sc21-rebroadcast
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
-#archives:
-#  - label: Recording
-#    format: YouTube
-#    yt-video-id: EWZCrnWYh8U
+archives:
+  - label: Recording
+    format: YouTube
+    yt-video-id: hD-iClH9Gbc
 #  - label: Slides
 #    format: PDF
 #    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
