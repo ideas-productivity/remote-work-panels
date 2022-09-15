@@ -3,7 +3,7 @@ event-type: swr-panel
 event-id: 14
 date: 2022-08-25T15:00-400
 end-date: 2022-08-25T16:30
-title: "What Can Be Learned from Applying Team of Teams Principles to the ECP Projects PETSc, Trilinos, xSDK, and E4S"
+title: "What Can Be Learned from Applying Team of Teams Principles to the ECP Projects PETSc, Trilinos, xSDK, and E4S" 
 panelist-ids: [munson-todd, willenbring-jim, yang-ulrike]
 moderator-ids: [raybourn-elaine, milewicz-reed, mundt-miranda, sims-benjamin]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsdO-vrT8pGweLpBserVowR6D03EWg0mY
