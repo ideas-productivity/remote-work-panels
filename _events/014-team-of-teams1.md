@@ -9,10 +9,10 @@ moderator-ids: [raybourn-elaine, milewicz-reed, mundt-miranda, sims-benjamin]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsdO-vrT8pGweLpBserVowR6D03EWg0mY
 ecp-abbreviation:  event/team-of-teams1
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
-#archives:
-#  - label: Recording
-#    format: YouTube
-#    yt-video-id: hD-iClH9Gbc
+archives:
+  - label: Recording
+    format: YouTube
+    yt-video-id: Y6dWtQ3zl4k
 #  - label: Slides
 #    format: PDF
 #    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
