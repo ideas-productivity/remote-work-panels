@@ -7,7 +7,7 @@ title: "What Can Be Learned from Applying Team of Teams Principles to the ECP Pr
 panelist-ids: [munson-todd, willenbring-jim, yang-ulrike]
 moderator-ids: [raybourn-elaine, milewicz-reed, mundt-miranda, sims-benjamin]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJIsdO-vrT8pGweLpBserVowR6D03EWg0mY
-ecp-abbreviation:  event/team-of-teams1
+ecp-abbreviation:  team-of-teams1
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
 archives:
   - label: Recording
