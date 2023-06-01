@@ -1,0 +1,13 @@
+---
+layout: none
+---
+<p>  - name: {{ page.firstname }} {{page.lastname }}</p>
+
+  {%- if page.affiliations -%}
+<p>    affiliation: {{ page.affiliations | array_to_sentence_string | markdownify | remove: "<p>" | remove: "</p>" | lstrip | rstrip }}</p>
+  {%- endif -%}
+
+  {%- if page.github-id -%}
+<p>    profile-url: {{ site.github-url }}{{ page.github-id }}</p>
+  {%- endif -%}
+<p>    bio: "{{ content | markdownify | remove: "<p>" | remove: "</p>" | strip }}"</p>

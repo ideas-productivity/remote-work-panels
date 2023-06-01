@@ -90,8 +90,12 @@ collections:
 # Symlink to events to generate text for MailChimp follwup messages
   mc-followups:
     output: true
+# Symlink to people to generate the people-related information needed for the new i-p.o website
+  people-new-ipo:
+    output: true
   people:
     output: true
+
 
 defaults:
   - scope:
@@ -139,6 +143,11 @@ defaults:
       type: "people"
     values:
       layout: "participant"
+  - scope:
+      path: ""
+      type: "people-new-ipo"
+    values:
+      layout: "people-ipo"
 
 # Addition information needed by various layouts
 
