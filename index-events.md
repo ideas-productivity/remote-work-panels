@@ -15,6 +15,7 @@ layout: home
 {% assign ce = site.connection-emails | where: "event-id", item.event-id %}
 {% assign mca = site.mc-announcements | where: "event-id", item.event-id %}
 {% assign mcf = site.mc-followups | where: "event-id", item.event-id %}
+{% assign ei = site.events-new-ipo | where: "event-id", item.event-id %}
 
 {{ item.event-id }}\. **{{ item.title }}** ({{ item.date | date: "%F" }})
 
@@ -35,5 +36,6 @@ layout: home
 
 *Formats* | [Web]({{ site.baseurl }}{{ item.url }}) | [BSSw Event]({{ site.baseurl }}{{ be[0].url }}) | [BSSw Miscellaneous]({{ site.baseurl }}{{ bed[0].url }}) | [i-p.o WordPress]({{ site.baseurl }}{{ ipo[0].url }})
  | [YouTube]({{ site.baseurl }}{{ yt[0].url }}) | [Connection Email]({{ site.baseurl }}{{ ce[0].url }}) | [MailChimp Announcements]({{ site.baseurl }}{{ mca[0].url }}) | [MailChimp Followups]({{ site.baseurl }}{{ mcf[0].url }})
+ | [New i-p.o collection]({{ site.baseurl }}{{ ei[0].url }})
 
 {% endfor %}

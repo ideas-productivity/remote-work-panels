@@ -1,0 +1,33 @@
+---
+layout: none
+---
+
+<p>panelists:</p>
+{% include extract-array-subset key="person-id" values=page.panelist-ids source=site.people %}
+{% for p in extract_subset_array %}
+  <p>  - name: {{ p[0].firstname }} {{ p[0].lastname }}</p>
+  {% if p[0].affiliations %}
+  <p>    affiliations: {{ p[0].affiliations | inspect }}</p>
+  {%  endif %}
+  {% if p[0].github-id %}
+  <p>    profile-url: {{ site.github-url }}{{ p[0].github-id }}</p>
+  {% endif %}
+  {% if p[0].content %}
+  <p>    bio: "{{ p[0].content | markdownify | remove: "<p>" | remove: "</p>" | strip }}"</p>
+  {% endif %}
+{% endfor %}
+
+<p>moderators:</p>
+{% include extract-array-subset key="person-id" values=page.moderator-ids source=site.people %}
+{% for p in extract_subset_array %}
+  <p>  - name: {{ p[0].firstname }} {{ p[0].lastname }}</p>
+  {% if p[0].affiliations %}
+  <p>    affiliations: {{ p[0].affiliations | inspect }}</p>
+  {% endif %}
+  {% if p[0].github-id %}
+  <p>    profile-url: {{ site.github-url }}{{ p[0].github-id }}</p>
+  {% endif %}
+  {% if p[0].content %}
+  <p>    bio: "{{ p[0].content | markdownify | remove: "<p>" | remove: "</p>" | strip }}"</p>
+  {% endif %}
+{% endfor %}

@@ -95,6 +95,9 @@ collections:
     output: true
   people:
     output: true
+  events-new-ipo:
+    output: true
+
 
 
 defaults:
@@ -148,6 +151,11 @@ defaults:
       type: "people-new-ipo"
     values:
       layout: "people-ipo"
+  - scope:
+      path: ""
+      type: "events-new-ipo"
+    values:
+      layout: "events-ipo"
 
 # Addition information needed by various layouts
 
