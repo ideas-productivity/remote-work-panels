@@ -1,16 +1,25 @@
 ---
 layout: none
 ---
+<p>startdate: "{{ page.date | date: '%F' }}"</p>
+{% if page.enddate %}<p>enddate: "{{ page.enddate | date: '%F' }}"</p>{% endif %}
+<p>time: "{{ page.date | date: '%I:%M %P' }} - {{ page.enddate | default: '16:15' | date: '%I:%M %P' }} {{ page.date | date: '%Z' }}"</p>
+<p>type: Online Panel Discussion</p>
+<p>series:</p>
+<p>  - "Strategies for Working Remotely"</p>
+<p>activities:</p>
+<p>  - "IDEAS-ECP"</p>
+<p>link-id: panel{% include emit-filled-number number=page.event-id template='000'%}</p>
 
 <p>panelists:</p>
 {% include extract-array-subset key="person-id" values=page.panelist-ids source=site.people %}
 {% for p in extract_subset_array %}
   <p>  - name: {{ p[0].firstname }} {{ p[0].lastname }}</p>
   {% if p[0].affiliations %}
-  <p>    affiliations: {{ p[0].affiliations | inspect }}</p>
+  <p>    affiliation: {{ p[0].affiliations | join: ", " }}</p>
   {%  endif %}
   {% if p[0].github-id %}
-  <p>    profile-url: {{ site.github-url }}{{ p[0].github-id }}</p>
+  <p>    github-id: {{ p[0].github-id }}</p>
   {% endif %}
   {% if p[0].content %}
   <p>    bio: "{{ p[0].content | markdownify | remove: "<p>" | remove: "</p>" | strip }}"</p>
@@ -22,10 +31,10 @@ layout: none
 {% for p in extract_subset_array %}
   <p>  - name: {{ p[0].firstname }} {{ p[0].lastname }}</p>
   {% if p[0].affiliations %}
-  <p>    affiliations: {{ p[0].affiliations | inspect }}</p>
+  <p>    affiliation: {{ p[0].affiliations | join: ", " }}</p>
   {% endif %}
   {% if p[0].github-id %}
-  <p>    profile-url: {{ site.github-url }}{{ p[0].github-id }}</p>
+  <p>    github-id: {{ p[0].github-id }}</p>
   {% endif %}
   {% if p[0].content %}
   <p>    bio: "{{ p[0].content | markdownify | remove: "<p>" | remove: "</p>" | strip }}"</p>
