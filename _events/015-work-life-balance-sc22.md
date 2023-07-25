@@ -9,10 +9,10 @@ moderator-ids: [raybourn-elaine]
 registration-url: https://exascaleproject.zoomgov.com/meeting/register/vJItce2spjouGd8IGPZBSdIigXMI7oAsXsE
 ecp-abbreviation:  work-life-balance-sc22
 #survey-public-url: https://www.surveymonkey.com/r/W8VQW2K
-#archives:
-#  - label: Recording
-#    format: YouTube
-#    yt-video-id: Y6dWtQ3zl4k
+archives:
+  - label: Recording
+    format: YouTube
+    yt-video-id: eqM9mli-Ko0
 #  - label: Slides
 #    format: PDF
 #    url: http://ideas-productivity.org/wordpress/wp-content/uploads/2021/03/swr008-creativity.pdf
